@@ -1,0 +1,16 @@
+.RecentCardContainer {padding-bottom: 24px}
+.RecentCardFlexBox {display: flex}
+.RecentCardImage {border-radius: 50%}
+.RecentCardSideImage {position: relative; width: 25%}
+.RecentCardIconImage {margin: 4px}
+.RecentCardPostData {position: relative; width: 100%}
+.RecentCardTitleRow {display: flex; padding: 4px}
+.RecentCardTitle {font-size: 18px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; margin: auto 8px}
+.RecentCardContentsContainer {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; font-size: 16px; margin: 2px 8px}
+.RecentCardContents p {margin: .3rem}
+
+@media (min-width:768px) {
+  .RecentCardTitle {font-size: 1.2rem}
+  .RecentCardImage {border-radius: 0%}
+  .RecentCardPostData {width: 75%}
+}

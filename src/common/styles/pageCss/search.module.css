@@ -1,0 +1,9 @@
+.SearchPage {margin: 2vh 4vw}
+.SearchPageFlexBox {display: flex}
+.SearchPageContents {position: relative; width: 100%; margin: 0 2vw}
+.SearchPageSideMenu {position: relative; width: 33%; margin: 48px 0 0}
+.SearchErrorResultContainer {margin: 5vh 4vw}
+
+@media (min-width:768px) {
+  .SearchPageContents {width: 67%}
+}

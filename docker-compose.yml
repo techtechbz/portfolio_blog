@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blog
+    ports:
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./__tests__:/app/__tests__
+      - ./src:/app/src
+      - ./pages:/app/pages
+      - ./posts:/app/posts
+      - ./public:/app/public
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./next.config.js:/app/next.config.js
+      - ./jest.config.js:/app/jest.config.js
+    tty: true
+    stdin_open: true
+    # command: yarn jest
+    # command: yarn dev
+    # command: yarn analyze
+    # command: yarn lint
+    command: bash -c "yarn build && yarn start"

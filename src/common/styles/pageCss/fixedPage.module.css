@@ -1,0 +1,24 @@
+.StaticPageContainer {margin: 3rem 10vw}
+.DocumentDate {color: #666; padding: 0 1.8rem; text-align: right}
+.ContactPagesBackHomeLink {padding: 1rem 0 0}
+.PageTitle {font-size: 1.7rem; line-height: 1.3; font-weight: 600; letter-spacing: -0.05rem; margin: 1rem}
+.PageContents {font-size: 16px}
+.PageContents h2 {width: 100%; font-weight: 600; padding: .3rem .6rem; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
+.PageContents h3 {font-size: 1rem; padding: .1rem .2rem 0}
+.PageContents blockquote {padding: .2rem 1rem; margin: 1rem .6rem; background-color: #e7f2fc}
+.PageContents blockquote > p:first-of-type {font-weight: 600}
+.PageContents table {border: solid 1px; border-collapse: collapse; border-spacing: 0}
+.PageContents th {padding: 10px; background: #015bb1; border-right: solid 1px black; color: #ffffff}
+.PageContents th:last-child {border-right: none}
+.PageContents td {padding: 10px; border-right: solid 1px}
+.PageContents tr:nth-child(2n+1) {background: #e7f2fc}
+.PageContents td:last-child {border-right: none}
+
+@media (min-width:768px) {
+  .StaticPageContainer {margin: 3rem 18vw}
+  .PageTitle {margin: 1.5rem; font-size: 2.6rem}
+  .PostContents {font-size: 18px}
+  .PostContents h2 {font-size: 1.6rem}
+  .PostContents h3 {font-size: 1.5rem}
+  .PostContents blockquote {padding: .4rem 3rem 1rem}
+}

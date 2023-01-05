@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "react/display-name": "off",
+    "complexity": ["error", 10]
+  },
+  "extends": [
+    "next",
+    "prettier",
+    "eslint:recommended"
+  ],
+  "plugins": ["testing-library"],
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ]
+}
