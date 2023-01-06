@@ -11,13 +11,12 @@ export const getMenuMappingComponents = (menuName: string, ChildNode: ElementTyp
     header: {
       "post-index": { text: "投稿一覧", href: "/posts" },
       "about": { text: "サイト紹介", href: "/about" },
-      "contact": { text: "お問い合わせ", href: "/contact" }
+      "privacy": { text: "プライバシーポリシー", href: "/privacy" }
     },
     footer: {
       "top": { text: "TOP", href: "/" },
       "about": { text: "サイト紹介", href: "/about" },
       "privacy": { text: "プライバシーポリシー", href: "/privacy" },
-      "contact": { text: "お問い合わせ", href: "/contact" }
     },
     social: SOCIAL_NETWORK_LIST,
     archives: ARCHIVES_LIST,
