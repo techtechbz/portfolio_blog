@@ -21,8 +21,8 @@ services:
       - ./jest.config.js:/app/jest.config.js
     tty: true
     stdin_open: true
-    # command: yarn jest
-    command: yarn dev
+    command: yarn jest
+    # command: yarn dev
     # command: yarn analyze
     # command: yarn lint
     # command: bash -c "yarn build && yarn start"
