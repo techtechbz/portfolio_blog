@@ -88,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params as Params
-  const postData = await getHtmlPageData(`/app/posts/${params.id.join("/")}.md`)
+  const postData = await getHtmlPageData(`/app/postsMd/${params.id.join("/")}.md`)
   const relatedPostsData = await getFeaturedPostsData(postData.relatedPostsIds)
   return {
     props: {
