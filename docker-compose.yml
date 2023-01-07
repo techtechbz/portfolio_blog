@@ -22,7 +22,7 @@ services:
     tty: true
     stdin_open: true
     # command: yarn jest
-    # command: yarn dev
+    command: yarn dev
     # command: yarn analyze
     # command: yarn lint
-    command: bash -c "yarn build && yarn start"
+    # command: bash -c "yarn build && yarn start"
