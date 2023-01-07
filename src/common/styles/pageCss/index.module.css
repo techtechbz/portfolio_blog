@@ -1,17 +1,19 @@
 .IndexContainer {margin: 12px 6vw 20px}
 .IndexFlexBox {display: flex}
-.IndexContents {position: relative; width: 100%}
-.IndexSideMenu {position: relative; width: 33%; margin: 24px 0}
-.HomeMainTopWindow {position: relative; height: 38vh; padding: 4vh 8vw}
-.MainFeaturedPost {width: 50vw; min-width: 280px; margin: 2rem auto 0}
-.MainFeaturedPostContainer {position: relative; height: 36vw; max-height: 300px; min-height: 200px; margin: 0; padding: 16px 8px; text-align: center}
-.MainFeaturedPostTitle {margin: 2px; font-size: 1.2rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2}
-.MainFeaturedPostDescription {margin: 2px; font-size: 16px; font-weight: 100; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4}
+.IndexContents, .IndexSideMenu, .HomeMainTopWindow, .MainFeaturedPostContainer {position: relative}
+.IndexContents {width: 100%}
+.IndexSideMenu {width: 33%; margin: 24px 0}
+.HomeMainTopWindow {height: 38vh; padding: 4vh 8vw}
+.MainFeaturedPost {width: 60vw; min-width: 280px; margin: 2em auto 0}
+.MainFeaturedPostContainer {height: 36vw; max-height: 300px; min-height: 200px; margin: 0; padding: 16px 8px; text-align: center}
+.MainFeaturedPostTitle, .MainFeaturedPostDescription {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical}
+.MainFeaturedPostTitle {font-size: 1.2em; -webkit-line-clamp: 2}
+.MainFeaturedPostDescription {margin: 0 4px; font-size: 15px; -webkit-line-clamp: 4}
 
 @media (min-width:768px) {
   .IndexContainer {margin: 16px 8vw 20px}
   .IndexContents {width: 67%}
-  .MainFeaturedPostContainer {padding: 1.8rem 1.2rem}
-  .MainFeaturedPostTitle {font-size: 1.7rem}
-  .MainFeaturedPostDescription {font-size: 1.2rem}
+  .MainFeaturedPostContainer {padding: 1.8em 1.2em}
+  .MainFeaturedPostTitle {font-size: 1.7em}
+  .MainFeaturedPostDescription {font-size: 1.1em}
 }
