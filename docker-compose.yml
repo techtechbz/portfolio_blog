@@ -14,7 +14,7 @@ services:
       - ./__tests__:/app/__tests__
       - ./src:/app/src
       - ./pages:/app/pages
-      - ./posts:/app/posts
+      - ./postsMd:/app/postsMd
       - ./public:/app/public
       - ./tsconfig.json:/app/tsconfig.json
       - ./next.config.js:/app/next.config.js

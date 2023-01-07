@@ -5,7 +5,7 @@ import { getRecentPostsData } from "../fetchCardData/getRecentPostsData"
 
 const getSearchedCategoryFilePaths = async (category: string): Promise<ReadonlyArray<string>> => {
   const glob = require("glob")
-  return glob.sync(`posts/${category}/*.md`, {absolute: true, nodir: true})
+  return glob.sync(`postsMd/${category}/*.md`, {absolute: true, nodir: true})
 }
 
 export const getSearchedCagetoryPostsData = async (categoryTag: string): Promise<searchResult> => {
