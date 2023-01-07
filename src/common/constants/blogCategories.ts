@@ -19,4 +19,4 @@ const allCategoriesPattern = Object.keys(BLOG_CATEGORIES_LIST).reduce(
   (previousCategories: string, currentCategory: string): string => previousCategories + "|" + currentCategory
 )
 
-export const ALL_POSTS_PATH_PATTERN = `posts/@(${allCategoriesPattern})/*.md`
+export const ALL_POSTS_PATH_PATTERN = `postsMd/@(${allCategoriesPattern})/*.md`
