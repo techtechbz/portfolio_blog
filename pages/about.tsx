@@ -20,7 +20,7 @@ export default function SiteIntroduction({ siteIntroductionPageData }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const siteIntroductionPageData = await getHtmlPageData("/app/posts/fixed/site-introduction.md")
+  const siteIntroductionPageData = await getHtmlPageData("/app/postsMd/fixed/site-introduction.md")
   return {
     props: {
       title: "サイト紹介",
