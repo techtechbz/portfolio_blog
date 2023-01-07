@@ -24,7 +24,7 @@ export default function PrivacyPolicy({ privacyPolicyPageData }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const privacyPolicyPageData = await getHtmlPageData("/app/posts/fixed/privacy-policy.md")
+  const privacyPolicyPageData = await getHtmlPageData("/app/postsMd/fixed/privacy-policy.md")
   return {
     props: {
       title: "プライバシーポリシー",
