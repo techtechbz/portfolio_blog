@@ -1,16 +1,16 @@
-.FlexCardContainer {display: block}
-.PostPagesFeaturedCard {margin: 8px}
-.IndexPagesFeaturedCard {width: 100%; margin: 1.2em 0 .2em}
+.FlexCardContainer {display: block; margin: 0 12px 0 0}
+.PostPagesFeaturedCard, .IndexPagesFeaturedCard {width: 100%; margin: 0 .6em 1.2em}
 .FeaturedCardFlexBox {display: flex}
 .FeaturedCardImage, .FeaturedCardContents {position: relative}
 .FeaturedCardImage {width: 33%}
 .FeaturedCardContents {width: 67%}
+.FeaturedCardTitle, .FeaturedCardDescription, .FeaturedCardDate {margin: .3em .6em}
 .FeaturedCardTitle, .FeaturedCardDescription {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical}
-.FeaturedCardTitle {-webkit-line-clamp: 2; font-size: 16px; font-weight: 600; margin: .2em .4em}
-.FeaturedCardDescription {-webkit-line-clamp: 4; font-size: 14px; margin: .3em .6em}
-.FeaturedCardDate {color: rgba(0, 0, 0, 0.6); margin: .1em .4em; font-size: 14px; text-align: right}
+.FeaturedCardTitle {-webkit-line-clamp: 2; font-size: 16px; font-weight: 600}
+.FeaturedCardDescription {-webkit-line-clamp: 4; font-size: 14px}
+.FeaturedCardDate {color: rgba(0, 0, 0, 0.6); font-size: 14px; text-align: right}
 
 @media (min-width:768px) {
-  .FlexCardContainer {display: flex}
-  .IndexPagesFeaturedCard {width: 50%; margin: 2px .6em}
+  .FlexCardContainer {display: flex; margin: 0}
+  .IndexPagesFeaturedCard {width: 50%; margin: 0 .6em}
 }
