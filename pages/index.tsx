@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next"
 
-import { SUB_FEATURED_POSTS_IDS } from "src/common/constants/featuredPostsIds"
-import { SITE_DECSRIPTION, SITE_NAME } from "src/common/constants/siteOverviews";
-import { htmlPostData, postData } from "src/common/types/postData";
-import HomeLayout from "src/components/layouts/perPage/HomeLayout"
-import { getFeaturedPostsData } from "src/lib/posts/fetchCardData/getFeaturedPostsData";
-import { getRecentPostsData } from "src/lib/posts/fetchCardData/getRecentPostsData";
-import { getRecentMdFilePaths } from "src/lib/posts/globFileData/getRecentMdFilePath";
+import { SUB_FEATURED_POSTS_IDS } from "@/common/constants/featuredPostsIds"
+import { SITE_DECSRIPTION, SITE_NAME } from "@/common/constants/siteOverviews";
+import { htmlPostData, postData } from "@/common/types/postData";
+import HomeLayout from "@/components/layouts/perPage/HomeLayout"
+import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData";
+import { getRecentPostsData } from "@/lib/posts/fetchCardData/getRecentPostsData";
+import { getRecentMdFilePaths } from "@/lib/posts/globFileData/getRecentMdFilePath";
 
 
 type Props = {

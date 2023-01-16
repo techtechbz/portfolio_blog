@@ -1,4 +1,4 @@
-import { ALL_POSTS_PATH_PATTERN } from "src/common/constants/blogCategories"
+import { ALL_POSTS_PATH_PATTERN } from "@/common/constants/blogCategories"
 
 export const getAllMdFilePaths = async (): Promise<ReadonlyArray<string>> => {
   const glob = require("glob")

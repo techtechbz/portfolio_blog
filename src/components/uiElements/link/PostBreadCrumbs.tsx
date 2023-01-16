@@ -2,10 +2,10 @@ import { FC, memo } from "react"
 
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 
-import { BLOG_CATEGORIES_LIST } from "src/common/constants/blogCategories";
+import { BLOG_CATEGORIES_LIST } from "@/common/constants/blogCategories";
 import BlackTextLink from "./BlackTextLink";
 
-import postCss from "src/common/styles/pageCss/post.module.css";
+import postCss from "@/common/styles/pageCss/post.module.css";
 
 
 type Props = {

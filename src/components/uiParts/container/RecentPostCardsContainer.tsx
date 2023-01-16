@@ -1,9 +1,9 @@
 import { memo, FC } from "react"
 
-import { htmlPostData } from "src/common/types/postData";
+import { htmlPostData } from "@/common/types/postData";
 import RecentPostCard from "../card/RecentPostCard"
 
-import cardCss from "src/common/styles/moduleCss/recentCard.module.css"
+import cardCss from "@/common/styles/moduleCss/recentCard.module.css"
 
 type Props = {
   isMobile: boolean

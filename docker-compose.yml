@@ -19,6 +19,8 @@ services:
       - ./tsconfig.json:/app/tsconfig.json
       - ./next.config.js:/app/next.config.js
       - ./jest.config.js:/app/jest.config.js
+      - ./jest.setup.js:/app/jest.seutp.js
+      - ./types.d.ts:/app/types.d.ts
     tty: true
     stdin_open: true
     command: yarn jest

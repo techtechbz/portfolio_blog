@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import Stack from "@mui/material/Stack";
 
-import { menuLinks } from "src/common/types/menuLinks";
+import { menuLinks } from "@/mmon/types/menuLinks";
 
-import sideMenuCss from "src/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/mmon/styles/moduleCss/sideMenu.module.css"
 
 
 const FunctionsIcon = dynamic(() => import("@mui/icons-material/Functions"))

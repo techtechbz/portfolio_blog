@@ -1,9 +1,9 @@
 import { ElementType } from "react"
 
-import { ARCHIVES_LIST } from "src/common/constants/archivesList"
-import { BLOG_CATEGORIES_LIST } from "src/common/constants/blogCategories"
-import { SOCIAL_NETWORK_LIST } from "src/common/constants/socialNetworkList"
-import { menuLinksList } from "src/common/types/menuLinks"
+import { ARCHIVES_LIST } from "@/common/constants/archivesList"
+import { BLOG_CATEGORIES_LIST } from "@/common/constants/blogCategories"
+import { SOCIAL_NETWORK_LIST } from "@/common/constants/socialNetworkList"
+import { menuLinksList } from "@/common/types/menuLinks"
 
 
 export const getMenuMappingComponents = (menuName: string, ChildNode: ElementType): ReadonlyArray<any> => {

@@ -1,4 +1,4 @@
-import { postData } from "src/common/types/postData"
+import { postData } from "@/common/types/postData"
 import { getMatterResultData } from "../globFileData/getMatterResultData"
 
 export const getFeaturedPostsData = async (idList: ReadonlyArray<string>): Promise<ReadonlyArray<postData>> => {

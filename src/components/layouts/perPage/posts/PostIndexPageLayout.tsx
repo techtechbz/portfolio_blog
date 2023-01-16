@@ -1,14 +1,14 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { htmlPostData, postData } from "src/common/types/postData";
-import FeaturedPostsContentsPart from "src/components/uiParts/contents/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "src/components/uiParts/contents/RecentPostsContentsPart";
-import MainFeaturedPost from "src/components/uiParts/top/MainFeaturedPost";
+import { htmlPostData, postData } from "@/common/types/postData";
+import FeaturedPostsContentsPart from "@/components/uiParts/contents/FeaturedPostsContentsPart";
+import RecentPostsContentsPart from "@/components/uiParts/contents/RecentPostsContentsPart";
+import MainFeaturedPost from "@/components/uiParts/top/MainFeaturedPost";
 
-import indexCss from "src/common/styles/pageCss/index.module.css";
+import indexCss from "@/common/styles/pageCss/index.module.css";
 
-const SideMenu = dynamic(() => import("src/components/uiParts/sideMenu/SideMenu"))
+const SideMenu = dynamic(() => import("@/components/uiParts/sideMenu/SideMenu"))
 
 type Props = {
   mainFeaturedPostData: postData

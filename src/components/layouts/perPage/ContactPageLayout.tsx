@@ -1,8 +1,8 @@
 import { FC, memo, ReactNode } from "react"
 
-import BackToHomeLink from "src/components/uiElements/link/BackToHomeLink"
+import BackToHomeLink from "@/components/uiElements/link/BackToHomeLink"
 
-import fixedPageCss from "src/common/styles/pageCss/fixedPage.module.css"
+import fixedPageCss from "@/common/styles/pageCss/fixedPage.module.css"
 
 type Props = {
   children: ReactNode
