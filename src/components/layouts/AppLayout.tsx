@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from "react"
 
-import Header from "src/components/uiParts/header/Header"
-import Footer from "src/components/uiParts/footer/Footer"
+import Header from "@/components/uiParts/header/Header"
+import Footer from "@/components/uiParts/footer/Footer"
 
 
 type Props = {

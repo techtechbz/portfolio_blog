@@ -1,9 +1,9 @@
 import { FC, memo } from "react";
 import Link from "next/link";
 
-import { menuLinks } from "src/common/types/menuLinks";
+import { menuLinks } from "@/common/types/menuLinks";
 
-import sideMenuCss from "src/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/common/styles/moduleCss/sideMenu.module.css"
 
 
 const ArchivesLinks: FC<menuLinks> = memo(({text, href}: menuLinks) => (

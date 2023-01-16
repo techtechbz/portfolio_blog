@@ -1,4 +1,4 @@
-import { htmlPostData } from "src/common/types/postData"
+import { htmlPostData } from "@/common/types/postData"
 
 export const getSortedPostData = (postDataList: Array<htmlPostData>): ReadonlyArray<htmlPostData> => {
   return postDataList.sort((a: htmlPostData, b: htmlPostData) => {

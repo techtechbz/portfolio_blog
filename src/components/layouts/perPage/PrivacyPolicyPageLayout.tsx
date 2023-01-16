@@ -1,9 +1,9 @@
 import { FC, memo, ReactNode } from "react"
 
-import BackToHomeLink from "src/components/uiElements/link/BackToHomeLink"
-import DocumentDate from "src/components/uiElements/text/DocumentDate"
+import BackToHomeLink from "@/components/uiElements/link/BackToHomeLink"
+import DocumentDate from "@/components/uiElements/text/DocumentDate"
 
-import fixedPageCss from "src/common/styles/pageCss/fixedPage.module.css"
+import fixedPageCss from "@/common/styles/pageCss/fixedPage.module.css"
 
 
 type Props = {

@@ -1,4 +1,4 @@
-import { htmlPostData } from "src/common/types/postData"
+import { htmlPostData } from "@/common/types/postData"
 import { getMatterResultData } from "../globFileData/getMatterResultData"
 import { convertToCardHtmlContents } from "./convertToCardHtmlContents"
 import { convertToPostPageContents } from "./convertToPostPageContents"

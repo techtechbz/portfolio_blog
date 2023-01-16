@@ -3,7 +3,7 @@ import { FC, memo } from "react";
 import ProfileIcon from "./introductionParts/ProfileIcon";
 import SocialNetworksMenu from "./introductionParts/SocialNetworksMenu";
 
-import sideMenuCss from "src/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/common/styles/moduleCss/sideMenu.module.css"
 
 
 const AuthorIntroduction: FC = memo(() => {

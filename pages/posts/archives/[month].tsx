@@ -2,10 +2,10 @@ import { GetStaticProps, GetStaticPaths } from "next"
 
 import { ParsedUrlQuery } from "querystring"
 
-import { getSearchedArchivePostsData } from "src/lib/posts/searchPosts/getSearchedArchiveFileIds";
-import { ARCHIVES_LIST } from "src/common/constants/archivesList";
-import { searchResult } from "src/common/types/searchResult";
-import SearchResultPageLayout from "src/components/layouts/perPage/posts/SearchResultPageLayout"
+import { getSearchedArchivePostsData } from "@/lib/posts/searchPosts/getSearchedArchiveFileIds";
+import { ARCHIVES_LIST } from "@/common/constants/archivesList";
+import { searchResult } from "@/common/types/searchResult";
+import SearchResultPageLayout from "@/components/layouts/perPage/posts/SearchResultPageLayout"
 
 
 interface Params extends ParsedUrlQuery {

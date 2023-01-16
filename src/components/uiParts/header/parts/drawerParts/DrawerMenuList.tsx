@@ -3,7 +3,7 @@ import Link from "next/link"
 
 import ListItem from "@mui/material/ListItem"
 
-import { menuLinks } from "src/common/types/menuLinks"
+import { menuLinks } from "@/common/types/menuLinks"
 import { CustomListItemButton, CustomListItemText } from "./CustomListItems"
 
 

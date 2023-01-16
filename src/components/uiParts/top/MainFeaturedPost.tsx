@@ -2,11 +2,11 @@ import { FC, memo } from "react"
 
 import Card from "@mui/material/Card";
 
-import { postData } from "src/common/types/postData";
+import { postData } from "@/common/types/postData";
 import MainPostActionArea from "./parts/MainPostActionArea";
 import TopBackgroundImage from "./parts/TopBackgroundImage";
 
-import indexCss from "src/common/styles/pageCss/index.module.css"
+import indexCss from "@/common/styles/pageCss/index.module.css"
 
 
 type Props = {

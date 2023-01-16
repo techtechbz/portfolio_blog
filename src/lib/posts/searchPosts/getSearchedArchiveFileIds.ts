@@ -1,6 +1,6 @@
-import { ARCHIVES_LIST } from "src/common/constants/archivesList"
-import { ALL_POSTS_PATH_PATTERN } from "src/common/constants/blogCategories"
-import { searchResult } from "src/common/types/searchResult"
+import { ARCHIVES_LIST } from "@/mmon/constants/archivesList"
+import { ALL_POSTS_PATH_PATTERN } from "@/mmon/constants/blogCategories"
+import { searchResult } from "@/mmon/types/searchResult"
 import { getRecentPostsData } from "../fetchCardData/getRecentPostsData"
 
 

@@ -1,5 +1,5 @@
-import { SITE_DECSRIPTION } from "src/common/constants/siteOverviews"
-import { complementedMatterResult, matterResultData } from "src/common/types/postData"
+import { SITE_DECSRIPTION } from "@/common/constants/siteOverviews"
+import { complementedMatterResult, matterResultData } from "@/common/types/postData"
 
 /**
  * 不足分のmatterデータを補完する
@@ -10,7 +10,7 @@ export const complementMatterResult = (data: matterResultData): complementedMatt
   const defaultPostData: complementedMatterResult = {
     title: "無題",
     description: SITE_DECSRIPTION,
-    date: "2022-10-01",
+    date: "2023-1-01",
     eyecatchFile: "blackboard.jpg",
     relatedPostsIds: []
   }
