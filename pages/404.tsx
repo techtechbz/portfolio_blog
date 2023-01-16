@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next"
 
-import ErrorWindow from "@/mponents/uiParts/top/ErrorWindow";
+import ErrorWindow from "@/components/uiParts/top/ErrorWindow";
 
 
 export default function Custom404() {
