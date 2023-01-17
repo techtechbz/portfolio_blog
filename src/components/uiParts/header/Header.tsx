@@ -6,7 +6,7 @@ import AppBar from "@mui/material/AppBar"
 import { useDisclosure } from "@/common/hooks/useDisclosure";
 import CustomToolbar from "./parts/CustomToolbar";
 import HomeButton from "./parts/HomeButton";
-import StylingDiv from "@/components/uiElements/box/StylingDiv";
+import StylingDiv from "@/uiElements/box/StylingDiv";
 
 
 type Props = {

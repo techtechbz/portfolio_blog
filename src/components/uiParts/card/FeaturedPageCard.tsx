@@ -1,13 +1,13 @@
 import { FC, memo } from "react"
 import Image from "next/image"
 
-import { postData } from "@/common/types/postData"
+import { postData } from "@/types/postData"
 import DefaultPageIntroduceCard from "./parts/DefaultPageIntroduceCard";
 import DefaultCardContent from "./parts/DefaultCardContent";
 import SideImageCardMedia from "./parts/SideImageCardMedia";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import cardCss from "@/common/styles/moduleCss/featuredCard.module.css"
+import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
 
 type Props = {

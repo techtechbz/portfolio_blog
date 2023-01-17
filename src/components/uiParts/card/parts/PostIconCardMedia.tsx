@@ -1,6 +1,6 @@
 import { memo, ReactNode, FC } from "react"
 
-import StylingDiv from "@/components/uiElements/box/StylingDiv";
+import StylingDiv from "@/uiElements/box/StylingDiv";
 import JustifyCardMedia from "./JustifyCardMedia"
 
 

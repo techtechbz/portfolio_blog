@@ -2,12 +2,12 @@ import { FC, memo } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 
-import { htmlPostData } from "@/common/types/postData"
+import { htmlPostData } from "@/types/postData"
 import DefaultPageIntroduceCard from "./parts/DefaultPageIntroduceCard";
 import DefaultCardContent from "./parts/DefaultCardContent";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import cardCss from "@/common/styles/moduleCss/recentCard.module.css"
+import cardCss from "@/styles/moduleCss/recentCard.module.css"
 
 type Props = {
   pageData: htmlPostData

@@ -1,4 +1,4 @@
-import { htmlPostData } from "@/common/types/postData"
+import { htmlPostData } from "@/types/postData"
 import { getSortedPostData } from "../dataConverter/getSortedPostData"
 import { getHtmlPageData } from "../translateToHtml/getHtmlPageData"
 

@@ -5,13 +5,13 @@ import dynamic from "next/dynamic"
 import Tooltip from "@mui/material/Tooltip"
 import IconButton from "@mui/material/IconButton"
 
-import { menuLinks } from "@/common/types/menuLinks";
+import { menuLinks } from "@/types/menuLinks";
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
 
-import sideMenuCss from "@/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const NoteIcon = dynamic(() => import("@/components/uiElements/icon/NoteIcon"))
+const NoteIcon = dynamic(() => import("@/uiElements/icon/NoteIcon"))
 const GitHubIcon = dynamic(() => import("@mui/icons-material/GitHub"))
 
 const SOCIAL_NETWORK_ICONS_LIST: { [key: string]: any } = {

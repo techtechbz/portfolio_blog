@@ -2,7 +2,7 @@ import { FC, memo } from "react"
 
 import TopBackgroundImage from "./parts/TopBackgroundImage";
 
-import indexCss from "@/common/styles/pageCss/index.module.css"
+import indexCss from "@/styles/pageCss/index.module.css"
 
 
 const HomeMainTopWindow: FC = memo(() => {

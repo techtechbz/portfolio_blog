@@ -1,9 +1,9 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { postData } from "@/common/types/postData"
+import { postData } from "@/types/postData"
 
-import cardCss from "@/common/styles/moduleCss/featuredCard.module.css"
+import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
 const FeaturedPageCard = dynamic(() => import("../card/FeaturedPageCard"))
 

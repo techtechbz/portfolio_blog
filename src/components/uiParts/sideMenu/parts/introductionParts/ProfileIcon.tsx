@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 import Image from "next/image"
 
-import sideMenuCss from "@/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
 const ProfileIcon: FC = memo(() => {

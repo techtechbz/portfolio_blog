@@ -5,7 +5,7 @@ import ResponsiveDivider from "./parts/ResponsiveDivider";
 import FooterSiteCopyright from "./parts/FooterSiteCopyright";
 import FooterLink from "./parts/FooterLink";
 
-import footerCss from "@/common/styles/moduleCss/footer.module.css";
+import footerCss from "@/styles/moduleCss/footer.module.css";
 
 
 type Props = {
