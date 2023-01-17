@@ -5,7 +5,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { BLOG_CATEGORIES_LIST } from "@/constants/blogCategories";
 import BlackTextLink from "./BlackTextLink";
 
-import postCss from "@/styles/pageCss/post.module.css";
+import postCss from "@/styles/pageCss/staticPage.module.css";
 
 
 type Props = {

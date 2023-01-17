@@ -1,6 +1,13 @@
 import { useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from "next"
 
+import Prism from 'prismjs'
+import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/plugins/autolinker/prism-autolinker'
+import 'prismjs/plugins/autoloader/prism-autoloader'
+import 'prismjs/plugins/line-numbers/prism-line-numbers'
+import 'prismjs/plugins/toolbar/prism-toolbar'
+import 'prismjs/plugins/show-language/prism-show-language'
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
@@ -12,7 +19,7 @@ import { fullPathToPostId } from "@/lib/posts/dataConverter/fullPathToPostId"
 import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
 import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData"
 
-import postStyles from "@/styles/pageCss/post.module.css"
+import postStyles from "@/styles/pageCss/staticPage.module.css"
 
 
 interface Params extends ParsedUrlQuery {
@@ -22,6 +29,10 @@ interface Params extends ParsedUrlQuery {
 type Props = {
   postData: htmlPostData
   relatedPostsData: ReadonlyArray<postData>
+}
+
+if (Prism.plugins.autoloader) {
+  Prism.plugins.autoloader.languages_path = 'https://unpkg.com/prismjs@1.29.0/components/'
 }
 
 const hashchange = () => {
@@ -66,6 +77,7 @@ export default function PostPage({ postData, relatedPostsData }: Props) {
       },
       false
     )
+    Prism.highlightAll()
   }, [])
 
   return(

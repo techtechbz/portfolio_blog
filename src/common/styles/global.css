@@ -49,7 +49,7 @@ table {
 
 html,
 body {font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6; font-size: 18px; scroll-padding-top: 13vh}
+  line-height: 1.6; font-size: 14px; scroll-padding-top: 13vh}
 * {box-sizing: border-box}
 a {color: #1976d2; text-decoration: underline}
 a:hover {text-decoration-thickness: 2px}
@@ -86,9 +86,10 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 .CardContainer {padding: 16px 12px 0}
 .BlackTextLink {padding: 4px 2px; color: #000000de}
 .BackToHomeLink {padding: 1em}
-.BackToHomeLink > a {font: bold 20px sans-serif}
+.BackToHomeLink > a {font: bold 1.1em sans-serif}
 
 @media (min-width:768px) {
+  body {font-size: 18px}
   h2 {font-size: 1.6em}
   h3 {font-size: 1.4em}
   .HomeButtonLink {font-size: 1.5em; padding: 12px 8px}

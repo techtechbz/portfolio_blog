@@ -4,7 +4,7 @@ import { htmlPostData } from "@/types/postData"
 import PrivacyPolicyPageLayout from "@/layouts/perPage/PrivacyPolicyPageLayout"
 import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
 
-import fixedPageStyles from "@/styles/pageCss/fixedPage.module.css"
+import staticPageStyles from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
@@ -18,7 +18,7 @@ export default function PrivacyPolicy({ privacyPolicyPageData }: Props) {
   const { contentHtml, ...dateData } = privacyPolicyPageData
   return(
     <PrivacyPolicyPageLayout {...dateData}>
-      <div className={fixedPageStyles.PageContents} dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      <div className={staticPageStyles.PageContents} dangerouslySetInnerHTML={{ __html: contentHtml }} />
     </PrivacyPolicyPageLayout>
   )
 }

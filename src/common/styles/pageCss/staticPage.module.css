@@ -1,0 +1,38 @@
+/* fixed page */
+.StaticPageContainer {margin: 3em 10vw}
+.StaticPageTitle {font-size: 1.7em; line-height: 1.3; font-weight: 600; letter-spacing: -0.05em; margin: .4em}
+.DocumentDate {color: #666; padding: 0 1.8em; text-align: right}
+
+/* post page */
+.PostContainer {margin: 3em 10vw}
+.PostBreadCrumbs {margin: 4px}
+.PostBreadCrumbsLink {margin: 4px 0}
+.PostTitle {margin: .4em 0 8px; font-size: 1.6em; font-weight: 600; line-height: 1.3}
+.PostDate {color: #666; margin: 0 12px}
+.PostImageContainer {position: relative; width: 36vw; min-width: 280px; height: 20vw; min-height: 160px; margin: 1.5em auto}
+
+.PageContents p {padding: .4em .6em}
+.PageContents h2, .PageContents h3 {font-weight: 600; margin: .6em}
+.PageContents h2 {padding: .2em .4em; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
+.PageContents blockquote {padding: .8em 1.2em; margin: 1em; background-color: #e7f2fc}
+.PageContents blockquote > p:first-of-type {font-weight: 600}
+.PageContents table {border: solid 1px; border-collapse: collapse; border-spacing: 0}
+.PageContents th {padding: 10px; background: #015bb1; border-right: solid 1px black; color: #ffffff}
+.PageContents th:last-child {border-right: none}
+.PageContents td {padding: 10px; border-right: solid 1px}
+.PageContents tr:nth-child(2n+1) {background: #e7f2fc}
+.PageContents td:last-child {border-right: none}
+
+@media (min-width:768px) {
+  .StaticPageContainer {margin: 3em 18vw}
+  .StaticPageTitle {margin: .5em; font-size: 2.6em}
+  .PostContainer {margin: 3em 16vw}
+  .PostTitle {font-size: 2.1em}
+  .PageContents h2 {font-size: 1.7em}
+  .PageContents h3 {font-size: 1.6em}
+}
+
+@media (min-width:1024px) {
+  .PostContainer {margin: 3em 20vw}
+  .PageContents p {padding: .6em .8em}
+}

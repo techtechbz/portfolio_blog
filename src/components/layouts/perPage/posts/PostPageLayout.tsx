@@ -8,7 +8,7 @@ import PostDate from  "@/uiElements/text/PostDate";
 import RelatedPostsContentsPart from "@/uiParts/contents/RelatedPostsContentsPart";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import postCss from "@/styles/pageCss/post.module.css"
+import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
@@ -20,15 +20,15 @@ type Props = {
 const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, children }: Props) => {
   return (
     <>
-      <div className={postCss.PostContainer}>
-        <div className={postCss.PostBreadCrumbs}>
+      <div className={staticPageCss.PostContainer}>
+        <div className={staticPageCss.PostBreadCrumbs}>
           <PostBreadCrumbs postId={postData.id} postTitle={postData.title} />
         </div>
-        <h1 className={postCss.PostTitle}>{postData.title}</h1>
-        <div className={postCss.PostDate}>
+        <h1 className={staticPageCss.PostTitle}>{postData.title}</h1>
+        <div className={staticPageCss.PostDate}>
           <PostDate dateString={postData.date} />
         </div>
-        <div className={postCss.PostImageContainer}>
+        <div className={staticPageCss.PostImageContainer}>
           <Image src={`/images/${postData.eyecatchFile}`} alt="post header image" fill priority sizes={`${MIN_MOBILE_WIDTH_QUERY} 280px, 440px`} />
         </div>
         {children}
