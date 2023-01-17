@@ -1,10 +1,10 @@
 import { GetStaticProps } from "next"
 
-import { htmlPostData } from "@/common/types/postData"
-import PrivacyPolicyPageLayout from "@/components/layouts/perPage/PrivacyPolicyPageLayout"
+import { htmlPostData } from "@/types/postData"
+import PrivacyPolicyPageLayout from "@/layouts/perPage/PrivacyPolicyPageLayout"
 import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
 
-import fixedPageStyles from "@/common/styles/pageCss/fixedPage.module.css"
+import fixedPageStyles from "@/styles/pageCss/fixedPage.module.css"
 
 
 type Props = {

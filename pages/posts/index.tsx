@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next"
 
-import { MAIN_FEATURED_POST_ID, SUB_FEATURED_POSTS_IDS } from "@/common/constants/featuredPostsIds"
-import { htmlPostData, postData } from "@/common/types/postData";
-import PostIndexPageLayout from "@/components/layouts/perPage/posts/PostIndexPageLayout"
+import { MAIN_FEATURED_POST_ID, SUB_FEATURED_POSTS_IDS } from "@/constants/featuredPostsIds"
+import { htmlPostData, postData } from "@/types/postData";
+import PostIndexPageLayout from "@/layouts/perPage/posts/PostIndexPageLayout"
 import { getRecentPostsData } from "@/lib/posts/fetchCardData/getRecentPostsData";
 import { getRecentMdFilePaths } from "@/lib/posts/globFileData/getRecentMdFilePath";
 import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData";

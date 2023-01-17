@@ -9,7 +9,7 @@ import rehypeFormat from "rehype-format"
 import rehypeSanitize, {defaultSchema, Options} from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
 
-import { CODE_LANGUAGES, CLOBBER_PREFIX, PRISM_PLUGINS } from "@/common/constants/postConfig"
+import { CODE_LANGUAGES, CLOBBER_PREFIX, PRISM_PLUGINS } from "@/constants/postConfig"
 
 
 const addCodeAttributes = (content: string): string => {

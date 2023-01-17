@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { searchResult } from "@/common/types/searchResult";
+import { searchResult } from "@/types/searchResult";
 
 
 const SearchErrorResult = dynamic(() => import("./parts/SearchErrorResult"))

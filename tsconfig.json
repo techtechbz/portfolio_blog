@@ -17,6 +17,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
+      "@/styles/*": ["src/common/styles/*"],
+      "@/constants/*": ["src/common/constants/*"],
+      "@/types/*": ["src/common/types/*"],
+      "@/layouts/*": ["src/components/layouts/*"],
+      "@/uiElements/*": ["src/components/uiElements/*"],
+      "@/uiParts/*": ["src/components/uiParts/*"],
       "@/pages/*": ["pages/*"],
     }
   },

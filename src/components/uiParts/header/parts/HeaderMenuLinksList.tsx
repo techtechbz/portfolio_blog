@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 import Link from "next/link"
 
-import { menuLinks } from "@/common/types/menuLinks"
+import { menuLinks } from "@/types/menuLinks"
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents"
 
 

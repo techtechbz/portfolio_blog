@@ -4,15 +4,15 @@ import { GetStaticProps, GetStaticPaths } from "next"
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
-import { htmlPostData, postData } from "@/common/types/postData"
+import { htmlPostData, postData } from "@/types/postData"
 import { CLOBBER_PREFIX } from 'src/common/constants/postConfig'
-import PostPageLayout from "@/components/layouts/perPage/posts/PostPageLayout"
+import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
 import { getAllMdFilePaths } from "@/lib/posts/globFileData/getAllMdFilePaths";
 import { fullPathToPostId } from "@/lib/posts/dataConverter/fullPathToPostId"
 import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
 import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData"
 
-import postStyles from "@/common/styles/pageCss/post.module.css"
+import postStyles from "@/styles/pageCss/post.module.css"
 
 
 interface Params extends ParsedUrlQuery {

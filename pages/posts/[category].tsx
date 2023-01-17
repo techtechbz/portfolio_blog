@@ -2,9 +2,9 @@ import { GetStaticProps, GetStaticPaths } from "next"
 
 import { ParsedUrlQuery } from "querystring"
 
-import { BLOG_CATEGORIES_LIST } from "@/common/constants/blogCategories";
-import { searchResult } from "@/common/types/searchResult";
-import SearchResultPageLayout from "@/components/layouts/perPage/posts/SearchResultPageLayout"
+import { BLOG_CATEGORIES_LIST } from "@/constants/blogCategories";
+import { searchResult } from "@/types/searchResult";
+import SearchResultPageLayout from "@/layouts/perPage/posts/SearchResultPageLayout"
 import { getSearchedCagetoryPostsData } from "@/lib/posts/searchPosts/getSearchedCategoryPostsData";
 
 

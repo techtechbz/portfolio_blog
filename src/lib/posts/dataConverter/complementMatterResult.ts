@@ -1,5 +1,5 @@
-import { SITE_DECSRIPTION } from "@/common/constants/siteOverviews"
-import { complementedMatterResult, matterResultData } from "@/common/types/postData"
+import { SITE_DECSRIPTION } from "@/constants/siteOverviews"
+import { complementedMatterResult, matterResultData } from "@/types/postData"
 
 /**
  * 不足分のmatterデータを補完する

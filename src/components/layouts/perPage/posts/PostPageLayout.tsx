@@ -1,14 +1,14 @@
 import { FC, memo, ReactNode } from "react"
 import Image from "next/image"
 
-import { htmlPostData, postData } from "@/common/types/postData";
-import BackToHomeLink from "@/components/uiElements/link/BackToHomeLink";
-import PostBreadCrumbs from "@/components/uiElements/link/PostBreadCrumbs";
-import PostDate from  "@/components/uiElements/text/PostDate";
-import RelatedPostsContentsPart from "@/components/uiParts/contents/RelatedPostsContentsPart";
+import { htmlPostData, postData } from "@/types/postData";
+import BackToHomeLink from "@/uiElements/link/BackToHomeLink";
+import PostBreadCrumbs from "@/uiElements/link/PostBreadCrumbs";
+import PostDate from  "@/uiElements/text/PostDate";
+import RelatedPostsContentsPart from "@/uiParts/contents/RelatedPostsContentsPart";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import postCss from "@/common/styles/pageCss/post.module.css"
+import postCss from "@/styles/pageCss/post.module.css"
 
 
 type Props = {

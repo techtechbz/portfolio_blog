@@ -3,9 +3,9 @@ import { GetStaticProps, GetStaticPaths } from "next"
 import { ParsedUrlQuery } from "querystring"
 
 import { getSearchedArchivePostsData } from "@/lib/posts/searchPosts/getSearchedArchiveFileIds";
-import { ARCHIVES_LIST } from "@/common/constants/archivesList";
-import { searchResult } from "@/common/types/searchResult";
-import SearchResultPageLayout from "@/components/layouts/perPage/posts/SearchResultPageLayout"
+import { ARCHIVES_LIST } from "@/constants/archivesList";
+import { searchResult } from "@/types/searchResult";
+import SearchResultPageLayout from "@/layouts/perPage/posts/SearchResultPageLayout"
 
 
 interface Params extends ParsedUrlQuery {

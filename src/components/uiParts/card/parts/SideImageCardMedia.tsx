@@ -2,7 +2,7 @@ import { memo, ReactNode, FC } from "react"
 
 import CardMedia from "@mui/material/CardMedia";
 
-import StylingDiv from "@/components/uiElements/box/StylingDiv";
+import StylingDiv from "@/uiElements/box/StylingDiv";
 
 
 type Props = {

@@ -1,15 +1,15 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { htmlPostData, postData } from "@/common/types/postData";
-import FeaturedPostsContentsPart from "@/components/uiParts/contents/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "@/components/uiParts/contents/RecentPostsContentsPart";
-import HomeMainTopWindow from "@/components/uiParts/top/HomeMainTopWindow";
+import { htmlPostData, postData } from "@/types/postData";
+import FeaturedPostsContentsPart from "@/uiParts/contents/FeaturedPostsContentsPart";
+import RecentPostsContentsPart from "@/uiParts/contents/RecentPostsContentsPart";
+import HomeMainTopWindow from "@/uiParts/top/HomeMainTopWindow";
 
-import indexCss from "@/common/styles/pageCss/index.module.css";
+import indexCss from "@/styles/pageCss/index.module.css";
 
 
-const SideMenu = dynamic(() => import("@/components/uiParts/sideMenu/SideMenu"))
+const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
   featuredPostsData: ReadonlyArray<postData>
