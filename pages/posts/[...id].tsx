@@ -45,7 +45,7 @@ const hashchange = () => {
     hash = slugs.slug(unSluggedHash).toLowerCase()
   } catch {
     return
-  }
+  }correction required
   const name = CLOBBER_PREFIX + hash
   const target = document.getElementById(name) || document.getElementsByName(name)[0]
 
