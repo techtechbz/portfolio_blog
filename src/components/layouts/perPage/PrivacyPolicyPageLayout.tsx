@@ -3,7 +3,7 @@ import { FC, memo, ReactNode } from "react"
 import BackToHomeLink from "@/uiElements/link/BackToHomeLink"
 import DocumentDate from "@/uiElements/text/DocumentDate"
 
-import fixedPageCss from "@/styles/pageCss/fixedPage.module.css"
+import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
@@ -14,9 +14,9 @@ type Props = {
 
 const PrivacyPolicyPageLayout: FC<Props> = memo(({ createDate, updateDate, children }: Props) => {
   return (
-    <div className={fixedPageCss.StaticPageContainer}>
-      <h1 className={fixedPageCss.PageTitle}>プライバシーポリシー</h1>
-      <div className={fixedPageCss.DocumentDate}>
+    <div className={staticPageCss.StaticPageContainer}>
+      <h1 className={staticPageCss.StaticPageTitle}>プライバシーポリシー</h1>
+      <div className={staticPageCss.DocumentDate}>
         <DocumentDate createDateString={createDate} updateDateString={updateDate} />
       </div>
       {children}
