@@ -2,17 +2,18 @@ import { useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from "next"
 
 import Prism from 'prismjs'
-import 'prismjs/themes/prism-okaidia.css'
-import 'prismjs/plugins/autolinker/prism-autolinker'
-import 'prismjs/plugins/autoloader/prism-autoloader'
-import 'prismjs/plugins/line-numbers/prism-line-numbers'
-import 'prismjs/plugins/toolbar/prism-toolbar'
-import 'prismjs/plugins/show-language/prism-show-language'
+import 'prismjs/themes/prism-okaidia.min.css'
+import 'prismjs/plugins/autoloader/prism-autoloader.min'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
+import 'prismjs/plugins/toolbar/prism-toolbar.min'
+import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
+import 'prismjs/plugins/show-language/prism-show-language.min'
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
 import { htmlPostData, postData } from "@/types/postData"
-import { CLOBBER_PREFIX } from 'src/common/constants/postConfig'
+import { CLOBBER_PREFIX } from '@/constants/postConfig'
 import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
 import { getAllMdFilePaths } from "@/lib/posts/globFileData/getAllMdFilePaths";
 import { fullPathToPostId } from "@/lib/posts/dataConverter/fullPathToPostId"
@@ -32,7 +33,7 @@ type Props = {
 }
 
 if (Prism.plugins.autoloader) {
-  Prism.plugins.autoloader.languages_path = 'https://unpkg.com/prismjs@1.29.0/components/'
+  Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
 }
 
 const hashchange = () => {
@@ -45,7 +46,7 @@ const hashchange = () => {
     hash = slugs.slug(unSluggedHash).toLowerCase()
   } catch {
     return
-  }correction required
+  }
   const name = CLOBBER_PREFIX + hash
   const target = document.getElementById(name) || document.getElementsByName(name)[0]
 
