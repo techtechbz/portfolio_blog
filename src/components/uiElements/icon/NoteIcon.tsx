@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import Icon from '@mui/material/Icon';
 
-import sideMenuCss from 'src/common/styles/moduleCss/sideMenu.module.css'
+import sideMenuCss from '@/styles/moduleCss/sideMenu.module.css'
 
 
 const NoteIcon = () => {

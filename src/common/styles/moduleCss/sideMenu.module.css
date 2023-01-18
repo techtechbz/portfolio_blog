@@ -8,4 +8,5 @@
 .AuthorIconContainer {background-color: #fff; height: 60px; width: 60px; border-radius: 50%; margin: auto}
 .IntroductionDetail {white-space: pre-line; font-size: 16px; margin: 8px}
 .SocialNetworksMenu, .SocialNetworksIcon {display: flex; justify-content: center}
-.SocialNetworksIcon {align-items: center; opacity: 0.6}
+.SocialNetworksIcon {align-items: center; opacity: 0.6; height: 1.3em}
+.SocialNetworksMuiIcon {font-size: 1.2em}

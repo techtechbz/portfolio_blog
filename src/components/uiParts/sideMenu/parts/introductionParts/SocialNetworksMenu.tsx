@@ -25,7 +25,7 @@ const SocialNetworkLinkButton: FC<menuLinks> = memo(({ text, href, iconName }: m
     <Link href={href} passHref>
       <Tooltip title={`${text}ページへ`} arrow>
         <div>
-          <IconButton aria-label={`${text} link button`}><IconNode /></IconButton>
+          <IconButton aria-label={`${text} link button`}><IconNode className={sideMenuCss.SocialNetworksMuiIcon} /></IconButton>
         </div>
       </Tooltip>
     </Link>
