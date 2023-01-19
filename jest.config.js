@@ -5,9 +5,13 @@ const createJestConfig = nextJest({
   dir: './',
 })
 
+const esModules = ['msw', 'unified']
+
+/** @type {import('@jest/types').Config.InitialOptions} */
 const customJestConfig = {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
+  transformIgnorePatterns: [`/node_modules/(?!${esModules.join('|')})/`],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
@@ -23,4 +27,12 @@ const customJestConfig = {
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig)
+module.exports = async () => {
+  const jestConfig = await createJestConfig(customJestConfig)()
+  return {
+    ...jestConfig,
+    transformIgnorePatterns: jestConfig.transformIgnorePatterns.filter(
+      (pattern) => pattern !== '/node_modules/'
+    )
+  }
+}

@@ -23,8 +23,8 @@ services:
       - ./types.d.ts:/app/types.d.ts
     tty: true
     stdin_open: true
-    command: yarn test:ci
-    # command: yarn test:watch
+    # command: yarn test:ci
+    command: yarn test:coverage
     # command: yarn dev
     # command: yarn analyze
     # command: yarn lint
