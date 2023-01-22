@@ -10,7 +10,7 @@ import CustomHead from "../src/components/layouts/CustomHead";
 import defaultTheme, { MAX_MOBILE_SIZE } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache"
 
-import "../src/common/styles/global.css"
+import "@/styles/global.css"
 
 
 const AppLayout = dynamic(() => import("../src/components/layouts/AppLayout"))
