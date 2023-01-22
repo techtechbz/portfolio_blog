@@ -11,6 +11,7 @@ const esModules = ['msw', 'unified']
 const customJestConfig = {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
+  testMatch: ["**/__tests__/**/?(*.)+(spec|test).[jt]s?(x)"],
   transformIgnorePatterns: [`/node_modules/(?!${esModules.join('|')})/`],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
@@ -22,6 +23,7 @@ const customJestConfig = {
     '^@/uiElements/(.*)$': '<rootDir>/src/components/uiElements/$1',
     '^@/uiParts/(.*)$': '<rootDir>/src/components/uiParts/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
+    '^@/matchers/(.*)$': '<rootDir>/__tests__/matchers/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
   }
 }

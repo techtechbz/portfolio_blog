@@ -1,18 +1,42 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 
-import HomePage, { getStaticProps } from '../../../pages/index'
+import HomePage, { getStaticProps } from '@/pages/index'
+import { SITE_DECSRIPTION, SITE_NAME } from '@/constants/siteOverviews'
+import "@/matchers/toBeFetchedPostsData"
 
 
-describe('Home', () => {
-  it('renders a heading', async () => {
-    const homePageProps = await getStaticProps()
+describe('Home page test', () => {
+  let staticProps
 
-    render(<HomePage {...{...homePageProps.props, isMobile: true}} />);
+  it('Fetching static props test', async () => {
+    const staticPageData = await getStaticProps()
+    staticProps = staticPageData.props
+    expect(staticProps).not.toBeUndefined()
+  })
 
-    const heading = screen.getByRole('heading', {
-      name: /サンプル/i,
-    })
+  it('Page title test', () => {
+    expect(staticProps.title).toBe(SITE_NAME)
+  })
 
-    expect(heading).toBeInTheDocument()
+  it('Page description test', async () => {
+    expect(staticProps.description).toBe(SITE_DECSRIPTION)
+  })
+
+  it('Page description test', async () => {
+    expect(staticProps.featuredPostsData).toBeFetchedFeaturedPostsData()
+  })
+
+  it('Page description test', async () => {
+    expect(staticProps.recentPostsData).toBeFetchedRecentPostsData()
+  })
+
+  it.each([{isMobile: true}, {isMobile: false}]
+    )('sideMenu rendering test', async ({isMobile}) => {
+    const sideMenuTitle = '運営者紹介'
+    render(<HomePage {...{...staticProps, isMobile}} />);
+    
+    await waitFor(() => screen.queryByText(sideMenuTitle))
+
+    expect(screen.queryByText(sideMenuTitle)).toBeNull()
   })
 })

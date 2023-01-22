@@ -6,6 +6,13 @@ export type matterResultData = {
   readonly relatedPostsIds?: ReadonlyArray<string>
 }
 
+export type postsDataForTest = ReadonlyArray<
+  matterResultData & {
+    readonly id?: string
+    readonly contentHtml?: Readonly<string>
+  }
+>
+
 export type complementedMatterResult = {
   readonly title: Readonly<string>
   readonly description: Readonly<string>
