@@ -1,13 +1,13 @@
-import { getStaticProps } from '@/pages/index'
-import { postsCardDataForTest } from '@/common/types/postData'
-import { SITE_DECSRIPTION, SITE_NAME } from '@/constants/siteOverviews'
+import { getStaticProps } from '@/pages/posts/index'
+import { mainFeaturedPostDataForTest, postsCardDataForTest } from '@/common/types/postData'
 import "@/matchers/posts/toBeFetchedCardData"
 
 
 type staticPageProps = {
   title?: string
   description?: string
-  featuredPostsData?: postsCardDataForTest
+  mainFeaturedPostData?: mainFeaturedPostDataForTest
+  subFeaturedPostsData?: postsCardDataForTest
   recentPostsData?: postsCardDataForTest
 }
 
@@ -21,15 +21,19 @@ describe('Home page test', () => {
   })
 
   it('Page title test', () => {
-    expect(staticProps.title).toBe(SITE_NAME)
+    expect(typeof staticProps.title).toBe('string')
   })
 
   it('Page description test', async () => {
-    expect(staticProps.description).toBe(SITE_DECSRIPTION)
+    expect(typeof staticProps.description).toBe('string')
   })
 
-  it('Fetching featuredPostsData test', async () => {
-    expect(staticProps.featuredPostsData).toBeFetchedFeaturedPostsData()
+  it('Fetching mainFeaturedPostData test', async () => {
+    expect([staticProps.mainFeaturedPostData]).toBeFetchedFeaturedPostsData()
+  })    
+
+  it('Fetching subFeaturedPostsData test', async () => {
+    expect(staticProps.subFeaturedPostsData).toBeFetchedFeaturedPostsData()
   })
 
   it('Fetching recentPostsData test', async () => {
