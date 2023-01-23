@@ -1,17 +1,18 @@
-import { getStaticProps } from '@/pages/about'
+import { getStaticProps } from '@/pages/privacy'
 import "@/matchers/posts/toBeFetchedFixedPageData"
 
 
 type staticPageProps = {
   title?: string
   description?: string
-  siteIntroductionPageData?: {
+  privacyPolicyPageData?: {
     id?: string
     contentHtml?: string
+    createDate?: string
   }
 }
 
-describe('Site Introduction page test', () => {
+describe('Privacy Policy page test', () => {
   let staticProps: staticPageProps
 
   it('Fetching static props test', async () => {
@@ -29,6 +30,10 @@ describe('Site Introduction page test', () => {
   })
 
   it('Fetching page contents data test', async () => {
-    expect(staticProps.siteIntroductionPageData).toBeFetchedFixedPageData()
+    expect(staticProps.privacyPolicyPageData).toBeFetchedFixedPageData()
+})
+
+  it('Fetching create date test', () => {
+    expect(staticProps.privacyPolicyPageData.createDate).not.toBeUndefined()
   })
 })
