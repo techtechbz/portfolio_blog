@@ -24,7 +24,7 @@ const HomeLayout: FC<Props> = memo(({ featuredPostsData, recentPostsData, isMobi
       <div className={indexCss.IndexContainer}>
         <FeaturedPostsContentsPart
           heading="オススメの投稿"
-          {...{featuredPostsData}}
+          {...{featuredPostsData, isMobile}}
         />
         <hr />
         <div className={indexCss.IndexFlexBox}>

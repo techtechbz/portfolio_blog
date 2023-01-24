@@ -14,10 +14,11 @@ import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 type Props = {
   postData: htmlPostData
   relatedPostsData: ReadonlyArray<postData>
+  isMobile: boolean
   children: ReactNode
 }
 
-const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, children }: Props) => {
+const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isMobile, children }: Props) => {
   return (
     <>
       <div className={staticPageCss.PostContainer}>
@@ -33,7 +34,7 @@ const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, children }
         </div>
         {children}
         <BackToHomeLink />
-        <RelatedPostsContentsPart {...{relatedPostsData}} />
+        <RelatedPostsContentsPart {...{relatedPostsData, isMobile}} />
       </div>
       <link
         rel="stylesheet"

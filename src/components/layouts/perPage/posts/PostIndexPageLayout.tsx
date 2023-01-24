@@ -26,6 +26,7 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeatured
       <FeaturedPostsContentsPart
         heading="おススメの投稿"
         featuredPostsData={subFeaturedPostsData}
+        isMobile={isMobile}
       />
       <hr />
       <div className={indexCss.IndexFlexBox}>
