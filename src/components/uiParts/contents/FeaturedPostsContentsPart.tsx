@@ -10,9 +10,10 @@ const FeaturedPageCard = dynamic(() => import("../card/FeaturedPageCard"))
 type Props = {
   heading: string
   featuredPostsData: ReadonlyArray<postData>
+  isMobile: boolean
 }
 
-const FeaturedPostsContentsPart: FC<Props> = memo(({ heading, featuredPostsData }: Props) => {
+const FeaturedPostsContentsPart: FC<Props> = memo(({ heading, featuredPostsData, isMobile }: Props) => {
   return (
     <div className="PostsLineUpPart">
       <h2 className="PostsLineUpHeading">{heading}</h2>
@@ -21,7 +22,7 @@ const FeaturedPostsContentsPart: FC<Props> = memo(({ heading, featuredPostsData 
           <div className={cardCss.FlexCardContainer}>
             {featuredPostsData.map((pageData) => (
               <div className={cardCss.IndexPagesFeaturedCard} key={pageData.id}>
-                <FeaturedPageCard {...{pageData}} />
+                <FeaturedPageCard {...{pageData, isMobile}} />
               </div>
             ))}
           </div>

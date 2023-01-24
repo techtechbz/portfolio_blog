@@ -30,6 +30,7 @@ interface Params extends ParsedUrlQuery {
 type Props = {
   postData: htmlPostData
   relatedPostsData: ReadonlyArray<postData>
+  isMobile: boolean
 }
 
 if (Prism.plugins.autoloader) {
@@ -57,7 +58,7 @@ const hashchange = () => {
   }
 }
 
-export default function PostPage({ postData, relatedPostsData }: Props) {
+export default function PostPage({ postData, relatedPostsData, isMobile }: Props) {
   useEffect(() => {
     window.addEventListener('hashchange', hashchange)
     document.addEventListener(
@@ -82,7 +83,7 @@ export default function PostPage({ postData, relatedPostsData }: Props) {
   }, [])
 
   return(
-    <PostPageLayout {...{postData, relatedPostsData}}>
+    <PostPageLayout {...{postData, relatedPostsData, isMobile}}>
       <div className={postStyles.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </PostPageLayout>
   )

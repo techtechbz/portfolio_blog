@@ -11,11 +11,11 @@
 .PostDate {color: #666; margin: 0 12px}
 .PostImageContainer {position: relative; width: 36vw; min-width: 280px; height: 20vw; min-height: 160px; margin: 1.5em auto}
 
-.PageContents p {padding: .4em .6em}
+.PageContents p {padding: 1em}
 .PageContents h2, .PageContents h3 {font-weight: 600; margin: .6em}
 .PageContents h2 {padding: .2em .4em; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
-.PageContents blockquote {padding: .8em 1.2em; margin: 1em; background-color: #e7f2fc}
-.PageContents blockquote > p:first-of-type {font-weight: 600}
+.PageContents blockquote {padding: .2em .4em; margin: 1em 1.2em; background-color: #e7f2fc}
+.PageContents blockquote > p:first-of-type {font-weight: 600; padding: 1em 1em 0}
 .PageContents table {border: solid 1px; border-collapse: collapse; border-spacing: 0}
 .PageContents th {padding: 10px; background: #015bb1; border-right: solid 1px black; color: #ffffff}
 .PageContents th:last-child {border-right: none}
@@ -28,11 +28,13 @@
   .StaticPageTitle {margin: .5em; font-size: 2.6em}
   .PostContainer {margin: 3em 16vw}
   .PostTitle {font-size: 2.1em}
+  .PageContents p {padding: .6em}
   .PageContents h2 {font-size: 1.7em}
   .PageContents h3 {font-size: 1.6em}
+  .PageContents blockquote {margin: 1em 2em; padding: .4em .8em;}
 }
 
 @media (min-width:1024px) {
   .PostContainer {margin: 3em 20vw}
-  .PageContents p {padding: .6em .8em}
+  .PageContents p {padding: .8em}
 }
