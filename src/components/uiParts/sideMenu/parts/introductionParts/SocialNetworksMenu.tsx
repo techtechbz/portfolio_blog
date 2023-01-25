@@ -5,13 +5,13 @@ import dynamic from "next/dynamic"
 import Tooltip from "@mui/material/Tooltip"
 import IconButton from "@mui/material/IconButton"
 
-import { menuLinks } from "src/common/types/menuLinks";
-import { getMenuMappingComponents } from "src/components/functional/getMenuMappingComponents";
+import { menuLinks } from "@/types/menuLinks";
+import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
 
-import sideMenuCss from "src/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const NoteIcon = dynamic(() => import("src/components/uiElements/icon/NoteIcon"))
+const NoteIcon = dynamic(() => import("@/uiElements/icon/NoteIcon"))
 const GitHubIcon = dynamic(() => import("@mui/icons-material/GitHub"))
 
 const SOCIAL_NETWORK_ICONS_LIST: { [key: string]: any } = {
@@ -25,7 +25,7 @@ const SocialNetworkLinkButton: FC<menuLinks> = memo(({ text, href, iconName }: m
     <Link href={href} passHref>
       <Tooltip title={`${text}ページへ`} arrow>
         <div>
-          <IconButton aria-label={`${text} link button`}><IconNode /></IconButton>
+          <IconButton aria-label={`${text} link button`}><IconNode className={sideMenuCss.SocialNetworksMuiIcon} /></IconButton>
         </div>
       </Tooltip>
     </Link>

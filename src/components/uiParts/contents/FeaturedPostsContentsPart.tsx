@@ -1,18 +1,19 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { postData } from "src/common/types/postData"
+import { postData } from "@/types/postData"
 
-import cardCss from "src/common/styles/moduleCss/featuredCard.module.css"
+import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
 const FeaturedPageCard = dynamic(() => import("../card/FeaturedPageCard"))
 
 type Props = {
   heading: string
   featuredPostsData: ReadonlyArray<postData>
+  isMobile: boolean
 }
 
-const FeaturedPostsContentsPart: FC<Props> = memo(({ heading, featuredPostsData }: Props) => {
+const FeaturedPostsContentsPart: FC<Props> = memo(({ heading, featuredPostsData, isMobile }: Props) => {
   return (
     <div className="PostsLineUpPart">
       <h2 className="PostsLineUpHeading">{heading}</h2>
@@ -21,7 +22,7 @@ const FeaturedPostsContentsPart: FC<Props> = memo(({ heading, featuredPostsData 
           <div className={cardCss.FlexCardContainer}>
             {featuredPostsData.map((pageData) => (
               <div className={cardCss.IndexPagesFeaturedCard} key={pageData.id}>
-                <FeaturedPageCard {...{pageData}} />
+                <FeaturedPageCard {...{pageData, isMobile}} />
               </div>
             ))}
           </div>

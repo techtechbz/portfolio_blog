@@ -31,7 +31,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: 'DENY'
           },
           {
             key: 'X-Content-Type-Options',
@@ -39,11 +39,15 @@ const nextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=*'
+            value: 'camera=()'
           },
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'Contents-Security-Policy',
+            value: "default-src 'self';script-src 'self';child-src 'self';style-src 'self';font-src: 'self'"
           }
         ],
       }

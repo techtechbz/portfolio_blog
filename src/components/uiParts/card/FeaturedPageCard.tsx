@@ -1,24 +1,27 @@
 import { FC, memo } from "react"
 import Image from "next/image"
 
-import { postData } from "src/common/types/postData"
+import { postData } from "@/types/postData"
 import DefaultPageIntroduceCard from "./parts/DefaultPageIntroduceCard";
 import DefaultCardContent from "./parts/DefaultCardContent";
 import SideImageCardMedia from "./parts/SideImageCardMedia";
-import { MIN_MOBILE_WIDTH_QUERY } from "src/lib/themes/defaultTheme";
+import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import cardCss from "src/common/styles/moduleCss/featuredCard.module.css"
+import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
 
 type Props = {
   pageData: postData
+  isMobile: boolean
 }
 
-const cardHeight = "200px"
+const mobileCardHeight = "160px"
+const desktopCardHeight = "200px"
 
-const FeaturedPageCard: FC<Props> = memo(({ pageData }: Props) => {
+const FeaturedPageCard: FC<Props> = memo(({ pageData, isMobile }: Props) => {
+  const cardHeight = isMobile ? mobileCardHeight : desktopCardHeight
   return (
-    <DefaultPageIntroduceCard cardHeight={cardHeight} href={`/posts/${pageData.id}`}>
+    <DefaultPageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
       <div className={cardCss.FeaturedCardFlexBox}>
         <div className={cardCss.FeaturedCardImage}>
           <SideImageCardMedia height={cardHeight}>

@@ -1,10 +1,10 @@
 import { GetStaticProps } from "next"
 
-import { htmlPostData } from "src/common/types/postData"
-import SiteIntroductionPageLayout from "src/components/layouts/perPage/SiteIntroductionPageLayout"
-import { getHtmlPageData } from "src/lib/posts/translateToHtml/getHtmlPageData"
+import { htmlPostData } from "@/types/postData"
+import SiteIntroductionPageLayout from "@/layouts/perPage/SiteIntroductionPageLayout"
+import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
 
-import fixedPageStyles from "src/common/styles/pageCss/fixedPage.module.css"
+import staticPageStyles from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
 export default function SiteIntroduction({ siteIntroductionPageData }: Props) {
   return(
     <SiteIntroductionPageLayout>
-      <div className={fixedPageStyles.PageContents} dangerouslySetInnerHTML={{ __html: siteIntroductionPageData.contentHtml }} />
+      <div className={staticPageStyles.PageContents} dangerouslySetInnerHTML={{ __html: siteIntroductionPageData.contentHtml }} />
     </SiteIntroductionPageLayout>
   )
 }

@@ -1,47 +1,39 @@
-import { FC, memo, ReactNode } from "react"
+import { FC, memo } from "react"
 import Image from "next/image"
 
-import { htmlPostData, postData } from "src/common/types/postData";
-import BackToHomeLink from "src/components/uiElements/link/BackToHomeLink";
-import PostBreadCrumbs from "src/components/uiElements/link/PostBreadCrumbs";
-import PostDate from  "src/components/uiElements/text/PostDate";
-import RelatedPostsContentsPart from "src/components/uiParts/contents/RelatedPostsContentsPart";
-import { MIN_MOBILE_WIDTH_QUERY } from "src/lib/themes/defaultTheme";
+import { htmlPostData, postData } from "@/types/postData";
+import BackToHomeLink from "@/uiElements/link/BackToHomeLink";
+import PostBreadCrumbs from "@/uiElements/link/PostBreadCrumbs";
+import PostDate from  "@/uiElements/text/PostDate";
+import RelatedPostsContentsPart from "@/uiParts/contents/RelatedPostsContentsPart";
+import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import postCss from "src/common/styles/pageCss/post.module.css"
+import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
   postData: htmlPostData
   relatedPostsData: ReadonlyArray<postData>
-  children: ReactNode
+  isMobile: boolean
 }
 
-const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, children }: Props) => {
+const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isMobile }: Props) => {
   return (
-    <>
-      <div className={postCss.PostContainer}>
-        <div className={postCss.PostBreadCrumbs}>
-          <PostBreadCrumbs postId={postData.id} postTitle={postData.title} />
-        </div>
-        <h1 className={postCss.PostTitle}>{postData.title}</h1>
-        <div className={postCss.PostDate}>
-          <PostDate dateString={postData.date} />
-        </div>
-        <div className={postCss.PostImageContainer}>
-          <Image src={`/images/${postData.eyecatchFile}`} alt="post header image" fill priority sizes={`${MIN_MOBILE_WIDTH_QUERY} 280px, 440px`} />
-        </div>
-        {children}
-        <BackToHomeLink />
-        <RelatedPostsContentsPart {...{relatedPostsData}} />
+    <div className={staticPageCss.PostContainer}>
+      <div className={staticPageCss.PostBreadCrumbs}>
+        <PostBreadCrumbs postId={postData.id} postTitle={postData.title} />
       </div>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css"
-        integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/"
-        crossOrigin="anonymous"
-      />
-    </>
+      <h1 className={staticPageCss.PostTitle}>{postData.title}</h1>
+      <div className={staticPageCss.PostDate}>
+        <PostDate dateString={postData.date} />
+      </div>
+      <div className={staticPageCss.PostImageContainer}>
+        <Image src={`/images/${postData.eyecatchFile}`} alt="post header image" fill priority sizes={`${MIN_MOBILE_WIDTH_QUERY} 280px, 440px`} />
+      </div>
+      <div className={staticPageCss.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <BackToHomeLink />
+      <RelatedPostsContentsPart {...{relatedPostsData, isMobile}} />
+    </div>
   );
 })
 

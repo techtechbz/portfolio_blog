@@ -7,10 +7,9 @@ export const MAX_MOBILE_SIZE: number = 768
 const MAX_TABLET_SIZE: number = 1024
 
 export const MIN_MOBILE_WIDTH_QUERY = `@media (min-width:${MAX_MOBILE_SIZE}px)`
-export const MIN_TABLET_SIZE_QUERY = `@media (min-width:${MAX_TABLET_SIZE}px)`
 
 export const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
+  weight: ["300", "700"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Helvetica", "Arial", "sans-serif"],

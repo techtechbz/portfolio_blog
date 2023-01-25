@@ -3,10 +3,10 @@ import dynamic from "next/dynamic"
 
 import AppBar from "@mui/material/AppBar"
 
-import { useDisclosure } from "src/common/hooks/useDisclosure";
+import { useDisclosure } from "@/common/hooks/useDisclosure";
 import CustomToolbar from "./parts/CustomToolbar";
 import HomeButton from "./parts/HomeButton";
-import StylingDiv from "src/components/uiElements/box/StylingDiv";
+import StylingDiv from "@/uiElements/box/StylingDiv";
 
 
 type Props = {

@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { htmlPostData } from "src/common/types/postData"
+import { htmlPostData } from "@/types/postData"
 
 
 const RecentPostCardsContainer = dynamic(() => import("../container/RecentPostCardsContainer"))

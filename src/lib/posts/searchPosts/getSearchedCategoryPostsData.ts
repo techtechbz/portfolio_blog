@@ -1,5 +1,5 @@
-import { BLOG_CATEGORIES_LIST } from "src/common/constants/blogCategories"
-import { searchResult } from "src/common/types/searchResult"
+import { BLOG_CATEGORIES_LIST } from "@/constants/blogCategories"
+import { searchResult } from "@/types/searchResult"
 import { getRecentPostsData } from "../fetchCardData/getRecentPostsData"
 
 

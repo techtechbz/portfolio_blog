@@ -1,11 +1,11 @@
 import { FC, memo } from "react"
 
-import { getMenuMappingComponents } from "src/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
 import ResponsiveDivider from "./parts/ResponsiveDivider";
 import FooterSiteCopyright from "./parts/FooterSiteCopyright";
 import FooterLink from "./parts/FooterLink";
 
-import footerCss from "src/common/styles/moduleCss/footer.module.css";
+import footerCss from "@/styles/moduleCss/footer.module.css";
 
 
 type Props = {

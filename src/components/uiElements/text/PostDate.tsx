@@ -1,6 +1,6 @@
 import { FC, memo } from "react"
 
-import { formatDateString } from "src/components/functional/formatDateString"
+import { formatDateString } from "@/components/functional/formatDateString"
 
 
 type Props = {

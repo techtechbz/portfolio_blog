@@ -1,4 +1,4 @@
-import { ALL_POSTS_PATH_PATTERN } from "src/common/constants/blogCategories"
+import { ALL_POSTS_PATH_PATTERN } from "@/constants/blogCategories"
 
 
 export const getRecentMdFilePaths = async (): Promise<ReadonlyArray<string>> => {

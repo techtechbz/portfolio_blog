@@ -1,18 +1,24 @@
 import { useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from "next"
 
+import Prism from 'prismjs'
+import 'prismjs/themes/prism-okaidia.min.css'
+import 'prismjs/plugins/autoloader/prism-autoloader.min'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
+import 'prismjs/plugins/toolbar/prism-toolbar.min'
+import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
+import 'prismjs/plugins/show-language/prism-show-language.min'
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
-import { htmlPostData, postData } from "src/common/types/postData"
-import { CLOBBER_PREFIX } from 'src/common/constants/postConfig'
-import PostPageLayout from "src/components/layouts/perPage/posts/PostPageLayout"
-import { getAllMdFilePaths } from "src/lib/posts/globFileData/getAllMdFilePaths";
-import { fullPathToPostId } from "src/lib/posts/dataConverter/fullPathToPostId"
-import { getHtmlPageData } from "src/lib/posts/translateToHtml/getHtmlPageData"
-import { getFeaturedPostsData } from "src/lib/posts/fetchCardData/getFeaturedPostsData"
-
-import postStyles from "src/common/styles/pageCss/post.module.css"
+import { htmlPostData, postData } from "@/types/postData"
+import { CLOBBER_PREFIX } from '@/constants/postConfig'
+import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
+import { getAllMdFilePaths } from "@/lib/posts/globFileData/getAllMdFilePaths";
+import { fullPathToPostId } from "@/lib/posts/dataConverter/fullPathToPostId"
+import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
+import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData"
 
 
 interface Params extends ParsedUrlQuery {
@@ -22,6 +28,11 @@ interface Params extends ParsedUrlQuery {
 type Props = {
   postData: htmlPostData
   relatedPostsData: ReadonlyArray<postData>
+  isMobile: boolean
+}
+
+if (Prism.plugins.autoloader) {
+  Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/';
 }
 
 const hashchange = () => {
@@ -45,7 +56,7 @@ const hashchange = () => {
   }
 }
 
-export default function PostPage({ postData, relatedPostsData }: Props) {
+export default function PostPage({ postData, relatedPostsData, isMobile }: Props) {
   useEffect(() => {
     window.addEventListener('hashchange', hashchange)
     document.addEventListener(
@@ -66,12 +77,21 @@ export default function PostPage({ postData, relatedPostsData }: Props) {
       },
       false
     )
+    Prism.highlightAll()
   }, [])
 
   return(
-    <PostPageLayout {...{postData, relatedPostsData}}>
-      <div className={postStyles.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </PostPageLayout>
+    <>
+      {/<span class="math math-inline">/.exec(postData.contentHtml) && (
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css"
+          integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/"
+          crossOrigin="anonymous"
+        />
+      )}
+      <PostPageLayout {...{postData, relatedPostsData, isMobile}} />
+    </>
   )
 }
 

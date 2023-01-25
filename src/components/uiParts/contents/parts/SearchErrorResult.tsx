@@ -1,6 +1,6 @@
 import { FC, memo } from "react"
 
-import searchCss from "src/common/styles/pageCss/search.module.css"
+import searchCss from "@/styles/pageCss/search.module.css"
 
 
 type Props = {

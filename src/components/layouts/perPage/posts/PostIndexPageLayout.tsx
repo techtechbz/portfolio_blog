@@ -1,14 +1,14 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { htmlPostData, postData } from "src/common/types/postData";
-import FeaturedPostsContentsPart from "src/components/uiParts/contents/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "src/components/uiParts/contents/RecentPostsContentsPart";
-import MainFeaturedPost from "src/components/uiParts/top/MainFeaturedPost";
+import { htmlPostData, postData } from "@/types/postData";
+import FeaturedPostsContentsPart from "@/uiParts/contents/FeaturedPostsContentsPart";
+import RecentPostsContentsPart from "@/uiParts/contents/RecentPostsContentsPart";
+import MainFeaturedPost from "@/uiParts/top/MainFeaturedPost";
 
-import indexCss from "src/common/styles/pageCss/index.module.css";
+import indexCss from "@/styles/pageCss/index.module.css";
 
-const SideMenu = dynamic(() => import("src/components/uiParts/sideMenu/SideMenu"))
+const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
   mainFeaturedPostData: postData
@@ -26,6 +26,7 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeatured
       <FeaturedPostsContentsPart
         heading="おススメの投稿"
         featuredPostsData={subFeaturedPostsData}
+        isMobile={isMobile}
       />
       <hr />
       <div className={indexCss.IndexFlexBox}>

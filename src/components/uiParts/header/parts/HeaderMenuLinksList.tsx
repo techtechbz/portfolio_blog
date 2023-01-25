@@ -1,8 +1,8 @@
 import { FC, memo } from "react"
 import Link from "next/link"
 
-import { menuLinks } from "src/common/types/menuLinks"
-import { getMenuMappingComponents } from "src/components/functional/getMenuMappingComponents"
+import { menuLinks } from "@/types/menuLinks"
+import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents"
 
 
 const HeaderMenuLink: FC<menuLinks> = memo(({ text, href }: menuLinks) => {

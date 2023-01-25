@@ -2,12 +2,12 @@ import { FC, memo } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 
-import { htmlPostData } from "src/common/types/postData"
+import { htmlPostData } from "@/types/postData"
 import DefaultPageIntroduceCard from "./parts/DefaultPageIntroduceCard";
 import DefaultCardContent from "./parts/DefaultCardContent";
-import { MIN_MOBILE_WIDTH_QUERY } from "src/lib/themes/defaultTheme";
+import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
-import cardCss from "src/common/styles/moduleCss/recentCard.module.css"
+import cardCss from "@/styles/moduleCss/recentCard.module.css"
 
 type Props = {
   pageData: htmlPostData
@@ -16,16 +16,19 @@ type Props = {
 
 const SideImageCardMedia = dynamic(() => import("./parts/SideImageCardMedia"))
 const PostIconCardMedia = dynamic(() => import("./parts/PostIconCardMedia"))
-const cardHeight = "220px"
+
+const mobileCardHeight = "170px"
+const desktopCardHeight = "210px"
 
 const RecentPostCard: FC<Props> = memo(({pageData, isMobile}: Props) => {
+  const cardHeight = isMobile ? mobileCardHeight : desktopCardHeight
   const postImage = <Image className={cardCss.RecentCardImage} src={`/images/${pageData.eyecatchFile}`} alt="post image" fill sizes={`${MIN_MOBILE_WIDTH_QUERY} 136px, 55px`} />
   return (
-    <DefaultPageIntroduceCard cardHeight={cardHeight} href={`/posts/${pageData.id}`}>
+    <DefaultPageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
       <div className={cardCss.RecentCardFlexBox}>
         {!isMobile && (
           <div className={cardCss.RecentCardSideImage}>
-            <SideImageCardMedia height={cardHeight}>
+            <SideImageCardMedia height={desktopCardHeight}>
               {postImage}
             </SideImageCardMedia>
           </div>

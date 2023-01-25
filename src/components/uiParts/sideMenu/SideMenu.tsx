@@ -1,11 +1,11 @@
 import { FC, memo } from "react";
 import dynamic from "next/dynamic"
 
-import { getMenuMappingComponents } from "src/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
 import TextLinkWithIcon from "./parts/TextLinkWithIcon";
 import ArchivesLinks from "./parts/ArchivesLinks";
 
-import sideMenuCss from "src/common/styles/moduleCss/sideMenu.module.css"
+import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
 const AuthorIntroduction = dynamic(() => import("./parts/AuthorIntroduction"))
