@@ -20,8 +20,6 @@ import { fullPathToPostId } from "@/lib/posts/dataConverter/fullPathToPostId"
 import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
 import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData"
 
-import postStyles from "@/styles/pageCss/staticPage.module.css"
-
 
 interface Params extends ParsedUrlQuery {
   id: Array<string>
@@ -83,9 +81,17 @@ export default function PostPage({ postData, relatedPostsData, isMobile }: Props
   }, [])
 
   return(
-    <PostPageLayout {...{postData, relatedPostsData, isMobile}}>
-      <div className={postStyles.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </PostPageLayout>
+    <>
+      {/<span class="math math-inline">/.exec(postData.contentHtml) && (
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css"
+          integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/"
+          crossOrigin="anonymous"
+        />
+      )}
+      <PostPageLayout {...{postData, relatedPostsData, isMobile}} />
+    </>
   )
 }
 

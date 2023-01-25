@@ -7,7 +7,7 @@
 .RecentCardPostData {width: 100%}
 .RecentCardTitleRow {display: flex; padding: 4px}
 .RecentCardTitle, .RecentCardContentsContainer {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical}
-.RecentCardTitle {-webkit-line-clamp: 2; font-size: 1em; font-weight: 600; margin: auto 8px}
+.RecentCardTitle {-webkit-line-clamp: 2; font-size: 1em; font-weight: 700; margin: auto 8px}
 .RecentCardContentsContainer {-webkit-line-clamp: 4; margin: 4px 8px}
 .RecentCardContents p {margin: .3em}
 
