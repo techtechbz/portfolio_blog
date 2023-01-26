@@ -1,7 +1,7 @@
 .FooterBackground {background-color: #e0e0e0; padding: 8px 0px 50px; margin: 0px auto}
 .FooterContainer {display: block; margin: 0 2vw; padding: 8px 1.5em 16px}
 .FooterMenuRow {position: relative; display: block}
-.FooterMenuContainer {padding: 8px; margin: 0px auto 0px 12px}
+.FooterMenuContainer {padding: 8px; margin: 0px auto 0px 8vw}
 .FooterMenuTitle {font-size: 1.3em; margin: 8px}
 .FooterMenuSubTitle {font-size: 1.1em; margin: 6px 8px 2px}
 .FooterLinks {display: inline-flex; flex-direction: column; margin: 4px 0px 4px 16px}

@@ -9,15 +9,15 @@ const RecentPostCardsContainer = dynamic(() => import("../container/RecentPostCa
 type Props = {
   heading: string
   recentPostsData: ReadonlyArray<htmlPostData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const RecentPostsContentsPart: FC<Props> = memo(({ heading, recentPostsData, isMobile }: Props) => {
+const RecentPostsContentsPart: FC<Props> = memo(({ heading, recentPostsData, isDesktop }: Props) => {
   return (
     <div className="PostsLineUpPart">
       <h2 className="PostsLineUpHeading">{heading}</h2>
       {recentPostsData.length >= 1 ? (
-        <RecentPostCardsContainer {...{recentPostsData, isMobile}} />
+        <RecentPostCardsContainer {...{recentPostsData, isDesktop}} />
       ) : (
         <div>最近の投稿はありません。</div>
       )}

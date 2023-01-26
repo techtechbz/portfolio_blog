@@ -5,11 +5,11 @@ import searchCss from "@/styles/pageCss/search.module.css"
 
 type Props = {
   resultMessage: string
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const SearchErrorResult: FC<Props> = memo(({resultMessage, isMobile}: Props) => {
-  const guidingToMenuMessage = isMobile ? "右上のナビゲーションボタンをタップして、" : "サイト右側にあるメニューの"
+const SearchErrorResult: FC<Props> = memo(({resultMessage, isDesktop}: Props) => {
+  const guidingToMenuMessage = isDesktop ? "サイト右側にあるメニューの" : "右上のナビゲーションボタンをタップして、"
   const errorMessage = "『カテゴリーメニュー』または『アーカイブメニュー』より、リンクをクリックしてください。"
   return(
     <div className={searchCss.SearchErrorResultContainer}>

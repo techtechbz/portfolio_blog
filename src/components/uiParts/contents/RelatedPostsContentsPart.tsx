@@ -9,10 +9,10 @@ const FeaturedPageCard = dynamic(() => import("../card/FeaturedPageCard"))
 
 type Props = {
   relatedPostsData: ReadonlyArray<postData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const RelatedPostsContentsPart: FC<Props> = memo(({ relatedPostsData, isMobile }: Props) => {
+const RelatedPostsContentsPart: FC<Props> = memo(({ relatedPostsData, isDesktop }: Props) => {
   return (
     <>
       {relatedPostsData.length >= 1 && (
@@ -22,7 +22,7 @@ const RelatedPostsContentsPart: FC<Props> = memo(({ relatedPostsData, isMobile }
             <div className={cardCss.RelatedPostsCardContainer}>
               {relatedPostsData.map((pageData) => (
                 <div className={cardCss.PostPagesFeaturedCard} key={pageData.id}>
-                  <FeaturedPageCard {...{pageData, isMobile}} />
+                  <FeaturedPageCard {...{pageData, isDesktop}} />
                 </div>
               ))}
             </div>
