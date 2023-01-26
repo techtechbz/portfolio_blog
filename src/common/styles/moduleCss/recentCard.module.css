@@ -8,11 +8,11 @@
 .RecentCardTitleRow {display: flex; padding: 4px}
 .RecentCardTitle, .RecentCardContentsContainer {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical}
 .RecentCardTitle {-webkit-line-clamp: 2; font-size: 1em; font-weight: 700; margin: auto 8px}
-.RecentCardContentsContainer {-webkit-line-clamp: 4; margin: 4px 8px}
+.RecentCardContentsContainer {height: 90px; -webkit-line-clamp: 4; margin: 4px 8px}
 .RecentCardContents p {margin: .3em}
 
 @media (min-width:768px) {
-  .RecentCardContentsContainer {font-size: 16px}
+  .RecentCardContentsContainer {height: 103px; font-size: 16px}
   .RecentCardTitle {font-size: 1.1em}
   .RecentCardImage {border-radius: 0%}
   .RecentCardPostData {width: 75%}
