@@ -5,16 +5,16 @@ import Footer from "@/uiParts/footer/Footer"
 
 
 type Props = {
-  isMobile: boolean
+  isDesktop: boolean
   children: ReactNode
 }
 
-const AppLayout: FC<Props> = memo(({ isMobile, children }: Props) => {
+const AppLayout: FC<Props> = memo(({ isDesktop, children }: Props) => {
   return (
     <main>
-      <Header {...{isMobile}} />
+      <Header {...{isDesktop}} />
         {children}
-      <Footer {...{isMobile}} />
+      <Footer {...{isDesktop}} />
     </main>
   )
 })

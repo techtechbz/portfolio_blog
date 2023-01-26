@@ -14,27 +14,27 @@ const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 type Props = {
   featuredPostsData: ReadonlyArray<postData>
   recentPostsData: ReadonlyArray<htmlPostData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const HomeLayout: FC<Props> = memo(({ featuredPostsData, recentPostsData, isMobile }: Props) => {
+const HomeLayout: FC<Props> = memo(({ featuredPostsData, recentPostsData, isDesktop }: Props) => {
   return (
     <>
       <HomeMainTopWindow />
       <div className={indexCss.IndexContainer}>
         <FeaturedPostsContentsPart
           heading="オススメの投稿"
-          {...{featuredPostsData, isMobile}}
+          {...{featuredPostsData, isDesktop}}
         />
         <hr />
         <div className={indexCss.IndexFlexBox}>
           <div className={indexCss.IndexContents}>
             <RecentPostsContentsPart
               heading="新着記事"
-              {...{recentPostsData, isMobile}}
+              {...{recentPostsData, isDesktop}}
             />
           </div>
-          {!isMobile && (
+          {isDesktop && (
             <div className={indexCss.IndexSideMenu}>
               <SideMenu isHome />
             </div>

@@ -14,10 +14,10 @@ import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 type Props = {
   postData: htmlPostData
   relatedPostsData: ReadonlyArray<postData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isMobile }: Props) => {
+const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isDesktop }: Props) => {
   return (
     <div className={staticPageCss.PostContainer}>
       <div className={staticPageCss.PostBreadCrumbs}>
@@ -32,7 +32,7 @@ const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isMobile }
       </div>
       <div className={staticPageCss.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       <BackToHomeLink />
-      <RelatedPostsContentsPart {...{relatedPostsData, isMobile}} />
+      <RelatedPostsContentsPart {...{relatedPostsData, isDesktop}} />
     </div>
   );
 })

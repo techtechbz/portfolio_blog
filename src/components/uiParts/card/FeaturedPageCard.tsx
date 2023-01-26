@@ -12,14 +12,14 @@ import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
 type Props = {
   pageData: postData
-  isMobile: boolean
+  isDesktop: boolean
 }
 
 const mobileCardHeight = "160px"
 const desktopCardHeight = "200px"
 
-const FeaturedPageCard: FC<Props> = memo(({ pageData, isMobile }: Props) => {
-  const cardHeight = isMobile ? mobileCardHeight : desktopCardHeight
+const FeaturedPageCard: FC<Props> = memo(({ pageData, isDesktop }: Props) => {
+  const cardHeight = isDesktop ? desktopCardHeight : mobileCardHeight
   return (
     <DefaultPageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
       <div className={cardCss.FeaturedCardFlexBox}>

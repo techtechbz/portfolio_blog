@@ -12,12 +12,12 @@ type Props = {
   mainFeaturedPostData: postData
   subFeaturedPostsData: ReadonlyArray<postData>
   recentPostsData: ReadonlyArray<htmlPostData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-export default function BlogIndexPage({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isMobile }: Props) {
+export default function BlogIndexPage({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop }: Props) {
   return(
-    <PostIndexPageLayout {...{mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isMobile}} />
+    <PostIndexPageLayout {...{mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop}} />
   )
 }
 

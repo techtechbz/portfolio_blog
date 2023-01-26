@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles"
 
 
 const MIN_MOBILE_SIZE: number = 300
-export const MAX_MOBILE_SIZE: number = 768
+const MAX_MOBILE_SIZE: number = 768
 const MAX_TABLET_SIZE: number = 1024
 
 export const MIN_MOBILE_WIDTH_QUERY = `@media (min-width:${MAX_MOBILE_SIZE}px)`

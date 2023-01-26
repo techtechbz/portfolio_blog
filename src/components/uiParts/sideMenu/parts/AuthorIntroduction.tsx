@@ -15,7 +15,7 @@ const AuthorIntroduction: FC = memo(() => {
       </div>
       <SocialNetworksMenu />
       <p className={sideMenuCss.IntroductionDetail}>
-        {`しがない休学中の大学生です。\n好物はチキン南蛮です。`}
+        {`Web開発と経済学について勉強しています。\n好物はチキン南蛮です。`}
       </p>
     </div>
   )

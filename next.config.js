@@ -47,7 +47,7 @@ const nextConfig = {
           },
           {
             key: 'Contents-Security-Policy',
-            value: "default-src 'self';script-src 'self';child-src 'self';style-src 'self';font-src: 'self'"
+            value: "default-src 'self';script-src 'self';img-src 'self';child-src 'self';style-src 'self';font-src: 'self'"
           }
         ],
       }

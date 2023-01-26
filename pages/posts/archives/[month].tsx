@@ -14,12 +14,12 @@ interface Params extends ParsedUrlQuery {
 
 type Props = {
   searchResultData: searchResult
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-export default function PostSearchPage({ searchResultData, isMobile }: Props) {
+export default function PostSearchPage({ searchResultData, isDesktop }: Props) {
   return(
-    <SearchResultPageLayout {...{searchResultData, isMobile}} />
+    <SearchResultPageLayout {...{searchResultData, isDesktop}} />
   )
 }
 

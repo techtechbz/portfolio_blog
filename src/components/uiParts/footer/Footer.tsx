@@ -9,10 +9,10 @@ import footerCss from "@/styles/moduleCss/footer.module.css";
 
 
 type Props = {
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const Footer: FC<Props> = memo(({ isMobile }: Props) => {
+const Footer: FC<Props> = memo(({ isDesktop }: Props) => {
   return (
     <div className={footerCss.FooterBackground}>
       <div className={footerCss.FooterContainer}>
@@ -23,7 +23,7 @@ const Footer: FC<Props> = memo(({ isMobile }: Props) => {
               {getMenuMappingComponents("footer", FooterLink)}
             </div>
           </div>
-          <ResponsiveDivider {...{isMobile}} />
+          <ResponsiveDivider {...{isDesktop}} />
         </div>
         <div className={footerCss.FooterMenuRow}>
           <div className={footerCss.FooterMenuContainer}>
