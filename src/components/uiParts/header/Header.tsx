@@ -9,20 +9,20 @@ import HomeButton from "./parts/HomeButton";
 import StylingDiv from "@/uiElements/box/StylingDiv";
 
 
-type Props = {
-  isMobile: boolean
-}
-
 const IconButton = dynamic(() => import("@mui/material/IconButton"))
 const MenuIcon = dynamic(() => import("@mui/icons-material/Menu"))
 const HeaderMenuLinksList = dynamic(() => import("./parts/HeaderMenuLinksList"))
 const HeaderMenuDrawer = dynamic(() => import("./parts/HeaderMenuDrawer"))
 
+type Props = {
+  isDesktop: boolean
+}
+
 const headerCss = {
   height: "12vh",
 }
 
-const Header: FC<Props> = memo(({ isMobile }: Props) => {
+const Header: FC<Props> = memo(({ isDesktop }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
@@ -31,13 +31,13 @@ const Header: FC<Props> = memo(({ isMobile }: Props) => {
           <HomeButton />
           {/* 中間の空白 */}
           <div className="HeaderCenter" />
-          {isMobile ? (
+          {isDesktop ? (
+            <HeaderMenuLinksList />
+          ) : (
             <>
               <IconButton aria-label="drawer button" onClick={onOpen}><MenuIcon fontSize="large" /></IconButton>
               <HeaderMenuDrawer {...{isOpen, onClose}} />
             </>
-          ) : (
-            <HeaderMenuLinksList />
           )}
         </CustomToolbar>
       </AppBar>

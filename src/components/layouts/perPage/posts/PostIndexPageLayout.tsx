@@ -14,10 +14,10 @@ type Props = {
   mainFeaturedPostData: postData
   subFeaturedPostsData: ReadonlyArray<postData>
   recentPostsData: ReadonlyArray<htmlPostData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isMobile }: Props) => {
+const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop }: Props) => {
   return (
     <div className={indexCss.IndexContainer}>
       <div className={indexCss.MainFeaturedPost}>
@@ -26,17 +26,17 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeatured
       <FeaturedPostsContentsPart
         heading="おススメの投稿"
         featuredPostsData={subFeaturedPostsData}
-        isMobile={isMobile}
+        isDesktop={isDesktop}
       />
       <hr />
       <div className={indexCss.IndexFlexBox}>
         <div className={indexCss.IndexContents}>
           <RecentPostsContentsPart
             heading="最近の投稿"
-            {...{recentPostsData, isMobile}}
+            {...{recentPostsData, isDesktop}}
           />
         </div>
-        {!isMobile && (
+        {isDesktop && (
           <div className={indexCss.IndexSideMenu}>
             <SideMenu />
           </div>

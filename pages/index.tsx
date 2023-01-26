@@ -12,12 +12,12 @@ import { getRecentMdFilePaths } from "@/lib/posts/globFileData/getRecentMdFilePa
 type Props = {
   featuredPostsData: ReadonlyArray<postData>
   recentPostsData: ReadonlyArray<htmlPostData>
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-export default function HomePage({ featuredPostsData, recentPostsData, isMobile }: Props) {
+export default function HomePage({ featuredPostsData, recentPostsData, isDesktop }: Props) {
   return(
-    <HomeLayout {...{featuredPostsData, recentPostsData, isMobile}}/>
+    <HomeLayout {...{featuredPostsData, recentPostsData, isDesktop}}/>
   )
 }
 

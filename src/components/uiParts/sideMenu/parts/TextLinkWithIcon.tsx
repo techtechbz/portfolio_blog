@@ -28,7 +28,7 @@ const TextLinkWithIcon: FC<menuLinks> = memo(({ text, href, iconName }: menuLink
       <span>{"・"}</span>
       <Link href={href} passHref>
         <Stack direction="row" spacing={.5}>
-          <IconNode />
+          <IconNode className={sideMenuCss.CategoryIcon} />
           <span>{text}</span>
         </Stack>
       </Link>

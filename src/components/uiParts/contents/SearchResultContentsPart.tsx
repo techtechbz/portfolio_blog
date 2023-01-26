@@ -9,20 +9,20 @@ const RecentPostCardsContainer = dynamic(() => import("../container/RecentPostCa
 
 type Props = {
   searchResultData: searchResult
-  isMobile: boolean
+  isDesktop: boolean
 }
 
-const SearchResultContentsPart: FC<Props> = memo(({ searchResultData, isMobile }: Props) => {
+const SearchResultContentsPart: FC<Props> = memo(({ searchResultData, isDesktop }: Props) => {
   return (
     <>
       {searchResultData.foundPostsData.length === 0 ? (
-        <SearchErrorResult resultMessage={searchResultData.resultMessage} {...{isMobile}} />
+        <SearchErrorResult resultMessage={searchResultData.resultMessage} {...{isDesktop}} />
       ) : (
         <div className="PostsLineUpPart">
           <h2 className="PostsLineUpHeading">{`検索結果『${searchResultData.resultMessage}』`}</h2>
           <RecentPostCardsContainer
             recentPostsData={searchResultData.foundPostsData}
-            {...{isMobile}}
+            {...{isDesktop}}
           />
         </div>
       )}
