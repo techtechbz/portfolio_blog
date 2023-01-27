@@ -8,12 +8,13 @@
 .FeaturedCardTitle, .FeaturedCardDescription, .FeaturedCardDate {margin: .2em .4em}
 .FeaturedCardTitle, .FeaturedCardDescription {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical}
 .FeaturedCardTitle {-webkit-line-clamp: 2; font-size: 1.1em; font-weight: 700}
-.FeaturedCardDescription {-webkit-line-clamp: 4; font-size: 14px}
+.FeaturedCardDescription {-webkit-line-clamp: 3; font-size: 14px}
 .FeaturedCardDate {color: rgba(0, 0, 0, 0.6); font-size: 14px; text-align: right}
 
 @media (min-width:768px) {
   .FeaturedCardTitle, .FeaturedCardDescription, .FeaturedCardDate {margin: .3em .6em}
   .FeaturedCardTitle {font-size: 16px}
+  .FeaturedCardDescription {-webkit-line-clamp: 4}
   .FlexCardContainer {display: flex; margin: 0}
   .IndexPagesFeaturedCard {width: 50%; margin: 0 .6em}
 }
