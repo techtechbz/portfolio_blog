@@ -1,5 +1,5 @@
 import { getStaticProps } from '@/pages/posts/index'
-import { mainFeaturedPostDataForTest, postsCardDataForTest } from '@/common/types/postData'
+import { mainFeaturedPostDataForTest, postsCardDataForTest } from '@/types/postData'
 import "@/matchers/posts/toBeFetchedCardData"
 
 

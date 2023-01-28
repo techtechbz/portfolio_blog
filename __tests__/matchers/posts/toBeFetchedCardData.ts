@@ -2,7 +2,7 @@ import fs from 'fs'
 import {expect} from '@jest/globals'
 import type {MatcherFunction} from 'expect'
 
-import { postsCardDataForTest } from '@/common/types/postData'
+import { postsCardDataForTest } from '@/types/postData'
 
 
 const isValidPostId = (id: string): boolean => {

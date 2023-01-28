@@ -1,7 +1,7 @@
 import {expect} from '@jest/globals'
 import type {MatcherFunction} from 'expect'
 
-import { postPageDataForTest } from '@/common/types/postData'
+import { postPageDataForTest } from '@/types/postData'
 
 
 const isValidPostId = (id: string): boolean => {

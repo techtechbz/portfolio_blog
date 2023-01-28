@@ -1,5 +1,5 @@
 import { getStaticProps, getStaticPaths } from '@/pages/posts/archives/[month]'
-import { searchResult } from '@/common/types/searchResult'
+import { searchResult } from '@/types/searchResult'
 import "@/matchers/posts/toBeFetchedCardData"
 
 

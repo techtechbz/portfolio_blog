@@ -3,7 +3,7 @@ import fs from 'fs'
 import { getStaticProps, getStaticPaths } from '@/pages/posts/[...id]'
 import "@/matchers/posts/toBeFetchedPostPageData"
 import "@/matchers/posts/toBeFetchedCardData"
-import { postPageDataForTest, postsCardDataForTest } from '@/common/types/postData'
+import { postPageDataForTest, postsCardDataForTest } from '@/types/postData'
 
 
 type staticPagePaths = {
