@@ -10,5 +10,6 @@
 
 @media (min-width:768px) {
   .FooterContainer {display: flex; margin: 8px 12vw 12px}
+  .FooterMenuContainer {margin: 0px auto 0px 4vw}
   .FooterMenuRow {display: flex; width: 50%}
 }

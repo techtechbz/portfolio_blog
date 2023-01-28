@@ -8,7 +8,7 @@ import sideMenuCss from '@/styles/moduleCss/sideMenu.module.css'
 const NoteIcon = () => {
   return (
     <Icon className={sideMenuCss.SocialNetworksIcon}>
-      <Image alt="note" src="/svg/note_logo.svg" width={46} height={46} sizes="46px" />
+      <Image alt="note" src="/svg/note_logo.svg" width={42} height={42} sizes="46px" />
     </Icon>
   )
 }
