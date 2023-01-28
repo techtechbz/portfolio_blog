@@ -1,0 +1,10 @@
+.ContactPageContainer {margin: 3em 10vw}
+.ContactPageTitle {font-size: 1.7em; line-height: 1.3; font-weight: 700; letter-spacing: -0.05em; margin: 1em .4em 1.6em}
+.ContactFormContainer {margin: 3em}
+.ContactElemetsContainer {margin: 1em}
+
+@media (min-width:768px) {
+  .ContactPageContainer {margin: 3em 18vw}
+  .ContactPageTitle {margin: .5em; font-size: 2.6em}
+  .ContactElemetsContainer {margin: 1em 3em}
+}
