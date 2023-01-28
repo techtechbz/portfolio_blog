@@ -1,5 +1,5 @@
 import { getStaticProps } from '@/pages/index'
-import { postsCardDataForTest } from '@/common/types/postData'
+import { postsCardDataForTest } from '@/types/postData'
 import { SITE_DECSRIPTION, SITE_NAME } from '@/constants/siteOverviews'
 import "@/matchers/posts/toBeFetchedCardData"
 
