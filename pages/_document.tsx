@@ -1,22 +1,27 @@
+import crypto from 'crypto'
+
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
+
 import defaultTheme, { roboto } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache";
 
 export default class MyDocument extends Document {
   render() {
+    const documentProps = this.props as any
     return (
       <Html lang="ja" className={roboto.className}>
-        <Head>
+        <Head nonce={documentProps.nonce}>
           {/* PWA primary color */}
           <meta name="theme-color" content={defaultTheme.palette.primary.main} />
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
           <meta name="emotion-insertion-point" content="" />
-          {(this.props as any).emotionStyleTags}
+          <meta httpEquiv='Content-Security-Policy' content={`object-src 'none'; script-src 'self' 'nonce-${documentProps.nonce}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https:; base-uri 'none';`} />
+          {documentProps.emotionStyleTags}
         </Head>
         <body>
           <Main />
-          <NextScript />
+          <NextScript nonce={documentProps.nonce} />
         </body>
       </Html>
     );
@@ -48,8 +53,11 @@ MyDocument.getInitialProps = async (ctx) => {
     />
   ));
 
+  const nonce = crypto.randomBytes(128).toString("base64")
+
   return {
     ...initialProps,
     emotionStyleTags,
+    nonce,
   };
 };

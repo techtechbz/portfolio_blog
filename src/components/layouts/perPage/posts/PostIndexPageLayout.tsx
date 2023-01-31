@@ -1,31 +1,32 @@
 import { FC, memo } from "react"
 import dynamic from "next/dynamic"
 
-import { htmlPostData, postData } from "@/types/postData";
 import FeaturedPostsContentsPart from "@/uiParts/contents/FeaturedPostsContentsPart";
 import RecentPostsContentsPart from "@/uiParts/contents/RecentPostsContentsPart";
 import MainFeaturedPost from "@/uiParts/top/MainFeaturedPost";
+import { postMatterResultOverviews } from "@/types/matterResultData";
+import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
 
 import indexCss from "@/styles/pageCss/index.module.css";
 
 const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
-  mainFeaturedPostData: postData
-  subFeaturedPostsData: ReadonlyArray<postData>
-  recentPostsData: ReadonlyArray<htmlPostData>
+  mainFeaturedPostCardData: postMatterResultOverviews
+  subFeaturedPostsCardData: featuredPostsCardData
+  recentPostsCardData: recentPostsCardData
   isDesktop: boolean
 }
 
-const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop }: Props) => {
+const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeaturedPostsCardData, recentPostsCardData, isDesktop }: Props) => {
   return (
     <div className={indexCss.IndexContainer}>
       <div className={indexCss.MainFeaturedPost}>
-        <MainFeaturedPost {...{mainFeaturedPostData}} />
+        <MainFeaturedPost {...{mainFeaturedPostCardData}} />
       </div>
       <FeaturedPostsContentsPart
         heading="おススメの投稿"
-        featuredPostsData={subFeaturedPostsData}
+        featuredPostsCardData={subFeaturedPostsCardData}
         isDesktop={isDesktop}
       />
       <hr />
@@ -33,7 +34,7 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeatured
         <div className={indexCss.IndexContents}>
           <RecentPostsContentsPart
             heading="最近の投稿"
-            {...{recentPostsData, isDesktop}}
+            {...{recentPostsCardData, isDesktop}}
           />
         </div>
         {isDesktop && (

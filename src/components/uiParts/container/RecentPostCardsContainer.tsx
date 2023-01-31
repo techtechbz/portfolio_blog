@@ -1,19 +1,19 @@
 import { memo, FC } from "react"
 
-import { htmlPostData } from "@/types/postData";
+import { recentPostsCardData } from "@/types/cardData";
 import RecentPostCard from "../card/RecentPostCard"
 
 import cardCss from "@/styles/moduleCss/recentCard.module.css"
 
 type Props = {
+  recentPostsCardData: recentPostsCardData
   isDesktop: boolean
-  recentPostsData: ReadonlyArray<htmlPostData>
 }
 
-const RecentPostCardsContainer: FC<Props> = memo(({ isDesktop, recentPostsData }: Props) => {
+const RecentPostCardsContainer: FC<Props> = memo(({ recentPostsCardData, isDesktop }: Props) => {
   return (
     <div className="CardContainer">
-      {recentPostsData.map((pageData) => (
+      {recentPostsCardData.map((pageData) => (
         <div className={cardCss.RecentCardContainer} key={pageData.id}>
           <RecentPostCard {...{pageData, isDesktop}} />
         </div>

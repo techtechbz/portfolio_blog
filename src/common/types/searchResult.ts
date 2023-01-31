@@ -1,6 +1,6 @@
-import { htmlPostData } from "./postData"
+import { recentPostsCardData } from "./cardData"
 
-export type searchResult = {
-  readonly foundPostsData: ReadonlyArray<htmlPostData>
+export interface searchResult {
+  readonly foundPostsData: recentPostsCardData
   readonly resultMessage: Readonly<string>
 }

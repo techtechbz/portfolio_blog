@@ -11,15 +11,16 @@ const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
   searchResultData: searchResult
+  retrievedContent: string
   isDesktop: boolean
 }
 
-const SearchResultPageLayout: FC<Props> = memo(({ searchResultData, isDesktop }: Props) => {
+const SearchResultPageLayout: FC<Props> = memo(({ searchResultData, retrievedContent, isDesktop }: Props) => {
   return (
     <div className={searchCss.SearchPage}>
       <div className={searchCss.SearchPageFlexBox}>
         <div className={searchCss.SearchPageContents}>
-          <SearchResultContentsPart {...{searchResultData, isDesktop}} />
+          <SearchResultContentsPart {...{searchResultData, retrievedContent, isDesktop}} />
         </div>
         {isDesktop && (
           <div className={searchCss.SearchPageSideMenu}>

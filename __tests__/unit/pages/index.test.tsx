@@ -2,13 +2,14 @@ import { getStaticProps } from '@/pages/index'
 import { postsCardDataForTest } from '@/types/postData'
 import { SITE_DECSRIPTION, SITE_NAME } from '@/constants/siteOverviews'
 import "@/matchers/posts/toBeFetchedCardData"
+import { featuredPostsCardData, recentPostsCardData } from '@/common/types/cardData'
 
 
 type staticPageProps = {
   title?: string
   description?: string
-  featuredPostsData?: postsCardDataForTest
-  recentPostsData?: postsCardDataForTest
+  featuredPostsCardData?: featuredPostsCardData
+  recentPostsCardData?: recentPostsCardData
 }
 
 describe('Home page test', () => {
@@ -29,10 +30,10 @@ describe('Home page test', () => {
   })
 
   it('Fetching featuredPostsData test', async () => {
-    expect(staticProps.featuredPostsData).toBeFetchedFeaturedPostsData()
+    expect(staticProps.featuredPostsCardData).toBeFetchedFeaturedPostsCardData()
   })
 
   it('Fetching recentPostsData test', async () => {
-    expect(staticProps.recentPostsData).toBeFetchedRecentPostsData()
+    expect(staticProps.recentPostsCardData).toBeFetchedRecentPostsCardData()
   })
 })

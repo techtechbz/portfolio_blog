@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 import Image from "next/image"
 
-import { postData } from "@/types/postData"
+import { postMatterResultOverviews } from "@/types/matterResultData";
 import DefaultPageIntroduceCard from "./parts/DefaultPageIntroduceCard";
 import DefaultCardContent from "./parts/DefaultCardContent";
 import SideImageCardMedia from "./parts/SideImageCardMedia";
@@ -11,7 +11,7 @@ import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
 
 type Props = {
-  pageData: postData
+  pageData: postMatterResultOverviews
   isDesktop: boolean
 }
 

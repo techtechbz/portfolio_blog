@@ -2,10 +2,10 @@ import { GetStaticProps, GetStaticPaths } from "next"
 
 import { ParsedUrlQuery } from "querystring"
 
-import { getSearchedArchivePostsData } from "@/lib/posts/searchPosts/getSearchedArchiveFileIds";
 import { ARCHIVES_LIST } from "@/constants/archivesList";
 import { searchResult } from "@/types/searchResult";
 import SearchResultPageLayout from "@/layouts/perPage/posts/SearchResultPageLayout"
+import fetchingSearchedArchivePostsData from "@/lib/posts/search/searchingPostArchives";
 
 
 interface Params extends ParsedUrlQuery {
@@ -14,12 +14,13 @@ interface Params extends ParsedUrlQuery {
 
 type Props = {
   searchResultData: searchResult
+  retrievedContent: string
   isDesktop: boolean
 }
 
-export default function PostSearchPage({ searchResultData, isDesktop }: Props) {
+export default function PostSearchPage({ searchResultData, retrievedContent, isDesktop }: Props) {
   return(
-    <SearchResultPageLayout {...{searchResultData, isDesktop}} />
+    <SearchResultPageLayout {...{searchResultData, retrievedContent, isDesktop}} />
   )
 }
 
@@ -33,12 +34,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params as Params
-  const searchResultData = await getSearchedArchivePostsData(params.month)
+  const searchResultData = await fetchingSearchedArchivePostsData(params.month)
+  const retrievedContent = `アーカイブ【${ARCHIVES_LIST[params.month].text}】`
   return {
     props: {
       title: "検索結果",
       description: "サイト内投稿の検索結果です。",
-      searchResultData
+      searchResultData,
+      retrievedContent
     }
   }
 }
