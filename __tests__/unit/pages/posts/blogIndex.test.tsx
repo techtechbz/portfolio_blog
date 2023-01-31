@@ -1,14 +1,16 @@
 import { getStaticProps } from '@/pages/posts/index'
-import { mainFeaturedPostDataForTest, postsCardDataForTest } from '@/types/postData'
 import "@/matchers/posts/toBeFetchedCardData"
+
+import { postMatterResultOverviews } from '@/common/types/matterResultData'
+import { featuredPostsCardData, recentPostsCardData } from '@/common/types/cardData'
 
 
 type staticPageProps = {
   title?: string
   description?: string
-  mainFeaturedPostData?: mainFeaturedPostDataForTest
-  subFeaturedPostsData?: postsCardDataForTest
-  recentPostsData?: postsCardDataForTest
+  mainFeaturedPostCardData?: postMatterResultOverviews
+  subFeaturedPostsCardData?: featuredPostsCardData
+  recentPostsCardData?: recentPostsCardData
 }
 
 describe('Home page test', () => {
@@ -28,15 +30,15 @@ describe('Home page test', () => {
     expect(typeof staticProps.description).toBe('string')
   })
 
-  it('Fetching mainFeaturedPostData test', async () => {
-    expect([staticProps.mainFeaturedPostData]).toBeFetchedFeaturedPostsData()
+  it('Fetching mainFeaturedPostCardData test', async () => {
+    expect([staticProps.mainFeaturedPostCardData]).toBeFetchedFeaturedPostsCardData()
   })    
 
-  it('Fetching subFeaturedPostsData test', async () => {
-    expect(staticProps.subFeaturedPostsData).toBeFetchedFeaturedPostsData()
+  it('Fetching subFeaturedPostCardData test', async () => {
+    expect(staticProps.subFeaturedPostsCardData).toBeFetchedFeaturedPostsCardData()
   })
 
-  it('Fetching recentPostsData test', async () => {
-    expect(staticProps.recentPostsData).toBeFetchedRecentPostsData()
+  it('Fetching recentPostsCardData test', async () => {
+    expect(staticProps.recentPostsCardData).toBeFetchedRecentPostsCardData()
   })
 })

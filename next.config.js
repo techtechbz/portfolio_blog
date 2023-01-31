@@ -45,10 +45,6 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
           },
-          {
-            key: 'Contents-Security-Policy',
-            value: "default-src 'self';script-src 'self';img-src 'self';child-src 'self';style-src 'self';font-src: 'self'"
-          }
         ],
       }
     ]

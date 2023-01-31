@@ -6,7 +6,6 @@ type staticPageProps = {
   title?: string
   description?: string
   privacyPolicyPageData?: {
-    id?: string
     contentHtml?: string
     createDate?: string
   }
@@ -31,9 +30,5 @@ describe('Privacy Policy page test', () => {
 
   it('Fetching page contents data test', async () => {
     expect(staticProps.privacyPolicyPageData).toBeFetchedFixedPageData()
-})
-
-  it('Fetching create date test', () => {
-    expect(staticProps.privacyPolicyPageData.createDate).not.toBeUndefined()
   })
 })

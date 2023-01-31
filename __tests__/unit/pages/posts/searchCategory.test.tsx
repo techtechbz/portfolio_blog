@@ -49,6 +49,6 @@ describe('Home page test', () => {
   })
 
   it('Fetching searchResultData test', async () => {
-    expect(staticProps.searchResultData.foundPostsData).toBeFetchedRecentPostsData()
+    expect(staticProps.searchResultData.foundPostsData).toBeFetchedRecentPostsCardData()
   })
 })
