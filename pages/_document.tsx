@@ -6,9 +6,11 @@ import createEmotionServer from "@emotion/server/create-instance";
 import defaultTheme, { roboto } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache";
 
+
 export default class MyDocument extends Document {
   render() {
     const documentProps = this.props as any
+    const csp = `img-src 'self' data:; script-src 'self' 'nonce-${documentProps.nonce}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
     return (
       <Html lang="ja" className={roboto.className}>
         <Head nonce={documentProps.nonce}>
@@ -16,7 +18,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={defaultTheme.palette.primary.main} />
           <link rel="shortcut icon" href="/favicon/favicon.ico" />
           <meta name="emotion-insertion-point" content="" />
-          <meta httpEquiv='Content-Security-Policy' content={`object-src 'none'; script-src 'self' 'nonce-${documentProps.nonce}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https:; base-uri 'none';`} />
+          <meta httpEquiv='Content-Security-Policy' content={csp} />
           {documentProps.emotionStyleTags}
         </Head>
         <body>
