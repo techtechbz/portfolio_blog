@@ -1,8 +1,8 @@
 import { getStaticProps } from '@/pages/posts/index'
 import "@/matchers/posts/toBeFetchedCardData"
 
-import { postMatterResultOverviews } from '@/common/types/matterResultData'
-import { featuredPostsCardData, recentPostsCardData } from '@/common/types/cardData'
+import { postMatterResultOverviews } from '@/types/matterResultData'
+import { featuredPostsCardData, recentPostsCardData } from '@/types/cardData'
 
 
 type staticPageProps = {

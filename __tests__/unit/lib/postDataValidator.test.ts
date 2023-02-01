@@ -1,4 +1,4 @@
-import { PostDataValidator } from "@/lib/posts/PostDataValidator"
+import { PostDataValidator } from "@/lib/posts/dataHandler/PostDataValidator"
 
 
 const postDataValidator = new PostDataValidator()

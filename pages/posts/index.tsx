@@ -2,7 +2,7 @@ import { GetStaticProps } from "next"
 
 import PostIndexPageLayout from "@/layouts/perPage/posts/PostIndexPageLayout"
 import { blogIndexPageCardData } from "@/types/cardData";
-import { fetchingBlogIndexPageCardData } from "@/lib/posts/pageData/fetchingIndexPageData";
+import { fetchingBlogIndexPageCardData } from "@/lib/posts/fetchers/pageDataFetcher/fetchingIndexPageData";
 
 
 type Props = blogIndexPageCardData & {

@@ -1,8 +1,8 @@
 import {expect} from '@jest/globals'
 import type {MatcherFunction} from 'expect'
 
-import { PostDataValidator } from '@/lib/posts/PostDataValidator'
-import { featuredPostsCardData, recentPostsCardData } from '@/common/types/cardData'
+import { PostDataValidator } from '@/lib/posts/dataHandler/PostDataValidator'
+import { featuredPostsCardData, recentPostsCardData } from '@/types/cardData'
 
 
 const postDataValidator = new PostDataValidator()

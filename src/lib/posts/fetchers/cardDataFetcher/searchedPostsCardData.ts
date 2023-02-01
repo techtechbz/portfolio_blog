@@ -1,6 +1,6 @@
-import { PostMatterResultData } from "../matterResultData/matterResultData";
-import { MdFilePath } from "../mdFilePath/valueObect";
-import { RecentPostCardContent } from "../postContent/recentPostCardContent";
+import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
+import { MdFilePath } from "../../valueObjects/mdFilePath"
+import { RecentPostCardContent } from "../../valueObjects/postContents/recentPostCardContent";
 
 
 export class SearchedPostsCardData {

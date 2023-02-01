@@ -12,14 +12,14 @@ import 'prismjs/plugins/show-language/prism-show-language.min'
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
-import { CLOBBER_PREFIX } from '@/constants/postConfig'
-import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
-import fetchingPostPageData from '@/lib/posts/pageData/fetchingPostPageData'
-import fetchingRelatedPostsCardData from '@/lib/posts/cardData/fetchingRelatedPostsCardData'
-import { MdFilePathsFetcher } from '@/lib/posts/mdFilePath/fetcher'
-import { MdFilePath } from '@/lib/posts/mdFilePath/valueObect'
 import { postPageData } from '@/types/matterResultData'
+import { CLOBBER_PREFIX } from '@/constants/postConfig'
 import { featuredPostsCardData } from '@/types/cardData'
+import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
+import fetchingPostPageData from '@/lib/posts/fetchers/pageDataFetcher/fetchingPostPageData'
+import fetchingRelatedPostsCardData from '@/lib/posts/fetchers/cardDataFetcher/fetchingRelatedPostsCardData'
+import { MdFilePathsFetcher } from '@/lib/posts/fetchers/mdFilePathsFetcher'
+import { MdFilePath } from '@/lib/posts/valueObjects/mdFilePath'
 
 
 interface Params extends ParsedUrlQuery {

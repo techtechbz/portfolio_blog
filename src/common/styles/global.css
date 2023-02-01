@@ -84,7 +84,7 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 .PostsLineUpHeading {width: 100%; font-size: 1.5em; font-weight: 700; padding: .3em .6em; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
 .CardContainer {padding: 16px 12px 0}
 .BlackTextLink {padding: 4px 2px; color: #000000de}
-.BackToHomeLink {padding: 1em}
+.BackToHomeLink {padding: 1.3em}
 .BackToHomeLink > a {font: bold 1.1em sans-serif}
 
 @media (min-width:768px) {

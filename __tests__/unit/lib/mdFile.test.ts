@@ -1,4 +1,4 @@
-import { MdFilePath } from "@/lib/posts/mdFilePath/valueObect"
+import { MdFilePath } from "@/lib/posts/valueObjects/mdFilePath"
 
 
 describe('Site Introduction page test', () => {

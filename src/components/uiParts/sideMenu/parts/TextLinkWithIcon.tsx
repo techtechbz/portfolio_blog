@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Stack from "@mui/material/Stack";
 
-import { menuLinks } from "@/types/menuLinks";
+import { menuLinksItem } from "@/types/menuLinksList";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
@@ -14,15 +14,15 @@ const MonetizationOnIcon = dynamic(() => import("@mui/icons-material/Monetizatio
 const TerminalIcon = dynamic(() => import("@mui/icons-material/Terminal"))
 const BarChartIcon = dynamic(() => import("@mui/icons-material/BarChart"))
 
-const BLOG_ICONS_LIST: { [key: string]: any } = {
+const blogIconsList: { [key: string]: any } = {
   "function": FunctionsIcon,
   "monetizationOn": MonetizationOnIcon,
   "terminal": TerminalIcon,
   "barChart": BarChartIcon,
 }
 
-const TextLinkWithIcon: FC<menuLinks> = memo(({ text, href, iconName }: menuLinks) => {
-  const IconNode = !iconName ? <></> : BLOG_ICONS_LIST[iconName]
+const TextLinkWithIcon: FC<menuLinksItem> = memo(({ text, href, iconName }: menuLinksItem) => {
+  const IconNode = !iconName ? <></> : blogIconsList[iconName]
   return(
     <div className={sideMenuCss.SideMenuLinks}>
       <span>{"・"}</span>

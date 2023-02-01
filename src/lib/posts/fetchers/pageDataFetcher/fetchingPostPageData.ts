@@ -1,6 +1,6 @@
-import { PostMatterResultData } from "../matterResultData/matterResultData";
-import { MdFilePath } from "../mdFilePath/valueObect";
-import { PostPageContent } from "../postContent/postPageContent";
+import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
+import { MdFilePath } from "../../valueObjects/mdFilePath"
+import { PostPageContent } from "../../valueObjects/postContents/postPageContent";
 
 
 class PostPageDataFetcher {

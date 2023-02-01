@@ -1,10 +1,11 @@
 import { FC, memo } from "react"
-import { menuLinks } from "@/types/menuLinks";
+
+import { menuLinksItem } from "@/types/menuLinksList";
 
 import BlackTextLink from "@/uiElements/link/BlackTextLink";
 
 
-const FooterLink: FC<menuLinks> = memo(({ text, href }: menuLinks) => (
+const FooterLink: FC<menuLinksItem> = memo(({ text, href }: menuLinksItem) => (
   <BlackTextLink href={href}>
     {`・${text}`}
   </BlackTextLink>

@@ -1,5 +1,5 @@
-import { SearchedPostsCardData } from "../cardData/searchedPostsCardData";
-import { MdFilePathsFetcher } from "../mdFilePath/fetcher"
+import { SearchedPostsCardData } from "../cardDataFetcher/searchedPostsCardData";
+import { MdFilePathsFetcher } from "../mdFilePathsFetcher";
 
 
 class SearchedArchivePostsFetcher {

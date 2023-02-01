@@ -2,7 +2,7 @@ import { FC, memo } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 
-import { postPageData } from "@/common/types/matterResultData";
+import { postPageData } from "@/types/matterResultData";
 import DefaultPageIntroduceCard from "./parts/DefaultPageIntroduceCard";
 import DefaultCardContent from "./parts/DefaultCardContent";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";

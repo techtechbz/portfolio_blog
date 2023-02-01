@@ -1,6 +1,6 @@
-import { PostMatterResultData } from "../matterResultData/matterResultData"
-import { PostDataValidator } from "../PostDataValidator"
-import { MdFilePath } from "../mdFilePath/valueObect"
+import { PostDataValidator } from "../../dataHandler/PostDataValidator"
+import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
+import { MdFilePath } from "../../valueObjects/mdFilePath"
 
 
 class RelatedPostsCardDataFetcher {

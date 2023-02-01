@@ -1,10 +1,10 @@
 import fs from 'fs'
 
-import { RegExpMdFilePathsPattern } from './pattern';
+import { RegExpMdFilePathPatterns } from '../dataHandler/mdFilePathPatterns';
 
 
 export class MdFilePath {
-  private readonly regExpMdFilePathsPattern = new RegExpMdFilePathsPattern()
+  private readonly regExpMdFilePathPatterns = new RegExpMdFilePathPatterns()
   readonly postId: string = "empty"
   readonly fullPath: string = "empty"
 
@@ -21,16 +21,16 @@ export class MdFilePath {
   }
 
   private readonly constructFullPathFromPostId = (postId: string) => {
-    if (!this.regExpMdFilePathsPattern.postIdPattern.exec(postId)) throw new Error(`(${postId}) IDが有効ではありません。`)
+    if (!this.regExpMdFilePathPatterns.postIdPattern.exec(postId)) throw new Error(`(${postId}) IDが有効ではありません。`)
     const fullPath = `/app/postsMd/${postId}.md`
     fs.statSync(fullPath)
     return fullPath
   }
 
   private readonly constructPostIdFromFullPath = (fullPath: string) => {
-    if (!this.regExpMdFilePathsPattern.fullMdFilePathPattern.exec(fullPath)) throw new Error(`(${fullPath}) ファイルパスが有効ではありません。`)
+    if (!this.regExpMdFilePathPatterns.fullMdFilePathPattern.exec(fullPath)) throw new Error(`(${fullPath}) ファイルパスが有効ではありません。`)
     const fullPathWithoutExtension = fullPath.split('.')[0]
     fs.statSync(`${fullPathWithoutExtension}.md`)
-    return fullPath.replace(this.regExpMdFilePathsPattern.fullMdFilePathPattern, "$1")
+    return fullPath.replace(this.regExpMdFilePathPatterns.fullMdFilePathPattern, "$1")
   }
 }

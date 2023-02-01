@@ -1,6 +1,7 @@
-import { FixedPageMatterResultData } from "../matterResultData/matterResultData";
-import { MdFilePath } from "../mdFilePath/valueObect";
-import { FixedPageContent } from "../postContent/fixedPageContent";
+
+import { FixedPageMatterResultData } from "../../valueObjects/matterResultData/fixedMatterResultData";
+import { MdFilePath } from "../../valueObjects/mdFilePath"
+import { FixedPageContent } from "../../valueObjects/postContents/fixedPageContent";
 
 
 class FixedPageDataFetcher {

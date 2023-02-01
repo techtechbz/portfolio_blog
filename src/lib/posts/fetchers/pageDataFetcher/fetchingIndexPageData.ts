@@ -1,9 +1,9 @@
-import { postPageData } from "@/common/types/matterResultData";
+import { postPageData } from "@/types/matterResultData";
 import { blogIndexPageCardData, featuredPostsCardData, homePageCardData, recentPostsCardData } from "@/types/cardData";
-import { PostMatterResultData } from "../matterResultData/matterResultData";
-import { MdFilePathsFetcher } from "../mdFilePath/fetcher";
-import { MdFilePath } from "../mdFilePath/valueObect";
-import { RecentPostCardContent } from "../postContent/recentPostCardContent";
+import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
+import { MdFilePath } from "../../valueObjects/mdFilePath"
+import { MdFilePathsFetcher } from "../mdFilePathsFetcher";
+import { RecentPostCardContent } from "../../valueObjects/postContents/recentPostCardContent";
 
 
 class IndexPageDataFetcher {

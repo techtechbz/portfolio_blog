@@ -2,7 +2,7 @@ import { FC, memo } from "react"
 
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 
-import { BLOG_CATEGORIES_LIST } from "@/constants/blogCategories";
+import { PostCategory } from "@/lib/posts/dataHandler/postCategory";
 import BlackTextLink from "./BlackTextLink";
 
 import postCss from "@/styles/pageCss/staticPage.module.css";
@@ -14,7 +14,8 @@ type Props = {
 }
 
 const PostBreadCrumbs: FC<Props> = memo(({ postId, postTitle }: Props) => {
-  const postCategory = postId.split("/")[0]
+  const postDirectory = postId.split("/")[0]
+  const postCategoryName = new PostCategory().categoryNamesList[postDirectory]
   return(
     <Breadcrumbs separator=">" aria-label="post breadcrumb">
       <div className={postCss.PostBreadCrumbsLink}>
@@ -23,8 +24,8 @@ const PostBreadCrumbs: FC<Props> = memo(({ postId, postTitle }: Props) => {
         </BlackTextLink>
       </div>
       <div className={postCss.PostBreadCrumbsLink}>
-        <BlackTextLink href={`/posts/${postCategory}`}>
-          {BLOG_CATEGORIES_LIST[postCategory].text}
+        <BlackTextLink href={`/posts/${postDirectory}`}>
+          {postCategoryName}
         </BlackTextLink>
       </div>
       <div className={postCss.PostBreadCrumbsLink}>

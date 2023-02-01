@@ -3,7 +3,7 @@ import { GetStaticProps } from "next"
 import { SITE_DECSRIPTION, SITE_NAME } from "@/constants/siteOverviews";
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
 import HomeLayout from "@/layouts/perPage/HomeLayout"
-import { fetchingHomePageCardData } from "@/lib/posts/pageData/fetchingIndexPageData";
+import { fetchingHomePageCardData } from "@/lib/posts/fetchers/pageDataFetcher/fetchingIndexPageData";
 
 
 type Props = {

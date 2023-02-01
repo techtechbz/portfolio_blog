@@ -1,10 +1,10 @@
-import { MdFilePath } from "./valueObect"
-import { GlobMdFilePathsPattern } from "./pattern"
+import { GlobMdFilePathPatterns } from "../dataHandler/mdFilePathPatterns"
+import { MdFilePath } from "../valueObjects/mdFilePath"
 
 
 export class MdFilePathsFetcher {
   private readonly glob = require("glob")
-  private readonly globMdFilePathPattern = new GlobMdFilePathsPattern()
+  private readonly globMdFilePathPattern = new GlobMdFilePathPatterns()
 
   private mdFilePathClassList(pathList: ReadonlyArray<string>): ReadonlyArray<MdFilePath> {
     return pathList.map((path: string) => new MdFilePath("fullPath", path))

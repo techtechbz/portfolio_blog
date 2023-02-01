@@ -2,7 +2,7 @@ import { getStaticProps } from '@/pages/index'
 import { postsCardDataForTest } from '@/types/postData'
 import { SITE_DECSRIPTION, SITE_NAME } from '@/constants/siteOverviews'
 import "@/matchers/posts/toBeFetchedCardData"
-import { featuredPostsCardData, recentPostsCardData } from '@/common/types/cardData'
+import { featuredPostsCardData, recentPostsCardData } from '@/types/cardData'
 
 
 type staticPageProps = {

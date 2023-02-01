@@ -3,8 +3,8 @@ import fs from 'fs'
 import { getStaticProps, getStaticPaths } from '@/pages/posts/[...id]'
 import "@/matchers/posts/toBeFetchedPostPageData"
 import "@/matchers/posts/toBeFetchedCardData"
-import { postPageData } from '@/common/types/matterResultData'
-import { featuredPostsCardData } from '@/common/types/cardData'
+import { postPageData } from '@/types/matterResultData'
+import { featuredPostsCardData } from '@/types/cardData'
 
 
 type staticPagePaths = {

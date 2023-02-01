@@ -1,17 +1,17 @@
 import fs from 'fs'
 
 import { postMatterResultOverviews, fixedPageMatterResultOverviews, postPageData, fixedPageData } from '@/types/matterResultData'
-import { RegExpMdFilePathsPattern } from './mdFilePath/pattern'
+import { RegExpMdFilePathPatterns } from './mdFilePathPatterns'
 
 
 export class PostDataValidator {
-  private readonly regExpMdFilePathsPattern = new RegExpMdFilePathsPattern()
+  private readonly regExpMdFilePathPatterns = new RegExpMdFilePathPatterns()
 
   readonly postIdValidator = (postId?: string) => {
     if (typeof postId !== 'string') {
       throw new Error('IDが指定されていません。')
     } else {
-      if (!this.regExpMdFilePathsPattern.postIdPattern.exec(postId)) throw new Error(`postId(${postId})が有効ではありません`)
+      if (!this.regExpMdFilePathPatterns.postIdPattern.exec(postId)) throw new Error(`postId(${postId})が有効ではありません`)
       fs.statSync(`/app/postsMd/${postId}.md`)
     }
   }
