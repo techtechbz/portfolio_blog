@@ -3,11 +3,11 @@ import Link from "next/link"
 
 import ListItem from "@mui/material/ListItem"
 
-import { menuLinks } from "@/types/menuLinks"
+import { menuLinksItem } from "@/types/menuLinksList"
 import { CustomListItemButton, CustomListItemText } from "./CustomListItems"
 
 
-const DrawerMenuList: FC<menuLinks> = memo(({ text, href }: menuLinks) => {
+const DrawerMenuList: FC<menuLinksItem> = memo(({ text, href }: menuLinksItem) => {
   return (
     <div className="DrawerMenuList">
       <Link className="DrawerMenuListLink" href={href}>

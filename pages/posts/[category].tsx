@@ -4,8 +4,8 @@ import { ParsedUrlQuery } from "querystring"
 
 import { searchResult } from "@/types/searchResult";
 import SearchResultPageLayout from "@/layouts/perPage/posts/SearchResultPageLayout"
-import fetchingSearchedCategoryPostsData from "@/lib/posts/search/searchingCategoryPost";
-import { PostCategory } from "@/lib/posts/postCategory";
+import fetchingSearchedCategoryPostsData from "@/lib/posts/fetchers/searchPosts/searchingCategoryPost";
+import { PostCategory } from "@/lib/posts/dataHandler/postCategory";
 
 
 interface Params extends ParsedUrlQuery {

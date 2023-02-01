@@ -1,12 +1,12 @@
 import { FC, memo } from "react";
 import Link from "next/link";
 
-import { menuLinks } from "@/types/menuLinks";
+import { menuLinksItem } from "@/types/menuLinksList";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const ArchivesLinks: FC<menuLinks> = memo(({text, href}: menuLinks) => (
+const ArchivesLinks: FC<menuLinksItem> = memo(({text, href}: menuLinksItem) => (
   <div className={sideMenuCss.SideMenuLinks}>
     <Link href={href}>
       {`・${text}`}

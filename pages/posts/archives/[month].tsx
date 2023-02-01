@@ -2,10 +2,10 @@ import { GetStaticProps, GetStaticPaths } from "next"
 
 import { ParsedUrlQuery } from "querystring"
 
-import { ARCHIVES_LIST } from "@/constants/archivesList";
 import { searchResult } from "@/types/searchResult";
 import SearchResultPageLayout from "@/layouts/perPage/posts/SearchResultPageLayout"
-import fetchingSearchedArchivePostsData from "@/lib/posts/search/searchingPostArchives";
+import fetchingSearchedArchivePostsData from "@/lib/posts/fetchers/searchPosts/searchingPostArchives";
+import { PostArchives } from "@/lib/posts/dataHandler/postArchives";
 
 
 interface Params extends ParsedUrlQuery {
@@ -18,6 +18,8 @@ type Props = {
   isDesktop: boolean
 }
 
+const postArchives = new PostArchives()
+
 export default function PostSearchPage({ searchResultData, retrievedContent, isDesktop }: Props) {
   return(
     <SearchResultPageLayout {...{searchResultData, retrievedContent, isDesktop}} />
@@ -25,9 +27,8 @@ export default function PostSearchPage({ searchResultData, retrievedContent, isD
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const archiveParams = Object.keys(ARCHIVES_LIST).map((month) => ({params: {month}}))
   return {
-    paths: archiveParams,
+    paths: postArchives.archivesParams,
     fallback: false
   }
 }
@@ -35,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params as Params
   const searchResultData = await fetchingSearchedArchivePostsData(params.month)
-  const retrievedContent = `アーカイブ【${ARCHIVES_LIST[params.month].text}】`
+  const retrievedContent = `アーカイブ【${postArchives.getArchivesText(params.month)}】`
   return {
     props: {
       title: "検索結果",

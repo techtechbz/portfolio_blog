@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next"
 
 import PrivacyPolicyPageLayout from "@/layouts/perPage/PrivacyPolicyPageLayout"
-import fetchingFixedPageData from "@/lib/posts/pageData/fetchingFixedPageData"
+import fetchingFixedPageData from "@/lib/posts/fetchers/pageDataFetcher/fetchingFixedPageData"
 
 import staticPageStyles from "@/styles/pageCss/staticPage.module.css"
 

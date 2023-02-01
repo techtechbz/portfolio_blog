@@ -5,8 +5,8 @@ import dynamic from "next/dynamic"
 import Tooltip from "@mui/material/Tooltip"
 import IconButton from "@mui/material/IconButton"
 
-import { menuLinks } from "@/types/menuLinks";
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { menuLinksItem } from "@/types/menuLinksList";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
@@ -14,13 +14,13 @@ import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 const NoteIcon = dynamic(() => import("@/uiElements/icon/NoteIcon"))
 const GitHubIcon = dynamic(() => import("@mui/icons-material/GitHub"))
 
-const SOCIAL_NETWORK_ICONS_LIST: { [key: string]: any } = {
+const socialNetworkIconsList: { [key: string]: any } = {
   "github": GitHubIcon,
   "note": NoteIcon,
 }
 
-const SocialNetworkLinkButton: FC<menuLinks> = memo(({ text, href, iconName }: menuLinks) => {
-  const IconNode = !iconName ? <></> : SOCIAL_NETWORK_ICONS_LIST[iconName]
+const SocialNetworkLinkButton: FC<menuLinksItem> = memo(({ text, href, iconName }: menuLinksItem) => {
+  const IconNode = !iconName ? <></> : socialNetworkIconsList[iconName]
   return (
     <Link href={href} passHref>
       <Tooltip title={`${text}ページへ`} arrow>

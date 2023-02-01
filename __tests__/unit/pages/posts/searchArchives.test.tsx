@@ -25,7 +25,7 @@ describe('Home page test', () => {
 
   it('Static paths test', () => {
     for (const path of staticPaths.paths) {
-      expect(path.params.month).toBe('2023-01')
+      expect(/[0-9]{4}\-0[0-9]{1}/.exec(path.params.month) !== null).toBe(true)
     }
   })
 
