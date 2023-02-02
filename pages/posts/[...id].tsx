@@ -12,8 +12,8 @@ import 'prismjs/plugins/show-language/prism-show-language.min'
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
-import { postPageData } from '@/types/matterResultData'
 import { CLOBBER_PREFIX } from '@/constants/postConfig'
+import { postPageData } from '@/types/matterResultData'
 import { featuredPostsCardData } from '@/types/cardData'
 import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
 import fetchingPostPageData from '@/lib/posts/fetchers/pageDataFetcher/fetchingPostPageData'

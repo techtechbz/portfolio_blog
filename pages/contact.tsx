@@ -1,9 +1,9 @@
 import { FormEvent, SyntheticEvent, useCallback, useState } from 'react'
 import { GetStaticProps } from "next"
 
-import ContactPageLayout from "@/layouts/perPage/ContactPageLayout"
 import { useContactForm } from '@/common/hooks/useContactForm';
 import { contactFormData, snackbarData } from '@/types/contactFormData';
+import ContactPageLayout from "@/layouts/perPage/ContactPageLayout"
 
 
 export default function Contact() {

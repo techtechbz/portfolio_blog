@@ -1,15 +1,13 @@
 import { FC, memo } from "react"
-import dynamic from "next/dynamic"
 
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import FeaturedPostsContentsPart from "@/uiParts/contents/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "@/uiParts/contents/RecentPostsContentsPart";
-import HomeMainTopWindow from "@/uiParts/top/HomeMainTopWindow";
+import FeaturedPostsContentsPart from "@/uiParts/pageContents/index/FeaturedPostsContentsPart";
+import RecentPostsContentsPart from "@/uiParts/pageContents/index/RecentPostsContentsPart";
+import HomeMainTopWindow from "@/uiParts/commonLayout/top/HomeMainTopWindow";
+import SideMenu from "@/components/uiParts/commonLayout/sideMenu/SideMenu"
 
 import indexCss from "@/styles/pageCss/index.module.css";
 
-
-const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
   featuredPostsCardData: featuredPostsCardData

@@ -131,6 +131,8 @@ describe('Post Data Validator test', () => {
      expected: true},
     {data: {updateDate: "2023-1-1"},
      expected: false},
+    {data: {createDate: "2023-1-2", updateDate: "2023-1-1"},
+     expected: false},
     {data: {createDate: "20231-1"},
      expected: false},
   ])('Fixed page matter result overviews validator test ($data)', ({data, expected}) => {

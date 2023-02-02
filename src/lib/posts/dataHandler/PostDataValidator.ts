@@ -69,8 +69,13 @@ export class PostDataValidator {
   }
 
   readonly fixedPageMatterResultOverviewsValidator = (matterResultOverviews: fixedPageMatterResultOverviews) => {
+    if (matterResultOverviews.updateDate !== undefined) { 
+      if (matterResultOverviews.createDate === undefined) throw new Error('作成日時(createDate)が指定されていません。')
+      const createDate = new Date(matterResultOverviews.createDate)
+      const updateDate = new Date(matterResultOverviews.updateDate)
+      if (createDate > updateDate) throw new Error('更新日時が作成日時以前に設定されています。')
+    }
     if (matterResultOverviews.createDate !== undefined) this.postDateValidator(matterResultOverviews.createDate)
-    if (matterResultOverviews.updateDate !== undefined) this.postDateValidator(matterResultOverviews.updateDate)
   }
 
   readonly fixedPageDataValidator = (fixedPageData: fixedPageData) => {

@@ -1,13 +1,11 @@
 import { FC, memo } from "react"
-import dynamic from "next/dynamic"
 
 import { searchResult } from "@/types/searchResult";
-import SearchResultContentsPart from "@/uiParts/contents/SearchResultContentsPart";
+import SearchResultContentsPart from "@/uiParts/pageContents/search/SearchResultContentsPart";
+import SideMenu from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import searchCss from "@/styles/pageCss/search.module.css"
 
-
-const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
   searchResultData: searchResult

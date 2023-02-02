@@ -1,6 +1,6 @@
 import { NextPageContext } from "next";
 
-import ErrorWindow from "@/uiParts/top/ErrorWindow";
+import ErrorWindow from "@/uiParts/commonLayout/top/ErrorWindow";
 
 
 type ErrorPageProps = {

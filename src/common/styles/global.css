@@ -62,12 +62,12 @@ strong {font-weight: 700}
 hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bottom-width: 0}
 
 /* Header */
-.HeaderCenter {flex: 1}
-.HomeButtonLink, .HeaderMenuLink, .DrawerMenuListLink {text-decoration: none; border-radius: 4px}
-.HomeButtonLink {color: #015bb1; font-size: 1.4em; font-weight: 700; padding: 8px 2px}
+.HeaderCenterPadding {flex: 1}
+.SiteNameButtonLink, .HeaderMenuLink, .DrawerMenuListLink {text-decoration: none; border-radius: 4px}
+.SiteNameButtonLink {color: #015bb1; font-size: 1.4em; font-weight: 700; padding: 8px 2px}
 .DrawerMenuListLink, .HeaderMenuLink {color: #000000de}
 .HeaderMenuLink {font-size: 1.2em; padding: 10px}
-.HeaderMenuLink:hover, .HomeButtonLink:hover {background-color: #f8f8f8; transition: all 0.3s}
+.HeaderMenuLink:hover, .SiteNameButtonLink:hover {background-color: #f8f8f8; transition: all 0.3s}
 .DrawerMenuList {padding: 4px 2px}
 
 /* Top */
@@ -91,7 +91,7 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
   body {font-size: 18px}
   h2 {font-size: 1.6em}
   h3 {font-size: 1.4em}
-  .HomeButtonLink {font-size: 1.5em; padding: 12px 8px}
+  .SiteNameButtonLink {font-size: 1.5em; padding: 12px 8px}
   .HeaderMenuLink {font-size: 1.1em; padding: 10px 6px}
   .TopWindowTitle {font-size: 2.7em}
   .TopWindowDescription {font-size: 1.6em}
@@ -100,6 +100,6 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 }
 
 @media (min-width:1024px) {
-  .HomeButtonLink {font-size: 1.8em; padding: 12px 8px}
+  .SiteNameButtonLink {font-size: 1.8em; padding: 12px 8px}
   .HeaderMenuLink {font-size: 1.2em; padding: 10px}
 }
