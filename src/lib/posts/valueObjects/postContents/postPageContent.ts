@@ -10,16 +10,16 @@ import rehypeSanitize, {defaultSchema, Options} from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
 
 import { CLOBBER_PREFIX } from "@/constants/postConfig"
-import { PostContent } from "./postContent"
+import { PageContent } from "./pageContent"
 
 
 export class PostPageContent {
-  private readonly postContent: PostContent
+  private readonly postContent: PageContent
   private readonly prismPlugins: ReadonlyArray<string> = ["line-numbers"]
   private readonly codeLanguages: ReadonlyArray<string> = ["javascript", "js", "typescript", "ts", "jsx", "tsx", "css", "html", "md", "markdown", "dockerfile", "bash", "python", "java", "rust", "sql"]
 
   constructor(content: string) {
-    this.postContent = new PostContent("planeMd", content)
+    this.postContent = new PageContent("planeMd", content)
   }
 
   private readonly addCodeAttributes = (content: string): string => {
@@ -84,6 +84,6 @@ export class PostPageContent {
   
   readonly htmlPostPageContent = async () => {
     const htmlContent = await this.convertContentToHtml()
-    return new PostContent("html", htmlContent)
+    return new PageContent("html", htmlContent)
   }
 }

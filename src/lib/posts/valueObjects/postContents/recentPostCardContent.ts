@@ -4,16 +4,16 @@ import remarkRehype from "remark-rehype"
 import rehypeSanitize from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
 
-import { PostContent } from "./postContent"
+import { PageContent } from "./pageContent"
 
 
 export class RecentPostCardContent {
-  private readonly postContent: PostContent
+  private readonly postContent: PageContent
 
   constructor(content: string) {
     const shortenContent = this.omitContents(content)
     const omitLinksContent = this.omitLinks(shortenContent)
-    this.postContent = new PostContent("planeMd", omitLinksContent)
+    this.postContent = new PageContent("planeMd", omitLinksContent)
   }
 
   private readonly omitLinks = (contents: string): string => contents.replaceAll(/\[([[:^cntrl:]]+)\]\([-_.!~*';/?:@&=+$,%#a-zA-Z0-9]+\)/g, "$1")
@@ -36,6 +36,6 @@ export class RecentPostCardContent {
 
   readonly fetchHtmlCardContent = async () => {
     const htmlContent = await this.convertContentToHtml()
-    return new PostContent("html", htmlContent)
+    return new PageContent("html", htmlContent)
   }
 }

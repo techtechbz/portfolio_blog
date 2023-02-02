@@ -4,9 +4,9 @@ import Image from "next/image"
 import { featuredPostsCardData } from "@/types/cardData";
 import { postPageData } from "@/types/matterResultData";
 import BackToHomeLink from "@/uiElements/link/BackToHomeLink";
-import PostBreadCrumbs from "@/uiElements/link/PostBreadCrumbs";
-import PostDate from  "@/uiElements/text/PostDate";
-import RelatedPostsContentsPart from "@/uiParts/contents/RelatedPostsContentsPart";
+import PostBreadCrumbs from "@/uiParts/pageContents/post/PostBreadCrumbs";
+import PostDate from  "@/uiParts/pageContents/post/PostDate";
+import RelatedPostsContentsPart from "@/uiParts/pageContents/post/RelatedPostsContentsPart";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 import staticPageCss from "@/styles/pageCss/staticPage.module.css"

@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next"
 
-import PostIndexPageLayout from "@/layouts/perPage/posts/PostIndexPageLayout"
 import { blogIndexPageCardData } from "@/types/cardData";
+import PostIndexPageLayout from "@/layouts/perPage/posts/PostIndexPageLayout"
 import { fetchingBlogIndexPageCardData } from "@/lib/posts/fetchers/pageDataFetcher/fetchingIndexPageData";
 
 
@@ -17,7 +17,6 @@ export default function BlogIndexPage({ mainFeaturedPostCardData, subFeaturedPos
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogIndexPageCardData = await fetchingBlogIndexPageCardData()
-
   return {
     props: {
       title: "投稿一覧",

@@ -1,6 +1,6 @@
-import crypto from 'crypto'
-
 import Document, { Html, Head, Main, NextScript } from "next/document";
+
+import crypto from 'crypto'
 import createEmotionServer from "@emotion/server/create-instance";
 
 import defaultTheme, { roboto } from "@/lib/themes/defaultTheme";

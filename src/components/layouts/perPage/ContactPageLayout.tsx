@@ -3,12 +3,12 @@ import { FormEvent, FC, memo, SyntheticEvent } from "react"
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 
-import SubmitButton from "@/uiElements/button/SubmitButton";
-import MessageSummarySelector from "@/uiElements/form/MessageSummarySelector";
-import StatusSnackbar from "@/uiElements/form/StatusSnackbar";
+import { snackbarData } from "@/types/contactFormData";
+import SubmitButton from "@/uiParts/pageContents/contact/SubmitButton";
+import MessageSummarySelector from "@/uiParts/pageContents/contact/MessageSummarySelector";
+import StatusSnackbar from "@/uiParts/pageContents/contact/StatusSnackbar";
 
 import contactPageCss from "@/styles/pageCss/contact.module.css"
-import { snackbarData } from "@/types/contactFormData";
 
 
 type Props = {

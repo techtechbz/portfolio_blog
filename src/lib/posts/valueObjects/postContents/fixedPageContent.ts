@@ -4,14 +4,14 @@ import remarkRehype from "remark-rehype"
 import rehypeSanitize from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
 
-import { PostContent } from "./postContent"
+import { PageContent } from "./pageContent"
 
 
 export class FixedPageContent {
-  private readonly postContent: PostContent
+  private readonly postContent: PageContent
 
   constructor(content: string) {
-    this.postContent = new PostContent("planeMd", content)
+    this.postContent = new PageContent("planeMd", content)
   }
 
   private readonly convertContentToHtml = async (): Promise<string> => {
@@ -26,6 +26,6 @@ export class FixedPageContent {
   
   getHtmlFixedPageContent = async () => {
     const htmlContent = await this.convertContentToHtml()
-    return new PostContent("html", htmlContent)
+    return new PageContent("html", htmlContent)
   }
 }

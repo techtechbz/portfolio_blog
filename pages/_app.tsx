@@ -1,19 +1,18 @@
 import type { AppProps } from "next/app"
-import dynamic from "next/dynamic"
 
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import CustomHead from "../src/components/layouts/CustomHead";
+import CustomHead from "@/layouts/CustomHead";
+import AppLayout from "../src/components/layouts/AppLayout"
 import defaultTheme, { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache"
 
 import "@/styles/global.css"
 
 
-const AppLayout = dynamic(() => import("../src/components/layouts/AppLayout"))
 const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
