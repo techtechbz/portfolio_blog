@@ -1,4 +1,4 @@
-export type contactFormData = {
+export interface contactFormData {
   firstName: string
   lastName: string
   email: string
@@ -6,7 +6,7 @@ export type contactFormData = {
   message: string
 }
 
-export type snackbarData = {
+export interface snackbarData {
   title: string
   status:  "info" | "warning" | "success" | "error";
 }

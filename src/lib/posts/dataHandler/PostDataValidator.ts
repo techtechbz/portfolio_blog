@@ -7,7 +7,7 @@ import { RegExpMdFilePathPatterns } from './mdFilePathPatterns'
 export class PostDataValidator {
   private readonly regExpMdFilePathPatterns = new RegExpMdFilePathPatterns()
 
-  readonly postIdValidator = (postId?: string) => {
+  readonly postIdValidator = (postId?: string): void => {
     if (typeof postId !== 'string') {
       throw new Error('IDが指定されていません。')
     } else {
@@ -16,45 +16,38 @@ export class PostDataValidator {
     }
   }
 
-  readonly stringTypeValidator = (dataName: string, value?: string) => {
+  readonly stringTypeValidator = (dataName: string, value?: string): void => {
     if (typeof value !== 'string') throw new Error(`${dataName}: データ形式が文字列ではありません。`)
   }
 
-  readonly postDateValidator = (dateString?: string) => {
-    if (typeof dateString !== 'string') { 
-      throw new Error('日時が指定されていません。')
-    } else {
-      try {
-        new Date(dateString.replace(/-/g, "/"))
-      } catch (error) {
-        throw new Error('date文字列を日時に変換できません。')
-      }
-    }
+  readonly postDateValidator = (dateString?: string): void => {
+    if (typeof dateString !== 'string') throw new Error('日時が指定されていません。')
+    const writtenPostMonth = Number(dateString.split('-')[1])
+    const postDate = new Date(dateString.replace(/-/g, "/"))
+    const parsedPostYear = postDate.getFullYear() 
+    const parsedPostMonth = postDate.getMonth()
+    if (parsedPostYear < 2022 || parsedPostYear > 2099) throw new Error('投稿年は2022~2099の間で指定してください。')
+    if (parsedPostMonth < 0 || parsedPostMonth >= 12) throw new Error('投稿月は1~12の間で指定してください。')
+    if (parsedPostMonth !== writtenPostMonth - 1) throw new Error('日時が変わっています。')
   }
 
-  readonly eyecatchFileValidator = (fileName?: string) => {
-    if (typeof fileName !== 'string') { 
-      throw new Error('ファイル名が指定されていません。')
-    } else {
-      if (/^[\w-]+\.jpg$/.exec(fileName) === null) throw new Error('ファイル形式はJPEGのみです。')
-      const fileNameWithoutExtension = fileName.split('.')[0]
-      fs.statSync(`/app/public/images/${fileNameWithoutExtension}.jpg`)
-    }
+  readonly eyecatchFileValidator = (fileName?: string): void => {
+    if (typeof fileName !== 'string') throw new Error('ファイル名が指定されていません。')
+    if (/^[\w-]+\.jpg$/.exec(fileName) === null) throw new Error('ファイル形式はJPEGのみです。')
+    const fileNameWithoutExtension = fileName.split('.')[0]
+    fs.statSync(`/app/public/images/${fileNameWithoutExtension}.jpg`)
   }
 
-  readonly postsIdsListValidator = (postIdsList?: ReadonlyArray<string>) => {
-    if (postIdsList === undefined) {
-      throw new Error('IDリストが指定されていません。')
-    } else {
-      postIdsList.map((id: string) => this.postIdValidator(id))
-    }
+  readonly postsIdsListValidator = (postIdsList?: ReadonlyArray<string>): void => {
+    if (postIdsList === undefined) throw new Error('IDリストが指定されていません。')
+    postIdsList.map((id: string) => this.postIdValidator(id))
   }
 
-  readonly postContentValidator = (content?: string) => {
+  readonly postContentValidator = (content?: string): void => {
     this.stringTypeValidator("content", content)
   }
   
-  readonly postMatterResultOverviewsValidator = (matterResultOverviews: postMatterResultOverviews) => {
+  readonly postMatterResultOverviewsValidator = (matterResultOverviews: postMatterResultOverviews): void => {
     this.postIdValidator(matterResultOverviews.id)
     this.stringTypeValidator("title", matterResultOverviews.title)
     this.stringTypeValidator("description", matterResultOverviews.description)
@@ -63,22 +56,23 @@ export class PostDataValidator {
     this.postsIdsListValidator(matterResultOverviews.relatedPostsIds)
   }
 
-  readonly postPageDataValidator = (postPageData: postPageData) => {
+  readonly postPageDataValidator = (postPageData: postPageData): void => {
     this.postMatterResultOverviewsValidator(postPageData)
     this.stringTypeValidator('contentHtml', postPageData.contentHtml)
   }
 
-  readonly fixedPageMatterResultOverviewsValidator = (matterResultOverviews: fixedPageMatterResultOverviews) => {
+  readonly fixedPageMatterResultOverviewsValidator = (matterResultOverviews: fixedPageMatterResultOverviews): void => {
     if (matterResultOverviews.updateDate !== undefined) { 
-      if (matterResultOverviews.createDate === undefined) throw new Error('作成日時(createDate)が指定されていません。')
       const createDate = new Date(matterResultOverviews.createDate)
       const updateDate = new Date(matterResultOverviews.updateDate)
+      this.postDateValidator(matterResultOverviews.createDate)
+      this.postDateValidator(matterResultOverviews.updateDate)
       if (createDate > updateDate) throw new Error('更新日時が作成日時以前に設定されています。')
     }
     if (matterResultOverviews.createDate !== undefined) this.postDateValidator(matterResultOverviews.createDate)
   }
 
-  readonly fixedPageDataValidator = (fixedPageData: fixedPageData) => {
+  readonly fixedPageDataValidator = (fixedPageData: fixedPageData): void => {
     this.fixedPageMatterResultOverviewsValidator(fixedPageData)
     this.stringTypeValidator("conetntHtml", fixedPageData.contentHtml)
   }

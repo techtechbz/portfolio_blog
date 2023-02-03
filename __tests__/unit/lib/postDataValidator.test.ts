@@ -40,10 +40,19 @@ describe('Post Data Validator test', () => {
     {date: '2023-1-2', expected: true},
     {date: '2023-01-02', expected: true},
     {date: '"2023-01-02"', expected: true},
-    {date: new Date('2023-1-2'), expected: false},
+    {date: '2021-12-31', expected: false},
+    {date: '2022-01-01', expected: true},
+    {date: '2099-12-31', expected: true},
+    {date: '2100-01-01', expected: false},
+    {date: '2023-13-01', expected: false},
+    {date: '2023-2-29', expected: false},
+    {date: '2024-2-29', expected: true},
+    {date: 20230102, expected: false},
     {date: undefined, expected: false},
   ])('Post date validator test ($date)', ({date, expected}) => {
-    const validator = () => postDataValidator.postDateValidator(date)
+    const validator = () => {
+      postDataValidator.postDateValidator(date)
+    }
     if (expected) {
       expect(validator).not.toThrow()
     } else {
@@ -125,15 +134,15 @@ describe('Post Data Validator test', () => {
   it.each([
     {data: {createDate: "2023-1-1"},
      expected: true},
-    {data: {createDate: "2023-1-1", updateDate: "2023-3-3"},
+     {data: {createDate: "2023-1-1", updateDate: "2023-3-3"},
      expected: true},
-    {data: {},
+     {data: {},
      expected: true},
+     {data: {createDate: "2021-12-31"},
+      expected: false},
     {data: {updateDate: "2023-1-1"},
      expected: false},
     {data: {createDate: "2023-1-2", updateDate: "2023-1-1"},
-     expected: false},
-    {data: {createDate: "20231-1"},
      expected: false},
   ])('Fixed page matter result overviews validator test ($data)', ({data, expected}) => {
     const validator = () => postDataValidator.fixedPageMatterResultOverviewsValidator(data)
