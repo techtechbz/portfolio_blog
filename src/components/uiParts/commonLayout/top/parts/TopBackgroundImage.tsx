@@ -20,7 +20,7 @@ const MainWindowPaper: FC<{children?: ReactNode}> = styled(Paper)(() => ({
   backgroundPosition: "center",
 }))
 
-const TopBackgroundImage: FC<Props> = memo(({ src, alt, children }: Props) => {
+export const TopBackgroundImage: FC<Props> = memo(({ src, alt, children }: Props) => {
   return (
     <MainWindowPaper>
       {/* 画像 */}
@@ -32,5 +32,3 @@ const TopBackgroundImage: FC<Props> = memo(({ src, alt, children }: Props) => {
     </MainWindowPaper>
   );
 })
-
-export default TopBackgroundImage

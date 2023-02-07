@@ -1,13 +1,13 @@
 import { FC, memo } from "react"
 
-import { formatDateString } from "@/lib/posts/dataHandler/postArchives"
+import { formatDateString } from "@/lib/posts/dataHandler/formatDateString"
 
 type Props = {
   createDateString: string
   updateDateString: string | undefined
 }
 
-const DocumentDate: FC<Props> = memo(({ createDateString, updateDateString }: Props) => {
+export const DocumentDate: FC<Props> = memo(({ createDateString, updateDateString }: Props) => {
   const options = { year: "numeric", month: "short", day: "numeric" } as const
   const formattedCreateDate = formatDateString(createDateString, "ja-JP", options)
   
@@ -20,5 +20,3 @@ const DocumentDate: FC<Props> = memo(({ createDateString, updateDateString }: Pr
       <div>{`更新日 : ${formattedUpdateDate}`}</div>
     </>
 )})
-
-export default DocumentDate

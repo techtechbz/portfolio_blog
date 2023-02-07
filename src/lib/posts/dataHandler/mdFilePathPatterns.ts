@@ -1,3 +1,4 @@
+import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError"
 import { PostCategory } from "./postCategory"
 
 
@@ -21,7 +22,7 @@ export class GlobMdFilePathPatterns extends MdFilePathPatterns {
   }
 
   readonly specificCategoryPostsPathPattern = (category: string): string => {
-    if (!this.postCategory.categoryList.includes(category)) throw new Error(`(${category}) このカテゴリーは存在しません。`)
+    if (!this.postCategory.categoryList.includes(category)) throw new UnexpectedBehaviorError(`(${category}) このカテゴリーは存在しません。`)
     return `/app/postsMd/${category}/*.md`
   }
 }

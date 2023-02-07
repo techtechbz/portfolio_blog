@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 
 import { recentPostsCardData } from "@/types/cardData"
-import RecentPostCardsList from "../card/cardList/RecentPostCardsList"
+import { RecentPostCardsList } from "../card/cardList/RecentPostCardsList"
 
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   isDesktop: boolean
 }
 
-const RecentPostsContentsPart: FC<Props> = memo(({ heading, recentPostsCardData, isDesktop }: Props) => {
+export const RecentPostsLineUpPart: FC<Props> = memo(({ heading, recentPostsCardData, isDesktop }: Props) => {
   return (
     <div className="PostsLineUpPart">
       <h2 className="PostsLineUpHeading">{heading}</h2>
@@ -22,5 +22,3 @@ const RecentPostsContentsPart: FC<Props> = memo(({ heading, recentPostsCardData,
     </div>
   );
 })
-
-export default RecentPostsContentsPart

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { SITE_NAME } from "@/constants/siteOverviews";
 
 
-const SiteNameButton: FC = memo(() => {
+export const SiteNameButton: FC = memo(() => {
   return (
     <div className="SiteNameButton">
       <Link className="SiteNameButtonLink" href="/">
@@ -13,5 +13,3 @@ const SiteNameButton: FC = memo(() => {
     </div>
   )
 })
-
-export default SiteNameButton

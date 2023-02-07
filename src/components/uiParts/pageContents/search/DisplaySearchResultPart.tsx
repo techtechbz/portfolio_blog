@@ -1,8 +1,8 @@
 import { FC, memo } from "react"
 
 import { searchResult } from "@/types/searchResult";
-import SearchErrorResult from './SearchErrorResult'
-import RecentPostCardsList from "../card/cardList/RecentPostCardsList";
+import { SearchErrorResult } from './SearchErrorResult'
+import { RecentPostCardsList } from "../card/cardList/RecentPostCardsList";
 
 import searchCss from "@/styles/pageCss/search.module.css"
 
@@ -13,7 +13,7 @@ type Props = {
   isDesktop: boolean
 }
 
-const SearchResultDisplayPart: FC<Props> = memo(({ searchResultData, retrievedContent, isDesktop }: Props) => {
+export const DisplaySearchResultPart: FC<Props> = memo(({ searchResultData, retrievedContent, isDesktop }: Props) => {
   return (
     <>
       {searchResultData.foundPostsData.length === 0 ? (
@@ -31,5 +31,3 @@ const SearchResultDisplayPart: FC<Props> = memo(({ searchResultData, retrievedCo
     </>
   );
 })
-
-export default SearchResultDisplayPart

@@ -1,12 +1,12 @@
 import { FC, memo } from "react";
 
-import ProfileIcon from "./ProfileIcon";
-import SocialNetworksMenu from "./SocialNetworksMenu";
+import { ProfileIcon } from "./ProfileIcon";
+import { SocialNetworksMenu } from "./SocialNetworksMenu";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const AuthorIntroduction: FC = memo(() => {
+export const AuthorIntroduction: FC = memo(() => {
   return(
     <div className={sideMenuCss.IntroductionBackground}>
       <p className={sideMenuCss.SideMenuTitle}>運営者紹介</p>
@@ -20,5 +20,3 @@ const AuthorIntroduction: FC = memo(() => {
     </div>
   )
 })
-
-export default AuthorIntroduction

@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 
 import { featuredPostsCardData } from "@/types/cardData";
-import FeaturedPageCard from "../card/cardElement/FeaturedPageCard"
+import { FeaturedPageCard } from "../card/cardElement/FeaturedPageCard"
 
 import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
@@ -11,7 +11,7 @@ type Props = {
   isDesktop: boolean
 }
 
-const RelatedPostsContentsPart: FC<Props> = memo(({ relatedPostsCardData, isDesktop }: Props) => {
+export const RelatedPostsLinuUpPart: FC<Props> = memo(({ relatedPostsCardData, isDesktop }: Props) => {
   return (
     <>
       {relatedPostsCardData.length >= 1 && (
@@ -31,5 +31,3 @@ const RelatedPostsContentsPart: FC<Props> = memo(({ relatedPostsCardData, isDesk
     </>
   );
 })
-
-export default RelatedPostsContentsPart

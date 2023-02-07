@@ -8,7 +8,7 @@ type Props = {
   isDesktop: boolean
 }
 
-const SearchErrorResult: FC<Props> = memo(({resultMessage, isDesktop}: Props) => {
+export const SearchErrorResult: FC<Props> = memo(({resultMessage, isDesktop}: Props) => {
   const guidingToMenuMessage = isDesktop ? "サイト右側にあるメニューの" : "右上のナビゲーションボタンをタップして、"
   const errorMessage = "『カテゴリーメニュー』または『アーカイブメニュー』より、リンクをクリックしてください。"
   return(
@@ -18,5 +18,3 @@ const SearchErrorResult: FC<Props> = memo(({resultMessage, isDesktop}: Props) =>
     </div>
   )
 })
-
-export default SearchErrorResult

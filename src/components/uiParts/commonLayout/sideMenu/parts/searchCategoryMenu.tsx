@@ -1,11 +1,11 @@
 import { FC, memo } from "react";
 import dynamic from 'next/dynamic'
-
 import Link from "next/link";
 
 import Stack from "@mui/material/Stack";
 
 import { menuLinksItem } from "@/types/menuLinksList";
+import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
@@ -15,6 +15,7 @@ const MonetizationOnIcon = dynamic(() => import("@mui/icons-material/Monetizatio
 const TerminalIcon = dynamic(() => import("@mui/icons-material/Terminal"))
 const BarChartIcon = dynamic(() => import("@mui/icons-material/BarChart"))
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const blogIconsList: { [key: string]: any } = {
   "function": FunctionsIcon,
   "monetizationOn": MonetizationOnIcon,
@@ -37,4 +38,13 @@ const CategoryLink: FC<menuLinksItem> = memo(({ text, href, iconName }: menuLink
   )
 })
 
-export default CategoryLink
+export const SearchCategoryMenu: FC = memo(() => {
+  return(
+    <div className={sideMenuCss.SideMenuContents}>
+      <p className={sideMenuCss.SideMenuTitle}>
+        カテゴリー
+      </p>
+      {getMenuMappingComponents("category", CategoryLink)}
+    </div>
+  )
+})

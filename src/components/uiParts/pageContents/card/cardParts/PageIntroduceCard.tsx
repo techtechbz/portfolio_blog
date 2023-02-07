@@ -7,34 +7,32 @@ import CardActionArea from "@mui/material/CardActionArea";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 
-type LimitedHeightCardProps = {
+interface ResponsiveHeightCardProps {
   mobilecardheight: string
   desktopcardheight: string
   children: ReactNode
 }
 
-type DefaultCardProps = {
+interface PageIntroduceCardProps {
   mobileCardHeight: string
   desktopCardHeight: string
   children: ReactNode
   href: string
 }
 
-const LimitedHeightCard: FC<LimitedHeightCardProps> = styled(Card)(({ mobilecardheight, desktopcardheight }: LimitedHeightCardProps) => ({
+const ResponsiveHeightCard: FC<ResponsiveHeightCardProps> = styled(Card)(({ mobilecardheight, desktopcardheight }: ResponsiveHeightCardProps) => ({
   maxHeight: mobilecardheight,
   [MIN_MOBILE_WIDTH_QUERY]: {
     maxHeight: desktopcardheight
   } 
 }))
 
-const DefaultPageIntroduceCard: FC<DefaultCardProps> = memo(({ mobileCardHeight, desktopCardHeight, href, children }: DefaultCardProps) => {
+export const PageIntroduceCard: FC<PageIntroduceCardProps> = memo(({ mobileCardHeight, desktopCardHeight, href, children }: PageIntroduceCardProps) => {
   return (
-    <LimitedHeightCard mobilecardheight={mobileCardHeight} desktopcardheight={desktopCardHeight}>
+    <ResponsiveHeightCard mobilecardheight={mobileCardHeight} desktopcardheight={desktopCardHeight}>
       <CardActionArea component="a" href={href}>
         {children}
       </CardActionArea>
-    </LimitedHeightCard>
+    </ResponsiveHeightCard>
   )
 })
-
-export default DefaultPageIntroduceCard

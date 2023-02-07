@@ -3,12 +3,13 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import crypto from 'crypto'
 import createEmotionServer from "@emotion/server/create-instance";
 
-import defaultTheme, { roboto } from "@/lib/themes/defaultTheme";
+import { defaultTheme, roboto } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache";
 
 
 export default class MyDocument extends Document {
   render() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const documentProps = this.props as any
     const csp = `img-src 'self' data:; script-src 'self' 'nonce-${documentProps.nonce}' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https:; object-src 'none'; base-uri 'none';`
     return (
@@ -38,6 +39,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       enhanceApp: (App: any) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;

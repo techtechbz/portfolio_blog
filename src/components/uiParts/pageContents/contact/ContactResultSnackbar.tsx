@@ -11,7 +11,6 @@ type Props = {
   title: string;
   status: "info" | "warning" | "success" | "error";
   isOpen: boolean
-  /* eslint no-unused-vars: 0 */
   handleClose: (event?: SyntheticEvent | Event, reason?: string) => void;
 }
 
@@ -22,7 +21,7 @@ const StatusAlert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const StatusSnackbar: FC<Props> = memo((props: Props) => {
+export const ContactResultSnackbar: FC<Props> = memo((props: Props) => {
   const { title, status, isOpen, handleClose } = props
 
   const CloseButton =
@@ -39,5 +38,3 @@ const StatusSnackbar: FC<Props> = memo((props: Props) => {
     </Snackbar>
   );
 })
-
-export default StatusSnackbar

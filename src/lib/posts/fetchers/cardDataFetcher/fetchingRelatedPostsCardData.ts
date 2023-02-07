@@ -1,4 +1,4 @@
-import { PostDataValidator } from "../../dataHandler/PostDataValidator"
+import { PostDataValidator } from "../../dataHandler/postDataValidator"
 import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
 import { MdFilePath } from "../../valueObjects/mdFilePath"
 

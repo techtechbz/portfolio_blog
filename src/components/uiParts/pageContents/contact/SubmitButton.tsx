@@ -10,7 +10,7 @@ type Props = {
   type?: "button" | "reset" | "submit" | undefined
 }
 
-const SubmitButton: FC<Props> = memo((props: Props) => {
+export const SubmitButton: FC<Props> = memo((props: Props) => {
   const { children, disabled = false, onLoading = false, type = "button" } = props;
   return (
     <Button
@@ -23,5 +23,3 @@ const SubmitButton: FC<Props> = memo((props: Props) => {
     </Button>
   );
 });
-
-export default SubmitButton

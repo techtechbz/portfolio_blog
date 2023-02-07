@@ -2,10 +2,10 @@ import { FC, memo } from "react"
 import Image from "next/image"
 
 import { postPageData } from "@/types/matterResultData";
-import DefaultPageIntroduceCard from "../cardParts/DefaultPageIntroduceCard";
-import DefaultCardContent from "../cardParts/DefaultCardContent";
-import SideImageCardMedia from "../cardParts/SideImageCardMedia";
-import PostIconCardMedia from "../cardParts/PostIconCardMedia"
+import { PageIntroduceCard } from "../cardParts/PageIntroduceCard";
+import { PageIntroduceCardContent } from "../cardParts/PageIntroduceCardContent";
+import { SideImageCardMedia } from "../cardParts/SideImageCardMedia";
+import { PostIconCardMedia } from "../cardParts/PostIconCardMedia"
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 import recentCardCss from "@/styles/moduleCss/recentCard.module.css"
@@ -19,11 +19,11 @@ type Props = {
 const mobileCardHeight = "170px"
 const desktopCardHeight = "210px"
 
-const RecentPostCard: FC<Props> = memo(({pageData, isDesktop}: Props) => {
+export const RecentPostCard: FC<Props> = memo(({pageData, isDesktop}: Props) => {
   const cardHeight = isDesktop ? desktopCardHeight : mobileCardHeight
   const postImage = <Image className={recentCardCss.RecentCardImage} src={`/images/${pageData.eyecatchFile}`} alt="post image" fill sizes={`${MIN_MOBILE_WIDTH_QUERY} 136px, 55px`} />
   return (
-    <DefaultPageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
+    <PageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
       <div className={recentCardCss.RecentCardFlexBox}>
         {isDesktop && (
           <div className={recentCardCss.RecentCardSideImage}>
@@ -33,7 +33,7 @@ const RecentPostCard: FC<Props> = memo(({pageData, isDesktop}: Props) => {
           </div>
         )}
         <div className={recentCardCss.RecentCardPostData}>
-          <DefaultCardContent height={cardHeight}>
+          <PageIntroduceCardContent height={cardHeight}>
             <div className={recentCardCss.RecentCardTitleRow}>
               {!isDesktop && (
                 <div className={recentCardCss.RecentCardIconImage}>
@@ -50,11 +50,9 @@ const RecentPostCard: FC<Props> = memo(({pageData, isDesktop}: Props) => {
             <div className={recentCardCss.RecentCardContentsContainer}>
               {<div className={recentCardCss.RecentCardContents} dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />}
             </div>
-          </DefaultCardContent>
+          </PageIntroduceCardContent>
         </div>
       </div>
-    </DefaultPageIntroduceCard>
+    </PageIntroduceCard>
   );
 })
-
-export default RecentPostCard

@@ -1,12 +1,21 @@
 import { FC, memo } from "react";
+import Link from "next/link";
 
+import { menuLinksItem } from "@/types/menuLinksList";
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
-import ArchivesLink from "./archivesLink";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const SearchArchivesMenu: FC = memo(() => {
+const ArchivesLink: FC<menuLinksItem> = memo(({text, href}: menuLinksItem) => (
+  <div className={sideMenuCss.SideMenuLinks}>
+    <Link href={href}>
+      {`・${text}`}
+    </Link>
+  </div>
+))
+
+export const SearchArchivesMenu: FC = memo(() => {
   return(
     <div className={sideMenuCss.SideMenuContents}>
       <p className={sideMenuCss.SideMenuTitle}>
@@ -16,5 +25,3 @@ const SearchArchivesMenu: FC = memo(() => {
     </div>
   )
 })
-
-export default SearchArchivesMenu

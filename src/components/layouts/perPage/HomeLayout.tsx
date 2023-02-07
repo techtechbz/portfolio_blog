@@ -1,10 +1,10 @@
 import { FC, memo } from "react"
 
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import FeaturedPostsContentsPart from "@/uiParts/pageContents/index/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "@/uiParts/pageContents/index/RecentPostsContentsPart";
-import HomeMainTopWindow from "@/uiParts/commonLayout/top/HomeMainTopWindow";
-import SideMenu from "@/components/uiParts/commonLayout/sideMenu/SideMenu"
+import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/index/FeaturedPagesLineUpPart";
+import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/index/RecentPostsLineUpPart";
+import { HomeMainTopWindow } from "@/uiParts/commonLayout/top/HomeMainTopWindow";
+import { SideMenu } from "@/components/uiParts/commonLayout/sideMenu/SideMenu"
 
 import indexCss from "@/styles/pageCss/index.module.css";
 
@@ -20,14 +20,14 @@ const HomeLayout: FC<Props> = memo(({ featuredPostsCardData, recentPostsCardData
     <>
       <HomeMainTopWindow />
       <div className={indexCss.IndexContainer}>
-        <FeaturedPostsContentsPart
+        <FeaturedPagesLineUpPart
           heading="オススメの投稿"
           {...{featuredPostsCardData, isDesktop}}
         />
         <hr />
         <div className={indexCss.IndexFlexBox}>
           <div className={indexCss.IndexContents}>
-            <RecentPostsContentsPart
+            <RecentPostsLineUpPart
               heading="新着記事"
               {...{recentPostsCardData, isDesktop}}
             />

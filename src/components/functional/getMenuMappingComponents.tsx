@@ -1,7 +1,9 @@
+import { ElementType } from "react"
+
 import { menuLinksList } from "@/types/menuLinksList"
 import { PostArchives } from "@/lib/posts/dataHandler/postArchives"
 import { PostCategory } from "@/lib/posts/dataHandler/postCategory"
-import { ElementType } from "react"
+import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError"
 
 
 const menuList: {[key: string]: menuLinksList} = {
@@ -23,13 +25,14 @@ const menuList: {[key: string]: menuLinksList} = {
 }
 
 const getMenuList = (menuName: string): menuLinksList => {
-  if (menuName === undefined) throw new Error('メニュー名が指定されていません')
+  if (menuName === undefined) throw new UnexpectedBehaviorError('メニュー名が指定されていません')
   if (menuName in menuList) return menuList[menuName]
   if (menuName === "archives") return new PostArchives().archivesMenuLinksList
   if (menuName === "category") return new PostCategory().categoryMenuLinksList
-  throw new Error(`(${menuName})不正な値です。`)
+  throw new UnexpectedBehaviorError(`(${menuName})不正な値です。`)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getMenuMappingComponents = (menuName: string, ChildNode: ElementType): ReadonlyArray<any> => {
   return Object.entries(getMenuList(menuName)).map((menu) => {
     const [key, menuProps] = menu

@@ -7,7 +7,7 @@ import { menuLinksItem } from "@/types/menuLinksList"
 import { CustomListItemButton, CustomListItemText } from "./CustomListItems"
 
 
-const DrawerMenuList: FC<menuLinksItem> = memo(({ text, href }: menuLinksItem) => {
+export const DrawerMenuList: FC<menuLinksItem> = memo(({ text, href }: menuLinksItem) => {
   return (
     <div className="DrawerMenuList">
       <Link className="DrawerMenuListLink" href={href}>
@@ -20,5 +20,3 @@ const DrawerMenuList: FC<menuLinksItem> = memo(({ text, href }: menuLinksItem) =
     </div>
   )
 })
-
-export default DrawerMenuList

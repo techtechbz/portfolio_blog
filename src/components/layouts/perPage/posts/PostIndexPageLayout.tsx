@@ -3,10 +3,10 @@ import { FC, memo } from "react"
 
 import { postMatterResultOverviews } from "@/types/matterResultData";
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import FeaturedPostsContentsPart from "@/uiParts/pageContents/index/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "@/uiParts/pageContents/index/RecentPostsContentsPart";
-import MainFeaturedPost from "@/uiParts/commonLayout/top/MainFeaturedPost";
-import SideMenu from "@/uiParts/commonLayout/sideMenu/SideMenu";
+import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/index/FeaturedPagesLineUpPart";
+import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/index/RecentPostsLineUpPart";
+import { MainFeaturedPostCard } from "@/components/uiParts/commonLayout/top/MainFeaturedPostCard";
+import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import indexCss from "@/styles/pageCss/index.module.css";
 
@@ -22,9 +22,9 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeat
   return (
     <div className={indexCss.IndexContainer}>
       <div className={indexCss.MainFeaturedPost}>
-        <MainFeaturedPost {...{mainFeaturedPostCardData}} />
+        <MainFeaturedPostCard {...{mainFeaturedPostCardData}} />
       </div>
-      <FeaturedPostsContentsPart
+      <FeaturedPagesLineUpPart
         heading="おススメの投稿"
         featuredPostsCardData={subFeaturedPostsCardData}
         isDesktop={isDesktop}
@@ -32,7 +32,7 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeat
       <hr />
       <div className={indexCss.IndexFlexBox}>
         <div className={indexCss.IndexContents}>
-          <RecentPostsContentsPart
+          <RecentPostsLineUpPart
             heading="最近の投稿"
             {...{recentPostsCardData, isDesktop}}
           />

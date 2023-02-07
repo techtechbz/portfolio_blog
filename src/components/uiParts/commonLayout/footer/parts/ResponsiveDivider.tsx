@@ -11,10 +11,8 @@ type Props = {
   isDesktop: boolean
 }
 
-const ResponsiveDivider: FC<Props> = memo(({ isDesktop }: Props) => {
+export const ResponsiveDivider: FC<Props> = memo(({ isDesktop }: Props) => {
   const dividerOption: dividerOptionType = isDesktop ? {orientation: "vertical", variant: "inset"}
                                                      : {orientation: "horizontal", variant: "fullWidth"}
   return <Divider {...dividerOption} />
 })
-
-export default ResponsiveDivider

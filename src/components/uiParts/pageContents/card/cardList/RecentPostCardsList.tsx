@@ -1,7 +1,7 @@
 import { memo, FC } from "react"
 
 import { recentPostsCardData } from "@/types/cardData";
-import RecentPostCard from "../cardElement/RecentPostCard"
+import { RecentPostCard } from "../cardElement/RecentPostCard"
 
 import cardCss from "@/styles/moduleCss/recentCard.module.css"
 
@@ -10,7 +10,7 @@ type Props = {
   isDesktop: boolean
 }
 
-const RecentPostCardsList: FC<Props> = memo(({ recentPostsCardData, isDesktop }: Props) => {
+export const RecentPostCardsList: FC<Props> = memo(({ recentPostsCardData, isDesktop }: Props) => {
   return (
     <div className="CardContainer">
       {recentPostsCardData.map((pageData) => (
@@ -20,5 +20,3 @@ const RecentPostCardsList: FC<Props> = memo(({ recentPostsCardData, isDesktop }:
       ))}
     </div>
 )})
-
-export default RecentPostCardsList

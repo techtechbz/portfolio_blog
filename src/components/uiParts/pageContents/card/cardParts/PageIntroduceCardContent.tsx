@@ -9,9 +9,7 @@ type Props = {
   children: ReactNode
 }
 
-const DefaultCardContent: FC<Props> = styled(CardContent)(({ height }: Props) => ({
+export const PageIntroduceCardContent: FC<Props> = styled(CardContent)(({ height }: Props) => ({
   minHeight: height,
   padding: "8px"
 }))
-
-export default DefaultCardContent

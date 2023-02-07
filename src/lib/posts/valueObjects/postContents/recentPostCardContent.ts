@@ -30,7 +30,7 @@ export class RecentPostCardContent {
       .use(remarkRehype)
       .use(rehypeSanitize)
       .use(rehypeStringify)
-      .process(this.postContent.content)
+      .process(this.postContent.plainMdContent)
      return processedContent.toString()
   }
 
