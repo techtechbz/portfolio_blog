@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from "react"
 
-import BackToHomeLink from "@/uiElements/link/BackToHomeLink"
-import DocumentDate from "@/uiParts/pageContents/fixed/DocumentDate"
+import { BackToHomeLink } from "@/uiElements/link/BackToHomeLink"
+import { DocumentDate } from "@/uiParts/pageContents/fixed/DocumentDate"
 
 import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 

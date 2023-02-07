@@ -1,6 +1,7 @@
 import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
 import { MdFilePath } from "../../valueObjects/mdFilePath"
 import { PostPageContent } from "../../valueObjects/postContents/postPageContent";
+import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 
 
 class PostPageDataFetcher {
@@ -14,8 +15,8 @@ class PostPageDataFetcher {
     const matterResultData = new PostMatterResultData(this.postFilePath)
     const postPageContent = new PostPageContent(matterResultData.matterResultContent)
     const htmlPostPageContent = await postPageContent.htmlPostPageContent()
-    if (!htmlPostPageContent.isConvertedHtml) throw new Error('HTMLに変換されていません。')
-    return {contentHtml: htmlPostPageContent.content, ...matterResultData.matterResultOverviews}
+    if (!htmlPostPageContent.isConvertedHtml) throw new UnexpectedBehaviorError('HTMLに変換されていません。')
+    return {contentHtml: htmlPostPageContent.htmlContent, ...matterResultData.matterResultOverviews}
   }
 }
 

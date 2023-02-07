@@ -8,16 +8,13 @@ import { CustomListItemText } from "./CustomListItems"
 
 
 type Props = {
-  // eslint-disable-next-line no-unused-vars
   onClose: (event: KeyboardEvent<Element> | MouseEvent<Element>) => void
 }
 
-const homeButtonCss = {paddingRight: "90px"}
-
-const DrawerTopMenu: FC<Props> = memo(({ onClose }: Props ) => {
+export const DrawerTopMenu: FC<Props> = memo(({ onClose }: Props ) => {
   return (
     <ListItem key="top" disablePadding>
-      <ListItemButton href="/" sx={homeButtonCss}>
+      <ListItemButton href="/" className="BackHomeDrawerMenuButton">
         <CustomListItemText primary="ホーム" />
       </ListItemButton>
       <ListItemButton onClick={onClose}>
@@ -26,5 +23,3 @@ const DrawerTopMenu: FC<Props> = memo(({ onClose }: Props ) => {
     </ListItem>
   )
 })
-
-export default DrawerTopMenu

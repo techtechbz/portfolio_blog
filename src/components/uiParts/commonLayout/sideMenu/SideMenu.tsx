@@ -1,8 +1,8 @@
 import { FC, memo } from "react";
 
-import AuthorIntroduction from "./parts/authorIntroduction/AuthorIntroduction"
-import SearchCategoryMenu from "./parts/searchCategoryMenu/searchCategoryMenu";
-import SearchArchivesMenu from "./parts/searchArchivesMenu/searchArchivesMenu";
+import { AuthorIntroduction } from "./parts/authorIntroduction/AuthorIntroduction"
+import { SearchCategoryMenu } from "./parts/searchCategoryMenu";
+import { SearchArchivesMenu } from "./parts/searchArchivesMenu";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
@@ -11,7 +11,7 @@ type Props = {
   isHome?: boolean
 }
 
-const SideMenu: FC<Props> = memo(({ isHome }: Props) => {
+export const SideMenu: FC<Props> = memo(({ isHome }: Props) => {
   return (
     <div className={sideMenuCss.SideMenu}>
       {isHome && (
@@ -26,5 +26,3 @@ const SideMenu: FC<Props> = memo(({ isHome }: Props) => {
     </div>
   )
 })
-
-export default SideMenu

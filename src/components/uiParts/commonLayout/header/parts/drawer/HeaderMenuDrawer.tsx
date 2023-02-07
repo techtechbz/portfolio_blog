@@ -6,13 +6,12 @@ import Divider from "@mui/material/Divider"
 import List from "@mui/material/List"
 
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents"
-import DrawerMenuList from "./DrawerMenuList"
-import DrawerTopMenu from "./DrawerTopMenu"
+import { DrawerMenuList } from "./DrawerMenuList"
+import { DrawerTopMenu } from "./DrawerTopMenu"
 
 
 type Props = {
   isOpen: boolean
-  // eslint-disable-next-line no-unused-vars
   onClose: (event: KeyboardEvent<Element> | MouseEvent<Element>) => void
 }
 

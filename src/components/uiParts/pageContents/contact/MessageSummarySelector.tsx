@@ -5,21 +5,23 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { MessageSummary } from "@/lib/contact/messageSummary";
 
 
-const CustomFormControl = styled(FormControl)(() => ({
+const CustomSelectorFormControl = styled(FormControl)(() => ({
   minWidth: "160px"
 }))
 
-const MessageSummarySelector: FC = memo(() => {
+export const MessageSummarySelector: FC = memo(() => {
   const [summary, setSummary] = useState("");
+  const messageSummary = new MessageSummary()
 
   const handleChange = (e: SelectChangeEvent) => {
     setSummary(e.target.value);
   };
 
   return (
-    <CustomFormControl>
+    <CustomSelectorFormControl>
       <InputLabel id="summary-label">お問い合わせ内容</InputLabel>
       <Select
         required
@@ -29,12 +31,10 @@ const MessageSummarySelector: FC = memo(() => {
         onChange={handleChange}
         inputProps={{id: "summary"}}
       >
-        <MenuItem value="defect">誤記・不具合の報告</MenuItem>
-        <MenuItem value="scout">お仕事のご依頼</MenuItem>
-        <MenuItem value="other">その他</MenuItem>
+        {messageSummary.messageSummaryList.map(([key, value]) => {
+          return <MenuItem value={key} key={key}>{value}</MenuItem>
+        })}
       </Select>
-    </CustomFormControl>
+    </CustomSelectorFormControl>
   );
 })
-
-export default MessageSummarySelector

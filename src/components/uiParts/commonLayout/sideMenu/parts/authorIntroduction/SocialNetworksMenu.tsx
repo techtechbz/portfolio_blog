@@ -7,12 +7,12 @@ import GitHubIcon from "@mui/icons-material/GitHub"
 
 import { menuLinksItem } from "@/types/menuLinksList";
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
-import NoteIcon from "@/uiElements/icon/NoteIcon"
+import { NoteIcon } from "@/uiElements/icon/NoteIcon"
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const socialNetworkIconsList: { [key: string]: any } = {
+const socialNetworkIconsList: { [key: string]: any } = { // eslint-disable-line @typescript-eslint/no-explicit-any
   "github": GitHubIcon,
   "note": NoteIcon,
 }
@@ -30,12 +30,10 @@ const SocialNetworkLinkButton: FC<menuLinksItem> = memo(({ text, href, iconName 
   )
 })
 
-const SocialNetworksMenu: FC = memo(() => {
+export const SocialNetworksMenu: FC = memo(() => {
   return(
     <div className={sideMenuCss.SocialNetworksMenu}>
       {getMenuMappingComponents("social", SocialNetworkLinkButton)}
     </div>
   )
 })
-
-export default SocialNetworksMenu

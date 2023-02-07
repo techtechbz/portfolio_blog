@@ -4,6 +4,7 @@ import { PostMatterResultData } from "../../valueObjects/matterResultData/postMa
 import { MdFilePath } from "../../valueObjects/mdFilePath"
 import { MdFilePathsFetcher } from "../mdFilePathsFetcher";
 import { RecentPostCardContent } from "../../valueObjects/postContents/recentPostCardContent";
+import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 
 
 class IndexPageDataFetcher {
@@ -32,8 +33,8 @@ class IndexPageDataFetcher {
     const fetchedData = Promise.all(postMatterResultDataList.map(async (data) => {
       const recentPostCardContent = new RecentPostCardContent(data.matterResultContent)
       const contentHtml = await recentPostCardContent.fetchHtmlCardContent()
-      if (!contentHtml.isConvertedHtml) throw new Error('コンテンツがHTMLに変換されていません。')
-      return {contentHtml: contentHtml.content, ...data.matterResultOverviews} as postPageData
+      if (!contentHtml.isConvertedHtml) throw new UnexpectedBehaviorError('コンテンツがHTMLに変換されていません。')
+      return {contentHtml: contentHtml.htmlContent, ...data.matterResultOverviews} as postPageData
     }))
     return fetchedData
   }
@@ -41,7 +42,7 @@ class IndexPageDataFetcher {
   private readonly selectFeaturedPostsCardData = (featuredPostIdsList: ReadonlyArray<string>, postMatterResultDataList: ReadonlyArray<PostMatterResultData>): featuredPostsCardData => {
     return featuredPostIdsList.map((postId: string) => {
       const foundData = postMatterResultDataList.find((data: PostMatterResultData) => data.matterResultOverviews.id === postId)
-      if (foundData === undefined) throw new Error(`(${postId}) データが見つかりませんでした。`)
+      if (foundData === undefined) throw new UnexpectedBehaviorError(`(${postId}) データが見つかりませんでした。`)
       return foundData.matterResultOverviews
     })
   }

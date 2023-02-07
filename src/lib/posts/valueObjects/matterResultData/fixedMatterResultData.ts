@@ -2,7 +2,7 @@ import fs from 'fs'
 import matter from "gray-matter"
 
 import { fixedPageMatterResultOverviews } from '@/types/matterResultData'
-import { PostDataValidator } from '../../dataHandler/PostDataValidator'
+import { PostDataValidator } from '../../dataHandler/postDataValidator'
 import { MdFilePath } from '../mdFilePath'
 
 

@@ -1,28 +1,47 @@
-import { FormEvent, FC, memo, SyntheticEvent } from "react"
+import { FormEvent, FC, memo, SyntheticEvent, useCallback, useState } from "react"
 
 import CircularProgress from '@mui/material/CircularProgress';
 import TextField from '@mui/material/TextField';
 
-import { snackbarData } from "@/types/contactFormData";
-import SubmitButton from "@/uiParts/pageContents/contact/SubmitButton";
-import MessageSummarySelector from "@/uiParts/pageContents/contact/MessageSummarySelector";
-import StatusSnackbar from "@/uiParts/pageContents/contact/StatusSnackbar";
+import { contactFormData, contactResultData } from "@/types/contactFormData";
+import { SubmitButton } from "@/uiParts/pageContents/contact/SubmitButton";
+import { MessageSummarySelector } from "@/uiParts/pageContents/contact/MessageSummarySelector";
+import { ContactResultSnackbar } from "@/components/uiParts/pageContents/contact/ContactResultSnackbar";
 
 import contactPageCss from "@/styles/pageCss/contact.module.css"
 
 
 type Props = {
-  /* eslint no-unused-vars: 0 */
-  onSubmitContactFormData: (e: FormEvent<HTMLFormElement>) => void,
+  fetchContactResult: (inputData: contactFormData) => Promise<contactResultData>
   onLoading: boolean
-  isSnackbarOpen: boolean
-  snackbarData: snackbarData
-  /* eslint no-unused-vars: 0 */
-  handleSnackbarClose: (event?: SyntheticEvent | Event, reason?: string) => void
 }
 
 const ContactPageLayout: FC<Props> = memo((props: Props) => {
-  const {onSubmitContactFormData, onLoading, isSnackbarOpen, snackbarData, handleSnackbarClose} = props
+  const {fetchContactResult, onLoading} = props
+  const [snackbarData, setSnackbarData] = useState<contactResultData>({title: '', status: "error"})
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false)
+
+  const onSubmitContactFormData = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const isConfirm = confirm(`以下の内容で送信しますか?\nお問い合わせ内容:\n\n${e.currentTarget.message.value}`)
+    if (isConfirm) {
+      const inputData: contactFormData = {
+        firstName: e.currentTarget.firstName.value,
+        lastName: e.currentTarget.lastName.value,
+        email: e.currentTarget.email.value,
+        summary: e.currentTarget.summary.value,
+        message: e.currentTarget.message.value,
+      }
+      const result = await fetchContactResult(inputData)
+      setSnackbarData(result)
+      setIsSnackbarOpen(true)
+    }
+  }
+
+  const handleSnackbarClose = useCallback((event?: SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') return;
+    setIsSnackbarOpen(false);
+  }, []);
 
   return (
     <div className={contactPageCss.ContactPageContainer}>
@@ -41,7 +60,8 @@ const ContactPageLayout: FC<Props> = memo((props: Props) => {
           <MessageSummarySelector />
         </div>
         <div className={contactPageCss.ContactElemetsContainer}>
-          <TextField required fullWidth multiline rows={4} id="message" label="詳細" placeholder="お問い合わせの詳細をこちらにご入力ください。" variant="outlined" />
+          <TextField required fullWidth multiline rows={4} id="message" label="詳細"
+           placeholder="お問い合わせの詳細をこちらにご入力ください(改行・空白等を除いて10文字以上)。" variant="outlined" />
         </div>
         <div className={contactPageCss.ContactElemetsContainer}>
           <SubmitButton onLoading={onLoading} type="submit">
@@ -49,7 +69,7 @@ const ContactPageLayout: FC<Props> = memo((props: Props) => {
           </SubmitButton>
         </div>
       </form>
-      <StatusSnackbar {...snackbarData} isOpen={isSnackbarOpen && !onLoading} handleClose={handleSnackbarClose} />
+      <ContactResultSnackbar {...snackbarData} isOpen={isSnackbarOpen && !onLoading} handleClose={handleSnackbarClose} />
     </div>
   )
 })

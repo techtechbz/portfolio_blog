@@ -1,11 +1,11 @@
 import { FC, memo } from "react"
 
-import TopBackgroundImage from "./parts/TopBackgroundImage";
+import { TopBackgroundImage } from "./parts/TopBackgroundImage";
 
 import indexCss from "@/styles/pageCss/index.module.css"
 
 
-const HomeMainTopWindow: FC = memo(() => {
+export const HomeMainTopWindow: FC = memo(() => {
   return (
     <TopBackgroundImage src="home.jpg" alt="Image of home top">
       <div className={indexCss.HomeMainTopWindow}>
@@ -15,5 +15,3 @@ const HomeMainTopWindow: FC = memo(() => {
     </TopBackgroundImage>
   );
 })
-
-export default HomeMainTopWindow

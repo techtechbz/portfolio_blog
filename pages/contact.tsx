@@ -1,47 +1,33 @@
-import { FormEvent, SyntheticEvent, useCallback, useState } from 'react'
+import { useState } from 'react'
 import { GetStaticProps } from "next"
 
 import { useContactForm } from '@/common/hooks/useContactForm';
-import { contactFormData, snackbarData } from '@/types/contactFormData';
+import { contactFormData, contactMessage, contactResultData } from '@/types/contactFormData';
 import ContactPageLayout from "@/layouts/perPage/ContactPageLayout"
+import { contactFromDataValidator } from '@/lib/contact/contactFormDataValidator';
+import { ValidationError } from '@/lib/error/validationError';
+import { UnexpectedBehaviorError } from '@/lib/error/unexpectedBehaviorError';
 
 
 export default function Contact() {
-  const [contactFormData, setContactFormData] = useState({})
-  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false)
-  const [snackbarData, setSnackbarData] = useState<snackbarData>({title: '', status: "error"})
-  const {sendContactData, onLoading} = useContactForm()
+  const [formerContactMessage, setFormerContactMessage] = useState<contactMessage>({summary: "empty", message: ""})
+  const {sendContactFormData, onLoading} = useContactForm()
 
-  const handleSnackbarClose = useCallback((event?: SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setIsSnackbarOpen(false);
-  }, []);
-
-  const onSubmitContactFormData = async (e: FormEvent<HTMLFormElement>) => {
-    const isConfirm = confirm(`以下の内容で送信しますか?\nお問い合わせ内容:\n${e.currentTarget.message.value}`)
-    if (!isConfirm) return
-    
-    e.preventDefault()
-    const inputData: contactFormData = {
-      firstName: e.currentTarget.firstName.value,
-      lastName: e.currentTarget.lastName.value,
-      email: e.currentTarget.email.value,
-      summary: e.currentTarget.summary.value,
-      message: e.currentTarget.message.value,
-    }
-    if (inputData !== contactFormData) {
-      setContactFormData(inputData)
-      setSnackbarData(sendContactData(inputData))
+  const fetchContactResult = async (inputData: contactFormData): Promise<contactResultData> => {
+    if (inputData.message !== formerContactMessage.message) {
+      const result = await sendContactFormData(inputData)
+      if (result.status === "success") {
+        const {summary, message} = inputData
+        setFormerContactMessage({summary, message})
+      }
+      return result
     } else {
-      setSnackbarData({title: 'このデータは送信済みです。', status: "error"})
+      return {title: 'このメッセージは送信済みです。', status: "error"}
     }
-    setIsSnackbarOpen(true)
   }
 
   return(
-    <ContactPageLayout {...{onSubmitContactFormData, onLoading, isSnackbarOpen, snackbarData, handleSnackbarClose}} />
+    <ContactPageLayout {...{fetchContactResult, onLoading}} />
   )
 }
 

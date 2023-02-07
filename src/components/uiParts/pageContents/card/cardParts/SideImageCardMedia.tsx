@@ -2,7 +2,7 @@ import { memo, ReactNode, FC } from "react"
 
 import CardMedia from "@mui/material/CardMedia";
 
-import StylingDiv from "@/uiElements/box/StylingDiv";
+import { StylingDiv } from "@/uiElements/box/StylingDiv";
 
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   children: ReactNode
 }
 
-const SideImageCardMedia: FC<Props> = memo(({ height, children }: Props) => {
+export const SideImageCardMedia: FC<Props> = memo(({ height, children }: Props) => {
   return (
     <CardMedia>
       <StylingDiv css={{position: "relative", overflow: "hidden", width: "100%", minHeight: height}}>
@@ -19,5 +19,3 @@ const SideImageCardMedia: FC<Props> = memo(({ height, children }: Props) => {
     </CardMedia>
   )
 })
-
-export default SideImageCardMedia

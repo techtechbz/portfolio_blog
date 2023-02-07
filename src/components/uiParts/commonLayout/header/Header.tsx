@@ -5,9 +5,9 @@ import AppBar from "@mui/material/AppBar"
 import MenuIcon from "@mui/icons-material/Menu"
 
 import { useDisclosure } from "@/common/hooks/useDisclosure";
-import CustomToolbar from "./parts/CustomToolbar";
-import SiteNameButton from "./parts/SiteNameButton";
-import StylingDiv from "@/uiElements/box/StylingDiv";
+import { CustomToolbar } from "./parts/CustomToolbar";
+import { SiteNameButton } from "./parts/SiteNameButton";
+import { StylingDiv } from "@/uiElements/box/StylingDiv";
 
 
 const IconButton = dynamic(() => import("@mui/material/IconButton"))
@@ -22,7 +22,7 @@ const headerCss = {
   height: "12vh",
 }
 
-const Header: FC<Props> = memo(({ isDesktop }: Props) => {
+export const Header: FC<Props> = memo(({ isDesktop }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
@@ -35,7 +35,7 @@ const Header: FC<Props> = memo(({ isDesktop }: Props) => {
             <HeaderMenuLinksList />
           ) : (
             <>
-              <IconButton aria-label="drawer button" onClick={onOpen}><MenuIcon fontSize="large" /></IconButton>
+              <IconButton aria-label="drawer button" onClick={onOpen}><MenuIcon className="HeaderMenuIcon" /></IconButton>
               <HeaderMenuDrawer {...{isOpen, onClose}} />
             </>
           )}
@@ -46,5 +46,3 @@ const Header: FC<Props> = memo(({ isDesktop }: Props) => {
     </>
   );
 })
-
-export default Header

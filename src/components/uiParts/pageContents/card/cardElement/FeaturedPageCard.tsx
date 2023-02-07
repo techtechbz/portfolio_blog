@@ -2,9 +2,9 @@ import { FC, memo } from "react"
 import Image from "next/image"
 
 import { postMatterResultOverviews } from "@/types/matterResultData";
-import DefaultPageIntroduceCard from "../cardParts/DefaultPageIntroduceCard";
-import DefaultCardContent from "../cardParts/DefaultCardContent";
-import SideImageCardMedia from "../cardParts/SideImageCardMedia";
+import { PageIntroduceCard } from "../cardParts/PageIntroduceCard";
+import { PageIntroduceCardContent } from "../cardParts/PageIntroduceCardContent";
+import { SideImageCardMedia } from "../cardParts/SideImageCardMedia";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 import cardCss from "@/styles/moduleCss/featuredCard.module.css"
@@ -18,10 +18,10 @@ type Props = {
 const mobileCardHeight = "160px"
 const desktopCardHeight = "200px"
 
-const FeaturedPageCard: FC<Props> = memo(({ pageData, isDesktop }: Props) => {
+export const FeaturedPageCard: FC<Props> = memo(({ pageData, isDesktop }: Props) => {
   const cardHeight = isDesktop ? desktopCardHeight : mobileCardHeight
   return (
-    <DefaultPageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
+    <PageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
       <div className={cardCss.FeaturedCardFlexBox}>
         <div className={cardCss.FeaturedCardImage}>
           <SideImageCardMedia height={cardHeight}>
@@ -29,7 +29,7 @@ const FeaturedPageCard: FC<Props> = memo(({ pageData, isDesktop }: Props) => {
           </SideImageCardMedia>
         </div>
         <div className={cardCss.FeaturedCardContents}>
-          <DefaultCardContent height={cardHeight}>
+          <PageIntroduceCardContent height={cardHeight}>
             <h3 className={cardCss.FeaturedCardTitle}>
               {pageData.title}
             </h3>
@@ -40,11 +40,9 @@ const FeaturedPageCard: FC<Props> = memo(({ pageData, isDesktop }: Props) => {
             <p className={cardCss.FeaturedCardDate}>
               {pageData.date}
             </p>
-          </DefaultCardContent>
+          </PageIntroduceCardContent>
         </div>
       </div>
-    </DefaultPageIntroduceCard>
+    </PageIntroduceCard>
   );
 })
-
-export default FeaturedPageCard

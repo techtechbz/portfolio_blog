@@ -1,8 +1,8 @@
 import { FC, memo } from "react"
 
 import { searchResult } from "@/types/searchResult";
-import SearchResultContentsPart from "@/uiParts/pageContents/search/SearchResultContentsPart";
-import SideMenu from "@/uiParts/commonLayout/sideMenu/SideMenu";
+import { DisplaySearchResultPart } from "@/components/uiParts/pageContents/search/DisplaySearchResultPart";
+import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import searchCss from "@/styles/pageCss/search.module.css"
 
@@ -18,7 +18,7 @@ const SearchResultPageLayout: FC<Props> = memo(({ searchResultData, retrievedCon
     <div className={searchCss.SearchPage}>
       <div className={searchCss.SearchPageFlexBox}>
         <div className={searchCss.SearchPageContents}>
-          <SearchResultContentsPart {...{searchResultData, retrievedContent, isDesktop}} />
+          <DisplaySearchResultPart {...{searchResultData, retrievedContent, isDesktop}} />
         </div>
         {isDesktop && (
           <div className={searchCss.SearchPageSideMenu}>

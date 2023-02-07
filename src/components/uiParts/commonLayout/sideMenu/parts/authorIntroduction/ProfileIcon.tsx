@@ -4,7 +4,7 @@ import Image from "next/image"
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const ProfileIcon: FC = memo(() => {
+export const ProfileIcon: FC = memo(() => {
   return (
     <div className={sideMenuCss.AuthorIconContainer}>
       <Image
@@ -17,5 +17,3 @@ const ProfileIcon: FC = memo(() => {
     </div>
   )
 })
-
-export default ProfileIcon

@@ -3,10 +3,10 @@ import Image from "next/image"
 
 import { featuredPostsCardData } from "@/types/cardData";
 import { postPageData } from "@/types/matterResultData";
-import BackToHomeLink from "@/uiElements/link/BackToHomeLink";
-import PostBreadCrumbs from "@/uiParts/pageContents/post/PostBreadCrumbs";
-import PostDate from  "@/uiParts/pageContents/post/PostDate";
-import RelatedPostsContentsPart from "@/uiParts/pageContents/post/RelatedPostsContentsPart";
+import { BackToHomeLink } from "@/uiElements/link/BackToHomeLink";
+import { PostBreadCrumbs } from "@/uiParts/pageContents/post/PostBreadCrumbs";
+import { PostDate } from  "@/uiParts/pageContents/post/PostDate";
+import { RelatedPostsLinuUpPart } from "@/components/uiParts/pageContents/post/RelatedPostsLinuUpPart";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 import staticPageCss from "@/styles/pageCss/staticPage.module.css"
@@ -33,7 +33,7 @@ const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsCardData, isDesk
       </div>
       <div className={staticPageCss.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       <BackToHomeLink />
-      <RelatedPostsContentsPart {...{relatedPostsCardData, isDesktop}} />
+      <RelatedPostsLinuUpPart {...{relatedPostsCardData, isDesktop}} />
     </div>
   );
 })

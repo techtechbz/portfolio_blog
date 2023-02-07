@@ -1,7 +1,7 @@
 import { memo, ReactNode, FC } from "react"
 
-import StylingDiv from "@/uiElements/box/StylingDiv";
-import JustifyCardMedia from "./JustifyCardMedia"
+import { StylingDiv } from "@/uiElements/box/StylingDiv";
+import { PageIntroduceCardMedia } from "./PageIntroduceCardMedia"
 
 
 type Props = {
@@ -9,14 +9,12 @@ type Props = {
   children: ReactNode
 }
 
-const PostIconCardMedia: FC<Props> = memo(({ diameter, children }: Props) => {
+export const PostIconCardMedia: FC<Props> = memo(({ diameter, children }: Props) => {
   return (
-    <JustifyCardMedia cardheight={diameter}>
+    <PageIntroduceCardMedia cardheight={diameter}>
       <StylingDiv css={{position: "relative", overflow: "hidden", width: diameter, height: diameter, minWidth: "40px", minHeight: "40px"}}>
         {children}
       </StylingDiv>
-    </JustifyCardMedia>
+    </PageIntroduceCardMedia>
   )
 })
-
-export default PostIconCardMedia

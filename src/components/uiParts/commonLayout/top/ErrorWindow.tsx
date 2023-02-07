@@ -1,6 +1,6 @@
 import { FC, memo } from "react"
 
-import TopBackgroundImage from "./parts/TopBackgroundImage";
+import { TopBackgroundImage } from "./parts/TopBackgroundImage";
 
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
   detailText: string
 }
 
-const ErrorWindow: FC<Props> = memo(({ title, detailText }: Props) => {
+export const ErrorWindow: FC<Props> = memo(({ title, detailText }: Props) => {
   return (
     <TopBackgroundImage src="blackboard.jpg" alt="Error eye catch image">
       <div className="ErrorWindow">
@@ -18,5 +18,3 @@ const ErrorWindow: FC<Props> = memo(({ title, detailText }: Props) => {
     </TopBackgroundImage>
   );
 })
-
-export default ErrorWindow

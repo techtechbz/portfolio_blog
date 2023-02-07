@@ -10,7 +10,7 @@ type Props = {
   children: ReactNode
 }
 
-const MainPostActionArea: FC<Props> = styled(CardActionArea)(() => ({
+export const MainPostActionArea: FC<Props> = styled(CardActionArea)(() => ({
   textDecorationColor: "white",
   "&:hover": {
     textDecoration: "underline",
@@ -18,5 +18,3 @@ const MainPostActionArea: FC<Props> = styled(CardActionArea)(() => ({
     filter: "opacity(80%)",
     transition: "all 0.3s"}
 }))
-
-export default MainPostActionArea

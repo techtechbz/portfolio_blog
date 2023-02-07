@@ -1,6 +1,7 @@
 import { FC, memo, ReactNode } from "react"
 
-import BackToHomeLink from "@/uiElements/link/BackToHomeLink"
+import { BackToHomeLink } from "@/uiElements/link/BackToHomeLink"
+
 import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 
 type Props = {

@@ -9,9 +9,7 @@ import { useState, useCallback, KeyboardEvent, MouseEvent } from "react"
  */
 export const useDisclosure = (): {
   isOpen: boolean,
-  // eslint-disable-next-line no-unused-vars
   onOpen: (event: KeyboardEvent | MouseEvent) => void,
-  // eslint-disable-next-line no-unused-vars
   onClose: (event: KeyboardEvent | MouseEvent) => void
 } => {
   const [isOpen, setIsOpen] = useState(false)

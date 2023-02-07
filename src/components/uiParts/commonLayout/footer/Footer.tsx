@@ -1,9 +1,9 @@
 import { FC, memo } from "react"
 
 import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
-import ResponsiveDivider from "./parts/ResponsiveDivider";
-import FooterSiteCopyright from "./parts/FooterSiteCopyright";
-import FooterLink from "./parts/FooterLink";
+import { ResponsiveDivider } from "./parts/ResponsiveDivider";
+import { FooterSiteCopyright } from "./parts/FooterSiteCopyright";
+import { FooterLink } from "./parts/FooterLink";
 
 import footerCss from "@/styles/moduleCss/footer.module.css";
 
@@ -12,7 +12,7 @@ type Props = {
   isDesktop: boolean
 }
 
-const Footer: FC<Props> = memo(({ isDesktop }: Props) => {
+export const Footer: FC<Props> = memo(({ isDesktop }: Props) => {
   return (
     <div className={footerCss.FooterBackground}>
       <div className={footerCss.FooterContainer}>
@@ -43,5 +43,3 @@ const Footer: FC<Props> = memo(({ isDesktop }: Props) => {
     </div>
   );
 })
-
-export default Footer

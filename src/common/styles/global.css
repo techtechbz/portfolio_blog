@@ -63,12 +63,14 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 
 /* Header */
 .HeaderCenterPadding {flex: 1}
-.SiteNameButtonLink, .HeaderMenuLink, .DrawerMenuListLink {text-decoration: none; border-radius: 4px}
-.SiteNameButtonLink {color: #015bb1; font-size: 1.4em; font-weight: 700; padding: 8px 2px}
+.HeaderMenuIcon, .SiteNameButtonLink {font-size: 2em}
+.HeaderMenuIcon {padding: 4px}
+.SiteNameButtonLink {color: #015bb1; font-weight: 700; padding: 8px 2px}
+.SiteNameButtonLink, .DrawerMenuListLink, .HeaderMenuLink {text-decoration: none; border-radius: 4px}
 .DrawerMenuListLink, .HeaderMenuLink {color: #000000de}
-.HeaderMenuLink {font-size: 1.2em; padding: 10px}
 .HeaderMenuLink:hover, .SiteNameButtonLink:hover {background-color: #f8f8f8; transition: all 0.3s}
 .DrawerMenuList {padding: 4px 2px}
+.BackHomeDrawerMenuButton {padding-right: 90px}
 
 /* Top */
 .GrayFilter {position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-color: rgba(0,0,0,.4)}
@@ -83,7 +85,7 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 .PostsLineUpPart {padding: 12px 4px 30px}
 .PostsLineUpHeading {width: 100%; font-size: 1.5em; font-weight: 700; padding: .3em .6em; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
 .CardContainer {padding: 16px 12px 0}
-.BlackTextLink {padding: 4px 2px; color: #000000de}
+.BlackTextLink {padding: 4px 2px; margin: 2px 1px; color: #000000de}
 .BackToHomeLink {padding: 1.3em}
 .BackToHomeLink > a {font: bold 1.1em sans-serif}
 

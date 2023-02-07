@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import CustomHead from "@/layouts/CustomHead";
 import AppLayout from "../src/components/layouts/AppLayout"
-import defaultTheme, { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
+import { defaultTheme, MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache"
 
 import "@/styles/global.css"

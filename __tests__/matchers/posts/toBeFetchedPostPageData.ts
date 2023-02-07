@@ -1,7 +1,7 @@
 import {expect} from '@jest/globals'
 import type {MatcherFunction} from 'expect'
 
-import { PostDataValidator } from '@/lib/posts/dataHandler/PostDataValidator'
+import { PostDataValidator } from '@/lib/posts/dataHandler/postDataValidator'
 import { postPageData } from '@/types/matterResultData'
 
 

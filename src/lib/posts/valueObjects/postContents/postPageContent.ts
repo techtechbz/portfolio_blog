@@ -1,7 +1,7 @@
 import {unified} from "unified"
-import remarkParse from "remark-parse"
 import remarkGfm from "remark-gfm"
 import remarkMath from "remark-math"
+import remarkParse from "remark-parse"
 import remarkRehype from "remark-rehype"
 import rehypeKatex from "rehype-katex"
 import rehypeSlug from "rehype-slug"
@@ -65,13 +65,13 @@ export class PostPageContent {
   }
 
   private readonly convertContentToHtml = async (): Promise<string> => {
-    const codeAttributesContents = this.addCodeAttributes(this.postContent.content)
+    const codeAttributesContents = this.addCodeAttributes(this.postContent.plainMdContent)
     const schema = this.sanitizeSchema()
     const processedContent = await unified()
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkMath)
-      .use(require("remark-prism"), { plugins: this.prismPlugins })
+      .use(require("remark-prism"), { plugins: this.prismPlugins }) // eslint-disable-line @typescript-eslint/no-var-requires
       .use(remarkRehype, {footnoteLabel: "脚注"})
       .use(rehypeSlug)
       .use(rehypeKatex)

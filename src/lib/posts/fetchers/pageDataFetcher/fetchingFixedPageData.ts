@@ -1,4 +1,5 @@
 
+import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 import { FixedPageMatterResultData } from "../../valueObjects/matterResultData/fixedMatterResultData";
 import { MdFilePath } from "../../valueObjects/mdFilePath"
 import { FixedPageContent } from "../../valueObjects/postContents/fixedPageContent";
@@ -15,8 +16,8 @@ class FixedPageDataFetcher {
     const matterResultData = new FixedPageMatterResultData(this.fixedPageFilePath)
     const fixedPageContent = new FixedPageContent(matterResultData.matterResultContent)
     const htmlFixedPageContent = await fixedPageContent.getHtmlFixedPageContent()
-    if (!htmlFixedPageContent.isConvertedHtml) throw new Error('HTMLに変換されていません。')
-    return {contentHtml: htmlFixedPageContent.content, ...matterResultData.matterResultOverviews}
+    if (!htmlFixedPageContent.isConvertedHtml) throw new UnexpectedBehaviorError('HTMLに変換されていません。')
+    return {contentHtml: htmlFixedPageContent.htmlContent, ...matterResultData.matterResultOverviews}
   }
 }
 
