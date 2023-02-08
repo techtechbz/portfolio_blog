@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import { contactFormData, contactResultData } from "@/types/contactFormData";
 import { SubmitButton } from "@/uiParts/pageContents/contact/SubmitButton";
 import { MessageSummarySelector } from "@/uiParts/pageContents/contact/MessageSummarySelector";
-import { ContactResultSnackbar } from "@/components/uiParts/pageContents/contact/ContactResultSnackbar";
+import { ContactResultSnackbar } from "@/uiParts/pageContents/contact/ContactResultSnackbar";
 
 import contactPageCss from "@/styles/pageCss/contact.module.css"
 
@@ -23,7 +23,7 @@ const ContactPageLayout: FC<Props> = memo((props: Props) => {
 
   const onSubmitContactFormData = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const isConfirm = confirm(`以下の内容で送信しますか?\nお問い合わせ内容:\n\n${e.currentTarget.message.value}`)
+    const isConfirm = confirm("以下の内容で送信しますか?")
     if (isConfirm) {
       const inputData: contactFormData = {
         firstName: e.currentTarget.firstName.value,
@@ -47,23 +47,25 @@ const ContactPageLayout: FC<Props> = memo((props: Props) => {
     <div className={contactPageCss.ContactPageContainer}>
       <h1 className={contactPageCss.ContactPageTitle}>お問い合わせ</h1>
       <form onSubmit={onSubmitContactFormData}>
-        <div className={contactPageCss.ContactElemetsContainer}>
-          <TextField required fullWidth id="firstName" label="姓" variant="outlined" />
+        <div className={contactPageCss.InputNameRowContainer}>
+          <div className={contactPageCss.InputNameContainer}>
+            <TextField required fullWidth id="firstName" label="姓" variant="outlined" />
+          </div>
+          <div className={contactPageCss.InputNameContainer}>
+            <TextField required fullWidth id="lastName" label="名" variant="outlined" />
+          </div>
         </div>
-        <div className={contactPageCss.ContactElemetsContainer}>
-          <TextField required fullWidth id="lastName" label="名" variant="outlined" />
-        </div>
-        <div className={contactPageCss.ContactElemetsContainer}>
+        <div className={contactPageCss.ContactElementsContainer}>
           <TextField required fullWidth id="email" type="email" label="メールアドレス" placeholder="name@example.com" variant="outlined" />
         </div>
-        <div className={contactPageCss.ContactElemetsContainer}>
+        <div className={contactPageCss.ContactElementsContainer}>
           <MessageSummarySelector />
         </div>
-        <div className={contactPageCss.ContactElemetsContainer}>
+        <div className={contactPageCss.ContactElementsContainer}>
           <TextField required fullWidth multiline rows={4} id="message" label="詳細"
            placeholder="お問い合わせの詳細をこちらにご入力ください(改行・空白等を除いて10文字以上)。" variant="outlined" />
         </div>
-        <div className={contactPageCss.ContactElemetsContainer}>
+        <div className={contactPageCss.SubmitButtonContainer}>
           <SubmitButton onLoading={onLoading} type="submit">
             {onLoading ? <CircularProgress color="inherit" /> : "送信"}
           </SubmitButton>

@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app"
 
+import { SessionProvider } from "next-auth/react"
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
@@ -28,14 +29,16 @@ export default function MyApp(props: MyAppProps) {
   const theme = defaultTheme
   const isDesktop: boolean = useMediaQuery(MIN_MOBILE_WIDTH_QUERY)
   return (
-    <CacheProvider value={emotionCache}>
-      <CustomHead pageTitle={pageProps.title} pageDescription={pageProps.description} />
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <AppLayout isDesktop={isDesktop}>
-          <Component {...pageProps} isDesktop={isDesktop} />
-        </AppLayout>
-      </ThemeProvider>
-    </CacheProvider>
+    <SessionProvider>
+      <CacheProvider value={emotionCache}>
+        <CustomHead pageTitle={pageProps.title} pageDescription={pageProps.description} />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <AppLayout isDesktop={isDesktop}>
+            <Component {...pageProps} isDesktop={isDesktop} />
+          </AppLayout>
+        </ThemeProvider>
+      </CacheProvider>
+    </SessionProvider>
   )
 }
