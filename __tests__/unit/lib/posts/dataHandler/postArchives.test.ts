@@ -11,7 +11,7 @@ const thisMonth = today.getMonth() + 1
 
 for (let year = SITE_PUBLISH_YEAR; year <= thisYear; year++) {
   if (year === thisYear) {
-    for (let month = 1; month <= thisMonth; month++) {
+    for (let month = 2; month <= thisMonth; month++) {
       currentArchivesList.push(`${year}-${String(month).padStart(2, '0')}`)
     }
   } else {
