@@ -3,6 +3,7 @@ import fs from 'fs'
 import { postMatterResultOverviews, fixedPageMatterResultOverviews, postPageData, fixedPageData } from '@/types/matterResultData'
 import { RegExpMdFilePathPatterns } from './mdFilePathPatterns'
 import { ValidationError } from '@/lib/error/validationError'
+import { convertToDate } from './formatDateString'
 
 
 export class PostDataValidator {
@@ -24,7 +25,7 @@ export class PostDataValidator {
   readonly postDateValidator = (dateString?: string): void => {
     if (typeof dateString !== 'string') throw new ValidationError('日時が指定されていません。')
     const writtenPostMonth = Number(dateString.split('-')[1])
-    const postDate = new Date(dateString.replace(/-/g, "/"))
+    const postDate = convertToDate(dateString)
     const parsedPostYear = postDate.getFullYear() 
     const parsedPostMonth = postDate.getMonth()
     if (parsedPostYear < 2022 || parsedPostYear > 2099) throw new ValidationError('投稿年は2022~2099の間で指定してください。')
@@ -64,8 +65,8 @@ export class PostDataValidator {
   readonly fixedPageMatterResultOverviewsValidator = (matterResultOverviews: fixedPageMatterResultOverviews): void => {
     if (matterResultOverviews.updateDate !== undefined) {
       if (matterResultOverviews.createDate === undefined) throw new ValidationError('作成日が指定されていません。')
-      const createDate = new Date(matterResultOverviews.createDate)
-      const updateDate = new Date(matterResultOverviews.updateDate)
+      const createDate = convertToDate(matterResultOverviews.createDate)
+      const updateDate = convertToDate(matterResultOverviews.updateDate)
       this.postDateValidator(matterResultOverviews.createDate)
       this.postDateValidator(matterResultOverviews.updateDate)
       if (createDate > updateDate) throw new ValidationError('更新日時が作成日時以前に設定されています。')

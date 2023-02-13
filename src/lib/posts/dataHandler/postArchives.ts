@@ -10,7 +10,7 @@ export class PostArchives {
   }
 
   readonly getArchivesText = (month: string): string => {
-    return formatDateString(month, 'ja-JP', { year: "numeric", month: "short" })
+    return formatDateString(month + '-01', 'ja-JP', { year: "numeric", month: "short" })
   }
 
   get archivesMenuLinksList(): menuLinksList {
