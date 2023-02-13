@@ -1,15 +1,15 @@
 import type { AppProps } from "next/app"
 
-import { SessionProvider } from "next-auth/react"
 import { CacheProvider, EmotionCache } from "@emotion/react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
-import CustomHead from "@/layouts/CustomHead";
-import AppLayout from "../src/components/layouts/AppLayout"
-import { defaultTheme, MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 import createEmotionCache from "@/lib/createEmotionCache"
+import { defaultTheme, MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
+import CustomHead from "@/layouts/CustomHead";
+import { Header } from "@/uiParts/commonLayout/header/Header"
+import { Footer } from "@/uiParts/commonLayout/footer/Footer"
 
 import "@/styles/global.css"
 
@@ -26,19 +26,18 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const theme = defaultTheme
   const isDesktop: boolean = useMediaQuery(MIN_MOBILE_WIDTH_QUERY)
   return (
-    <SessionProvider>
-      <CacheProvider value={emotionCache}>
-        <CustomHead pageTitle={pageProps.title} pageDescription={pageProps.description} />
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <AppLayout isDesktop={isDesktop}>
+    <CacheProvider value={emotionCache}>
+      <CustomHead pageTitle={pageProps.title} pageDescription={pageProps.description} />
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <main>
+          <Header {...{isDesktop}} />
             <Component {...pageProps} isDesktop={isDesktop} />
-          </AppLayout>
-        </ThemeProvider>
-      </CacheProvider>
-    </SessionProvider>
+          <Footer {...{isDesktop}} />
+        </main>
+      </ThemeProvider>
+    </CacheProvider>
   )
 }

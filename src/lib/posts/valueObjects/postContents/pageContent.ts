@@ -5,6 +5,7 @@ export class PageContent {
   private readonly content: string
 
   constructor(state: "planeMd" |  "html" | "empty", content: string) {
+    if (!(["planeMd", "html"].includes(state))) throw new UnexpectedBehaviorError(`(${state})はstateとして指定できません。`)
     this.state = state
     this.content = content
   }

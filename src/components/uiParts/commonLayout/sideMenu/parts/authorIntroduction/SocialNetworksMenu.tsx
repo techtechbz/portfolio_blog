@@ -12,7 +12,8 @@ import { NoteIcon } from "@/uiElements/icon/NoteIcon"
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
-const socialNetworkIconsList: { [key: string]: any } = { // eslint-disable-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const socialNetworkIconsList: { [key: string]: any } = {
   "github": GitHubIcon,
   "note": NoteIcon,
 }

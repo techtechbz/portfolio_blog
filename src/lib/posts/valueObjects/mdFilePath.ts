@@ -1,6 +1,7 @@
 import fs from 'fs'
 
 import { ValidationError } from '@/lib/error/validationError';
+import { UnexpectedBehaviorError } from '@/lib/error/unexpectedBehaviorError';
 import { RegExpMdFilePathPatterns } from '../dataHandler/mdFilePathPatterns';
 
 
@@ -17,7 +18,7 @@ export class MdFilePath {
       this.postId = this.constructPostIdFromFullPath(path)
       this.fullPath = path
     } else {
-      throw new ValidationError('typeが有効ではありません。「"id"」もしくは「"fullPath"」を指定してください。')
+      throw new UnexpectedBehaviorError('typeが有効ではありません。「"id"」もしくは「"fullPath"」を指定してください。')
     }
   }
 

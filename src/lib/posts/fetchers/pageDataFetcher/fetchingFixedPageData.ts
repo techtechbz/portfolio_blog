@@ -8,8 +8,8 @@ import { FixedPageContent } from "../../valueObjects/postContents/fixedPageConte
 class FixedPageDataFetcher {
   private readonly fixedPageFilePath: MdFilePath
 
-  constructor(postId: string) {
-    this.fixedPageFilePath = new MdFilePath("id", postId)
+  constructor(pageId: string) {
+    this.fixedPageFilePath = new MdFilePath("id", pageId)
   }
 
   getFixedPageContent = async () => {

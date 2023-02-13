@@ -10,13 +10,12 @@ const menuList: {[key: string]: menuLinksList} = {
   header: {
     "post-index": { text: "投稿一覧", href: "/posts" },
     "about": { text: "サイト紹介", href: "/about" },
-    "contact": { text: "お問い合わせ", href: "/contact" }
+    "privacy": { text: "プライバシーポリシー", href: "/privacy" }
   },
   footer: {
     "top": { text: "TOP", href: "/" },
     "about": { text: "サイト紹介", href: "/about" },
-    "privacy": { text: "プライバシーポリシー", href: "/privacy" },
-    "contact": { text: "お問い合わせ", href: "/contact" }
+    "privacy": { text: "プライバシーポリシー", href: "/privacy" }
   },
   social: {
     "github": { text: "GitHub", href: "https://github.com/techtechbz", iconName: "github" },

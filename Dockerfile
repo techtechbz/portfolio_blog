@@ -12,7 +12,6 @@ RUN yarn add next react react-dom @next/font \
   glob sharp \
   @mui/material @emotion/react @emotion/styled @emotion/server @mui/icons-material \
   prismjs \
-  axios swr next-auth \
   unified remark-parse remark-rehype rehype-sanitize rehype-format rehype-stringify \
   remark-math remark-gfm remark-prism \
   rehype-katex rehype-slug \
