@@ -168,6 +168,4 @@ describe('Post Data Validator test', () => {
       expect(validator).toThrow()
     }
   })
-
-
 })

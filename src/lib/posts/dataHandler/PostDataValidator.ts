@@ -28,7 +28,6 @@ export class PostDataValidator {
     const parsedPostYear = postDate.getFullYear() 
     const parsedPostMonth = postDate.getMonth()
     if (parsedPostYear < 2022 || parsedPostYear > 2099) throw new ValidationError('投稿年は2022~2099の間で指定してください。')
-    if (parsedPostMonth < 0 || parsedPostMonth >= 12) throw new ValidationError('投稿月は1~12の間で指定してください。')
     if (parsedPostMonth !== writtenPostMonth - 1) throw new ValidationError('日時が変わっています。')
   }
 
