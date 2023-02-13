@@ -62,13 +62,14 @@ strong {font-weight: 700}
 hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bottom-width: 0}
 
 /* Header */
-.HeaderCenter {flex: 1}
-.HomeButtonLink, .HeaderMenuLink, .DrawerMenuListLink {text-decoration: none; border-radius: 4px}
-.HomeButtonLink {color: #015bb1; font-size: 1.4em; font-weight: 700; padding: 8px 2px}
+.HeaderCenterPadding {flex: 1}
+.HeaderMenuIcon {font-size: 2em; padding: 4px}
+.SiteNameButtonLink {color: #015bb1; font-size: 1.8em; font-weight: 700; padding: 8px 2px}
+.SiteNameButtonLink, .DrawerMenuListLink, .HeaderMenuLink {text-decoration: none; border-radius: 4px}
 .DrawerMenuListLink, .HeaderMenuLink {color: #000000de}
-.HeaderMenuLink {font-size: 1.2em; padding: 10px}
-.HeaderMenuLink:hover, .HomeButtonLink:hover {background-color: #f8f8f8; transition: all 0.3s}
+.HeaderMenuLink:hover, .SiteNameButtonLink:hover {background-color: #f8f8f8; transition: all 0.3s}
 .DrawerMenuList {padding: 4px 2px}
+.BackHomeDrawerMenuButton {padding-right: 90px}
 
 /* Top */
 .GrayFilter {position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-color: rgba(0,0,0,.4)}
@@ -83,15 +84,15 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 .PostsLineUpPart {padding: 12px 4px 30px}
 .PostsLineUpHeading {width: 100%; font-size: 1.5em; font-weight: 700; padding: .3em .6em; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
 .CardContainer {padding: 16px 12px 0}
-.BlackTextLink {padding: 4px 2px; color: #000000de}
-.BackToHomeLink {padding: 1em}
+.BlackTextLink {padding: 4px 2px; margin: 2px 1px; color: #000000de}
+.BackToHomeLink {padding: 1.3em}
 .BackToHomeLink > a {font: bold 1.1em sans-serif}
 
 @media (min-width:768px) {
   body {font-size: 18px}
   h2 {font-size: 1.6em}
   h3 {font-size: 1.4em}
-  .HomeButtonLink {font-size: 1.5em; padding: 12px 8px}
+  .SiteNameButtonLink {font-size: 1.5em; padding: 12px 8px}
   .HeaderMenuLink {font-size: 1.1em; padding: 10px 6px}
   .TopWindowTitle {font-size: 2.7em}
   .TopWindowDescription {font-size: 1.6em}
@@ -100,6 +101,6 @@ hr {margin: 0; border-style: solid; border-color: rgba(0, 0, 0, 0.12); border-bo
 }
 
 @media (min-width:1024px) {
-  .HomeButtonLink {font-size: 1.8em; padding: 12px 8px}
+  .SiteNameButtonLink {font-size: 1.8em; padding: 12px 8px}
   .HeaderMenuLink {font-size: 1.2em; padding: 10px}
 }

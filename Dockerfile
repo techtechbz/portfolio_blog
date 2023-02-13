@@ -19,5 +19,6 @@ RUN yarn add next react react-dom @next/font \
   --network-timeout 600000
 RUN yarn add -D @types/node @types/react @types/react-dom @types/prismjs @types/jest typescript \
   eslint eslint-config-next @next/eslint-plugin-next @next/bundle-analyzer prettier eslint-config-prettier eslint-plugin-testing-library \
+  @typescript-eslint/parser @typescript-eslint/eslint-plugin \
   jest jest-environment-jsdom ts-jest \
   @testing-library/react @testing-library/jest-dom msw

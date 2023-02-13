@@ -4,14 +4,14 @@ const nextConfig = {
   reactStrictMode: true,
   staticPageGenerationTimeout: 1000,
   output: 'standalone',
-  // webpack: config => {
-  //   config.watchOptions = {
-  //     aggregateTimeout: 600,
-  //     ignored: /node_modules/, 
-  //     poll: 600,
-  //   }
-  //   return config
-  // },
+  webpack: config => {
+    config.watchOptions = {
+      aggregateTimeout: 600,
+      ignored: /node_modules/, 
+      poll: 600,
+    }
+    return config
+  },
   async headers() {
     return [
       {
@@ -45,10 +45,6 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
           },
-          {
-            key: 'Contents-Security-Policy',
-            value: "default-src 'self';script-src 'self';img-src 'self';child-src 'self';style-src 'self';font-src: 'self'"
-          }
         ],
       }
     ]

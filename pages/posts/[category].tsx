@@ -2,10 +2,10 @@ import { GetStaticProps, GetStaticPaths } from "next"
 
 import { ParsedUrlQuery } from "querystring"
 
-import { BLOG_CATEGORIES_LIST } from "@/constants/blogCategories";
 import { searchResult } from "@/types/searchResult";
 import SearchResultPageLayout from "@/layouts/perPage/posts/SearchResultPageLayout"
-import { getSearchedCagetoryPostsData } from "@/lib/posts/searchPosts/getSearchedCategoryPostsData";
+import fetchingSearchedCategoryPostsData from "@/lib/posts/fetchers/searchPosts/searchingCategoryPost";
+import { PostCategory } from "@/lib/posts/dataHandler/postCategory";
 
 
 interface Params extends ParsedUrlQuery {
@@ -14,17 +14,20 @@ interface Params extends ParsedUrlQuery {
 
 type Props = {
   searchResultData: searchResult
+  retrievedContent: string
   isDesktop: boolean
 }
 
-export default function PostSearchPage({ searchResultData, isDesktop }: Props) {
+export default function PostSearchPage({ searchResultData, retrievedContent, isDesktop }: Props) {
   return(
-    <SearchResultPageLayout {...{searchResultData, isDesktop}} />
+    <SearchResultPageLayout {...{searchResultData, retrievedContent, isDesktop}} />
   )
 }
 
+const postCategory = new PostCategory()
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categoryParams = Object.keys(BLOG_CATEGORIES_LIST).map((category) => ({ params: { category } }))
+  const categoryParams = postCategory.categoryParams
   return {
     paths: categoryParams,
     fallback: false
@@ -33,12 +36,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params as Params
-  const searchResultData = await getSearchedCagetoryPostsData(params.category)
+  const searchResultData = await fetchingSearchedCategoryPostsData(params.category)
+  const retrievedContent = `カテゴリー【${postCategory.categoryNamesList[params.category]}】`
   return {
     props: {
       title: "検索結果",
       description: "サイト内投稿の検索結果です。",
-      searchResultData
+      searchResultData,
+      retrievedContent
     }
   }
 }

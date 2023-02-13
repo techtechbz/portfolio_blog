@@ -1,5 +1,5 @@
 import { getStaticProps, getStaticPaths } from '@/pages/posts/archives/[month]'
-import { searchResult } from '@/common/types/searchResult'
+import { searchResult } from '@/types/searchResult'
 import "@/matchers/posts/toBeFetchedCardData"
 
 
@@ -25,7 +25,7 @@ describe('Home page test', () => {
 
   it('Static paths test', () => {
     for (const path of staticPaths.paths) {
-      expect(path.params.month).toBe('2023-01')
+      expect(/[0-9]{4}\-0[0-9]{1}/.exec(path.params.month) !== null).toBe(true)
     }
   })
 
@@ -49,6 +49,6 @@ describe('Home page test', () => {
   })
 
   it('Fetching recentPostsData test', async () => {
-    expect(staticProps.searchResultData.foundPostsData).toBeFetchedRecentPostsData()
+    expect(staticProps.searchResultData.foundPostsData).toBeFetchedRecentPostsCardData()
   })
 })

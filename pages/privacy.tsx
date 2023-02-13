@@ -1,16 +1,16 @@
 import { GetStaticProps } from "next"
 
-import { htmlPostData } from "@/types/postData"
 import PrivacyPolicyPageLayout from "@/layouts/perPage/PrivacyPolicyPageLayout"
-import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
+import fetchingFixedPageData from "@/lib/posts/fetchers/pageDataFetcher/fetchingFixedPageData"
 
 import staticPageStyles from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
-  privacyPolicyPageData: htmlPostData & {
+  privacyPolicyPageData: {
     createDate: string
-    updateDate: string
+    updateDate?: string
+    contentHtml: string
   }
 }
 
@@ -24,7 +24,7 @@ export default function PrivacyPolicy({ privacyPolicyPageData }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const privacyPolicyPageData = await getHtmlPageData("/app/postsMd/fixed/privacy-policy.md")
+  const privacyPolicyPageData = await fetchingFixedPageData("fixed/privacy-policy")
   return {
     props: {
       title: "プライバシーポリシー",

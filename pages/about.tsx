@@ -1,31 +1,30 @@
 import { GetStaticProps } from "next"
 
-import { htmlPostData } from "@/types/postData"
 import SiteIntroductionPageLayout from "@/layouts/perPage/SiteIntroductionPageLayout"
-import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
+import fetchingFixedPageData from "@/lib/posts/fetchers/pageDataFetcher/fetchingFixedPageData"
 
 import staticPageStyles from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
-  siteIntroductionPageData: htmlPostData
+  contentHtml: string
 }
 
-export default function SiteIntroduction({ siteIntroductionPageData }: Props) {
+export default function SiteIntroduction({ contentHtml }: Props) {
   return(
     <SiteIntroductionPageLayout>
-      <div className={staticPageStyles.PageContents} dangerouslySetInnerHTML={{ __html: siteIntroductionPageData.contentHtml }} />
+      <div className={staticPageStyles.PageContents} dangerouslySetInnerHTML={{ __html: contentHtml }} />
     </SiteIntroductionPageLayout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const siteIntroductionPageData = await getHtmlPageData("/app/postsMd/fixed/site-introduction.md")
+  const siteIntroductionPageData = await fetchingFixedPageData('fixed/site-introduction')
   return {
     props: {
       title: "サイト紹介",
       description: "サイト紹介ページです。",
-      siteIntroductionPageData
+      contentHtml: siteIntroductionPageData.contentHtml
     }
   }
 }

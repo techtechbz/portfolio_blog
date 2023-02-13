@@ -7,12 +7,10 @@ type Props = {
   href: string
 }
 
-const BlackTextLink: FC<Props> = memo(({ children, href }: Props) => {
+export const BlackTextLink: FC<Props> = memo(({ children, href }: Props) => {
   return (
     <Link className="BlackTextLink" href={href}>
       {children}
     </Link>
   );
 })
-
-export default BlackTextLink

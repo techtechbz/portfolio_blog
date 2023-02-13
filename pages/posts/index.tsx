@@ -1,37 +1,27 @@
 import { GetStaticProps } from "next"
 
-import { MAIN_FEATURED_POST_ID, SUB_FEATURED_POSTS_IDS } from "@/constants/featuredPostsIds"
-import { htmlPostData, postData } from "@/types/postData";
+import { blogIndexPageCardData } from "@/types/cardData";
 import PostIndexPageLayout from "@/layouts/perPage/posts/PostIndexPageLayout"
-import { getRecentPostsData } from "@/lib/posts/fetchCardData/getRecentPostsData";
-import { getRecentMdFilePaths } from "@/lib/posts/globFileData/getRecentMdFilePath";
-import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData";
+import { fetchingBlogIndexPageCardData } from "@/lib/posts/fetchers/pageDataFetcher/fetchingIndexPageData";
 
 
-type Props = {
-  mainFeaturedPostData: postData
-  subFeaturedPostsData: ReadonlyArray<postData>
-  recentPostsData: ReadonlyArray<htmlPostData>
+type Props = blogIndexPageCardData & {
   isDesktop: boolean
 }
 
-export default function BlogIndexPage({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop }: Props) {
+export default function BlogIndexPage({ mainFeaturedPostCardData, subFeaturedPostsCardData, recentPostsCardData, isDesktop }: Props) {
   return(
-    <PostIndexPageLayout {...{mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop}} />
+    <PostIndexPageLayout {...{mainFeaturedPostCardData, subFeaturedPostsCardData, recentPostsCardData, isDesktop}} />
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const mainFeaturedPostData = await getFeaturedPostsData(MAIN_FEATURED_POST_ID)
-  const subFeaturedPostsData = await getFeaturedPostsData(SUB_FEATURED_POSTS_IDS)
-  const recentPostsData = await getRecentPostsData(await getRecentMdFilePaths())
+  const blogIndexPageCardData = await fetchingBlogIndexPageCardData()
   return {
     props: {
       title: "投稿一覧",
       description: "私のポートフォリオサイトに投稿した記事のインデックスページです。",
-      mainFeaturedPostData: mainFeaturedPostData[0],
-      subFeaturedPostsData,
-      recentPostsData
+      ...blogIndexPageCardData
     }
   }
 }

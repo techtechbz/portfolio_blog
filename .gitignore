@@ -293,7 +293,10 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/node,nextjs,react
 
+postsMd/test
 dockerfiles
+
 postsMd
 public
-writing
+
+# __tests__

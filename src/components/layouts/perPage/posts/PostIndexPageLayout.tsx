@@ -1,39 +1,40 @@
 import { FC, memo } from "react"
-import dynamic from "next/dynamic"
 
-import { htmlPostData, postData } from "@/types/postData";
-import FeaturedPostsContentsPart from "@/uiParts/contents/FeaturedPostsContentsPart";
-import RecentPostsContentsPart from "@/uiParts/contents/RecentPostsContentsPart";
-import MainFeaturedPost from "@/uiParts/top/MainFeaturedPost";
+
+import { postMatterResultOverviews } from "@/types/matterResultData";
+import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
+import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/index/FeaturedPagesLineUpPart";
+import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/index/RecentPostsLineUpPart";
+import { MainFeaturedPostCard } from "@/components/uiParts/commonLayout/top/MainFeaturedPostCard";
+import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import indexCss from "@/styles/pageCss/index.module.css";
 
-const SideMenu = dynamic(() => import("@/uiParts/sideMenu/SideMenu"))
 
 type Props = {
-  mainFeaturedPostData: postData
-  subFeaturedPostsData: ReadonlyArray<postData>
-  recentPostsData: ReadonlyArray<htmlPostData>
+  mainFeaturedPostCardData: postMatterResultOverviews
+  subFeaturedPostsCardData: featuredPostsCardData
+  recentPostsCardData: recentPostsCardData
   isDesktop: boolean
 }
 
-const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostData, subFeaturedPostsData, recentPostsData, isDesktop }: Props) => {
+const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeaturedPostsCardData, recentPostsCardData, isDesktop }: Props) => {
   return (
     <div className={indexCss.IndexContainer}>
       <div className={indexCss.MainFeaturedPost}>
-        <MainFeaturedPost {...{mainFeaturedPostData}} />
+        <MainFeaturedPostCard {...{mainFeaturedPostCardData}} />
       </div>
-      <FeaturedPostsContentsPart
+      <FeaturedPagesLineUpPart
         heading="おススメの投稿"
-        featuredPostsData={subFeaturedPostsData}
+        featuredPostsCardData={subFeaturedPostsCardData}
         isDesktop={isDesktop}
       />
       <hr />
       <div className={indexCss.IndexFlexBox}>
         <div className={indexCss.IndexContents}>
-          <RecentPostsContentsPart
+          <RecentPostsLineUpPart
             heading="最近の投稿"
-            {...{recentPostsData, isDesktop}}
+            {...{recentPostsCardData, isDesktop}}
           />
         </div>
         {isDesktop && (

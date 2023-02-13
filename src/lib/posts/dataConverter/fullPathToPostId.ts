@@ -1,1 +1,0 @@
-export const fullPathToPostId = (filePath: string): string => filePath.replace(/\/app\/postsMd\/([a-z0-9-/]+)\.md/, "$1")

@@ -1,35 +1,30 @@
 import { GetStaticProps } from "next"
 
-import { SUB_FEATURED_POSTS_IDS } from "@/constants/featuredPostsIds"
 import { SITE_DECSRIPTION, SITE_NAME } from "@/constants/siteOverviews";
-import { htmlPostData, postData } from "@/types/postData";
+import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
 import HomeLayout from "@/layouts/perPage/HomeLayout"
-import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData";
-import { getRecentPostsData } from "@/lib/posts/fetchCardData/getRecentPostsData";
-import { getRecentMdFilePaths } from "@/lib/posts/globFileData/getRecentMdFilePath";
+import { fetchingHomePageCardData } from "@/lib/posts/fetchers/pageDataFetcher/fetchingIndexPageData";
 
 
 type Props = {
-  featuredPostsData: ReadonlyArray<postData>
-  recentPostsData: ReadonlyArray<htmlPostData>
+  featuredPostsCardData: featuredPostsCardData
+  recentPostsCardData: recentPostsCardData
   isDesktop: boolean
 }
 
-export default function HomePage({ featuredPostsData, recentPostsData, isDesktop }: Props) {
+export default function HomePage({ featuredPostsCardData, recentPostsCardData, isDesktop }: Props) {
   return(
-    <HomeLayout {...{featuredPostsData, recentPostsData, isDesktop}}/>
+    <HomeLayout {...{featuredPostsCardData, recentPostsCardData, isDesktop}}/>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredPostsData = await getFeaturedPostsData(SUB_FEATURED_POSTS_IDS)
-  const recentPostsData = await getRecentPostsData(await getRecentMdFilePaths())
+  const homePostsCardData = await fetchingHomePageCardData()
   return {
     props: {
       title: SITE_NAME,
       description: SITE_DECSRIPTION,
-      featuredPostsData,
-      recentPostsData
+      ...homePostsCardData
     }
   }
 }

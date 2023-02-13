@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next"
 
-import ErrorWindow from "@/uiParts/top/ErrorWindow";
+import { ErrorWindow } from "@/uiParts/commonLayout/top/ErrorWindow";
 
 
 export default function Custom500() {

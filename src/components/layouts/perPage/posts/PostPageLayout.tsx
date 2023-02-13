@@ -1,23 +1,24 @@
 import { FC, memo } from "react"
 import Image from "next/image"
 
-import { htmlPostData, postData } from "@/types/postData";
-import BackToHomeLink from "@/uiElements/link/BackToHomeLink";
-import PostBreadCrumbs from "@/uiElements/link/PostBreadCrumbs";
-import PostDate from  "@/uiElements/text/PostDate";
-import RelatedPostsContentsPart from "@/uiParts/contents/RelatedPostsContentsPart";
+import { featuredPostsCardData } from "@/types/cardData";
+import { postPageData } from "@/types/matterResultData";
+import { BackToHomeLink } from "@/uiElements/link/BackToHomeLink";
+import { PostBreadCrumbs } from "@/uiParts/pageContents/post/PostBreadCrumbs";
+import { PostDate } from  "@/uiParts/pageContents/post/PostDate";
+import { RelatedPostsLinuUpPart } from "@/components/uiParts/pageContents/post/RelatedPostsLinuUpPart";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 import staticPageCss from "@/styles/pageCss/staticPage.module.css"
 
 
 type Props = {
-  postData: htmlPostData
-  relatedPostsData: ReadonlyArray<postData>
+  postData: postPageData
+  relatedPostsCardData: featuredPostsCardData
   isDesktop: boolean
 }
 
-const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isDesktop }: Props) => {
+const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsCardData, isDesktop }: Props) => {
   return (
     <div className={staticPageCss.PostContainer}>
       <div className={staticPageCss.PostBreadCrumbs}>
@@ -32,7 +33,7 @@ const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsData, isDesktop 
       </div>
       <div className={staticPageCss.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       <BackToHomeLink />
-      <RelatedPostsContentsPart {...{relatedPostsData, isDesktop}} />
+      <RelatedPostsLinuUpPart {...{relatedPostsCardData, isDesktop}} />
     </div>
   );
 })

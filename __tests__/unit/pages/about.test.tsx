@@ -5,10 +5,7 @@ import "@/matchers/posts/toBeFetchedFixedPageData"
 type staticPageProps = {
   title?: string
   description?: string
-  siteIntroductionPageData?: {
-    id?: string
-    contentHtml?: string
-  }
+  contentHtml?: string
 }
 
 describe('Site Introduction page test', () => {
@@ -29,6 +26,6 @@ describe('Site Introduction page test', () => {
   })
 
   it('Fetching page contents data test', async () => {
-    expect(staticProps.siteIntroductionPageData).toBeFetchedFixedPageData()
+    expect(typeof staticProps.contentHtml).toBe('string')
   })
 })

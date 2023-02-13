@@ -1,5 +1,5 @@
 import { getStaticProps, getStaticPaths } from '@/pages/posts/[category]'
-import { searchResult } from '@/common/types/searchResult'
+import { searchResult } from '@/types/searchResult'
 import "@/matchers/posts/toBeFetchedCardData"
 
 
@@ -49,6 +49,6 @@ describe('Home page test', () => {
   })
 
   it('Fetching searchResultData test', async () => {
-    expect(staticProps.searchResultData.foundPostsData).toBeFetchedRecentPostsData()
+    expect(staticProps.searchResultData.foundPostsData).toBeFetchedRecentPostsCardData()
   })
 })

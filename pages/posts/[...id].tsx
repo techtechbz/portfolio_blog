@@ -12,13 +12,14 @@ import 'prismjs/plugins/show-language/prism-show-language.min'
 import Slugger from 'github-slugger'
 import { ParsedUrlQuery } from "querystring"
 
-import { htmlPostData, postData } from "@/types/postData"
 import { CLOBBER_PREFIX } from '@/constants/postConfig'
+import { postPageData } from '@/types/matterResultData'
+import { featuredPostsCardData } from '@/types/cardData'
 import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
-import { getAllMdFilePaths } from "@/lib/posts/globFileData/getAllMdFilePaths";
-import { fullPathToPostId } from "@/lib/posts/dataConverter/fullPathToPostId"
-import { getHtmlPageData } from "@/lib/posts/translateToHtml/getHtmlPageData"
-import { getFeaturedPostsData } from "@/lib/posts/fetchCardData/getFeaturedPostsData"
+import fetchingPostPageData from '@/lib/posts/fetchers/pageDataFetcher/fetchingPostPageData'
+import fetchingRelatedPostsCardData from '@/lib/posts/fetchers/cardDataFetcher/fetchingRelatedPostsCardData'
+import { MdFilePathsFetcher } from '@/lib/posts/fetchers/mdFilePathsFetcher'
+import { MdFilePath } from '@/lib/posts/valueObjects/mdFilePath'
 
 
 interface Params extends ParsedUrlQuery {
@@ -26,8 +27,8 @@ interface Params extends ParsedUrlQuery {
 }
 
 type Props = {
-  postData: htmlPostData
-  relatedPostsData: ReadonlyArray<postData>
+  postData: postPageData
+  relatedPostsCardData: featuredPostsCardData
   isDesktop: boolean
 }
 
@@ -56,7 +57,7 @@ const hashchange = () => {
   }
 }
 
-export default function PostPage({ postData, relatedPostsData, isDesktop }: Props) {
+export default function PostPage({ postData, relatedPostsCardData, isDesktop }: Props) {
   useEffect(() => {
     window.addEventListener('hashchange', hashchange)
     document.addEventListener(
@@ -90,16 +91,16 @@ export default function PostPage({ postData, relatedPostsData, isDesktop }: Prop
           crossOrigin="anonymous"
         />
       )}
-      <PostPageLayout {...{postData, relatedPostsData, isDesktop}} />
+      <PostPageLayout {...{postData, relatedPostsCardData, isDesktop}} />
     </>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allFilePaths = await getAllMdFilePaths()
-  const paths = allFilePaths.map((filePath: string) => (
-    { params: { id: fullPathToPostId(filePath).split("/") }}
-  ))
+  const allPostFilePaths = new MdFilePathsFetcher().allMdFilePaths()
+  const paths = allPostFilePaths.map((mdFilePath: MdFilePath) => {
+    return { params: { id: mdFilePath.postId.split("/") }}
+  })
   return {
     paths,
     fallback: false
@@ -108,14 +109,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const params = context.params as Params
-  const postData = await getHtmlPageData(`/app/postsMd/${params.id.join("/")}.md`)
-  const relatedPostsData = await getFeaturedPostsData(postData.relatedPostsIds)
+  const postData = await fetchingPostPageData(params.id.join("/"))
+  const relatedPostsCardData = await fetchingRelatedPostsCardData(postData.relatedPostsIds)
   return {
     props: {
       title: postData.title,
       description: postData.description,
       postData,
-      relatedPostsData
+      relatedPostsCardData
     }
   }
 }

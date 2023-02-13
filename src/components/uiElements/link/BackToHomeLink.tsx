@@ -2,7 +2,7 @@ import { FC, memo } from "react"
 import Link from "next/link"
 
 
-const BackToHomeLink: FC = memo(() => {
+export const BackToHomeLink: FC = memo(() => {
   return(
     <div className="BackToHomeLink">
       <Link href="/">
@@ -11,5 +11,3 @@ const BackToHomeLink: FC = memo(() => {
     </div>
   )
 })
-
-export default BackToHomeLink

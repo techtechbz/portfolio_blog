@@ -3,7 +3,8 @@ import fs from 'fs'
 import { getStaticProps, getStaticPaths } from '@/pages/posts/[...id]'
 import "@/matchers/posts/toBeFetchedPostPageData"
 import "@/matchers/posts/toBeFetchedCardData"
-import { postPageDataForTest, postsCardDataForTest } from '@/common/types/postData'
+import { postPageData } from '@/types/matterResultData'
+import { featuredPostsCardData } from '@/types/cardData'
 
 
 type staticPagePaths = {
@@ -14,8 +15,8 @@ type staticPagePaths = {
 type staticPageProps = {
   title?: string
   description?: string
-  postData?: postPageDataForTest
-  relatedPostsData?: postsCardDataForTest
+  postData?: postPageData
+  relatedPostsCardData?: featuredPostsCardData
 }
 
 describe('Post page test', () => {
@@ -58,6 +59,6 @@ describe('Post page test', () => {
   })
 
   it('relatedPostsData test', async () => {
-    expect(staticProps.relatedPostsData).toBeFetchedFeaturedPostsData()
+    expect(staticProps.relatedPostsCardData).toBeFetchedFeaturedPostsCardData()
   })
 })
