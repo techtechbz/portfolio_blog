@@ -8,7 +8,7 @@ import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError"
 
 const menuList: {[key: string]: menuLinksList} = {
   header: {
-    "post-index": { text: "投稿一覧", href: "/posts" },
+    "post-index": { text: "ブログ", href: "/posts" },
     "about": { text: "サイト紹介", href: "/about" },
     "privacy": { text: "プライバシーポリシー", href: "/privacy" }
   },

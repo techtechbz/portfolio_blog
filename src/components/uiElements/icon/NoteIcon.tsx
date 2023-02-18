@@ -9,7 +9,7 @@ import sideMenuCss from '@/styles/moduleCss/sideMenu.module.css'
 export const NoteIcon: FC = memo(() => {
   return (
     <Icon className={sideMenuCss.SocialNetworksIcon}>
-      <Image alt="note" src="/svg/note_logo.svg" width={42} height={42} sizes="46px" />
+      <Image alt="note" src="/svg/note_logo.svg" width={42} height={44} sizes="46px" />
     </Icon>
   )
 })

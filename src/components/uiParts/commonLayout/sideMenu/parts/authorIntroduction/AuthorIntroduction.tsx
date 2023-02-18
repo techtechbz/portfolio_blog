@@ -14,9 +14,9 @@ export const AuthorIntroduction: FC = memo(() => {
         <ProfileIcon />
       </div>
       <SocialNetworksMenu />
-      <p className={sideMenuCss.IntroductionDetail}>
-        {`Web開発と経済学について勉強しています。\n好物はチキン南蛮です。`}
-      </p>
+      <div className={sideMenuCss.IntroductionDetail}>
+        {`フリーランスのWebコンテンツ制作者です。\nWebサイト制作・SEOライティング業務を承っております。`}
+      </div>
     </div>
   )
 })

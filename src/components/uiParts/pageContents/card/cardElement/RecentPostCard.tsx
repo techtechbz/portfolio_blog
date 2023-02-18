@@ -21,7 +21,7 @@ const desktopCardHeight = "210px"
 
 export const RecentPostCard: FC<Props> = memo(({pageData, isDesktop}: Props) => {
   const cardHeight = isDesktop ? desktopCardHeight : mobileCardHeight
-  const postImage = <Image className={recentCardCss.RecentCardImage} src={`/images/${pageData.eyecatchFile}`} alt="post image" fill sizes={`${MIN_MOBILE_WIDTH_QUERY} 136px, 55px`} />
+  const postImage = <Image className={recentCardCss.RecentCardImage} src={`/images/posts/${pageData.eyecatchFile}`} alt="post image" fill sizes={`${MIN_MOBILE_WIDTH_QUERY} 136px, 55px`} />
   return (
     <PageIntroduceCard mobileCardHeight={mobileCardHeight} desktopCardHeight={desktopCardHeight} href={`/posts/${pageData.id}`}>
       <div className={recentCardCss.RecentCardFlexBox}>
@@ -46,7 +46,6 @@ export const RecentPostCard: FC<Props> = memo(({pageData, isDesktop}: Props) => 
                 {pageData.title}
               </h3>
             </div>
-            <hr />
             <div className={recentCardCss.RecentCardContentsContainer}>
               {<div className={recentCardCss.RecentCardContents} dangerouslySetInnerHTML={{ __html: pageData.contentHtml }} />}
             </div>
