@@ -1,8 +1,9 @@
-import { FC, memo } from "react"
+import { FC, memo, SyntheticEvent, useState } from "react"
 
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/index/FeaturedPagesLineUpPart";
-import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/index/RecentPostsLineUpPart";
+import { IntroductionTabs } from "@/components/uiParts/pageContents/index/IntroductionTabs";
+import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
+import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/blogIndex/RecentPostsLineUpPart";
 import { HomeMainTopWindow } from "@/uiParts/commonLayout/top/HomeMainTopWindow";
 import { SideMenu } from "@/components/uiParts/commonLayout/sideMenu/SideMenu"
 
@@ -16,15 +17,21 @@ type Props = {
 }
 
 const HomeLayout: FC<Props> = memo(({ featuredPostsCardData, recentPostsCardData, isDesktop }: Props) => {
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleChange = (event: SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  }
+  
   return (
     <>
       <HomeMainTopWindow />
+      <IntroductionTabs {...{tabValue, handleChange}} />
       <div className={indexCss.IndexContainer}>
         <FeaturedPagesLineUpPart
           heading="オススメの投稿"
           {...{featuredPostsCardData, isDesktop}}
         />
-        <hr />
         <div className={indexCss.IndexFlexBox}>
           <div className={indexCss.IndexContents}>
             <RecentPostsLineUpPart

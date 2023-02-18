@@ -1,14 +1,13 @@
 import { FC, memo } from "react"
 
-
 import { postMatterResultOverviews } from "@/types/matterResultData";
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/index/FeaturedPagesLineUpPart";
-import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/index/RecentPostsLineUpPart";
+import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
+import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/blogIndex/RecentPostsLineUpPart";
 import { MainFeaturedPostCard } from "@/components/uiParts/commonLayout/top/MainFeaturedPostCard";
 import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
-import indexCss from "@/styles/pageCss/index.module.css";
+import postIndexCss from "@/styles/pageCss/postIndex.module.css";
 
 
 type Props = {
@@ -20,8 +19,8 @@ type Props = {
 
 const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeaturedPostsCardData, recentPostsCardData, isDesktop }: Props) => {
   return (
-    <div className={indexCss.IndexContainer}>
-      <div className={indexCss.MainFeaturedPost}>
+    <div className={postIndexCss.IndexContainer}>
+      <div className={postIndexCss.MainFeaturedPost}>
         <MainFeaturedPostCard {...{mainFeaturedPostCardData}} />
       </div>
       <FeaturedPagesLineUpPart
@@ -29,16 +28,15 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeat
         featuredPostsCardData={subFeaturedPostsCardData}
         isDesktop={isDesktop}
       />
-      <hr />
-      <div className={indexCss.IndexFlexBox}>
-        <div className={indexCss.IndexContents}>
+      <div className={postIndexCss.IndexFlexBox}>
+        <div className={postIndexCss.IndexContents}>
           <RecentPostsLineUpPart
             heading="最近の投稿"
             {...{recentPostsCardData, isDesktop}}
           />
         </div>
         {isDesktop && (
-          <div className={indexCss.IndexSideMenu}>
+          <div className={postIndexCss.IndexSideMenu}>
             <SideMenu />
           </div>
         )}

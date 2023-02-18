@@ -9,7 +9,7 @@ export const ProfileIcon: FC = memo(() => {
     <div className={sideMenuCss.AuthorIconContainer}>
       <Image
         className="iconImage"
-        src="/images/profile.svg"
+        src="/svg/profile.svg"
         alt="Icon"
         width={54}
         height={54}

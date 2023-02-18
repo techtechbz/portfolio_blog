@@ -21,10 +21,12 @@ const MainWindowPaper: FC<{children?: ReactNode}> = styled(Paper)(() => ({
 }))
 
 export const TopBackgroundImage: FC<Props> = memo(({ src, alt, children }: Props) => {
+  const imageSrc = (src === "home.jpg" || src === 'blackboard.jpg') ? `/images/top/${src}`
+                                                                    : `/images/posts/${src}`
   return (
     <MainWindowPaper>
       {/* 画像 */}
-      <Image src={`/images/${src}`} alt={alt} fill priority />
+      <Image src={imageSrc} alt={alt} fill priority />
       {/* 画像を暗くするフィルター */}
       <div className="GrayFilter" />
       {/* コンテンツ */}
