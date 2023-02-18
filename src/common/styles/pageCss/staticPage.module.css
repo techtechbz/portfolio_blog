@@ -31,7 +31,7 @@
   .PageContents p {padding: .6em}
   .PageContents h2 {font-size: 1.7em}
   .PageContents h3 {font-size: 1.6em}
-  .PageContents blockquote {margin: 1em 2em; padding: .4em .8em;}
+  .PageContents blockquote {margin: 1em 2em; padding: .4em .8em}
 }
 
 @media (min-width:1024px) {

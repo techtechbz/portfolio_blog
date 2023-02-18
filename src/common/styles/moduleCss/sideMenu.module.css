@@ -1,13 +1,5 @@
-.SideMenuContainer {padding-top: 32px}
-.SideMenuLinksList {margin-left: 20px}
+.SideMenuContainer {padding-top: 32px; margin-left: 20px}
 .SideMenuContents {padding: 0px 4px 4px}
 .SideMenuTitle {margin: 6px; font-size: 1.3em}
 .SideMenuLinks {display: flex; padding: 6px 2px}
-.IntroductionBackground {margin: 4px 8px; padding: 12px; background-color: #e7e7e7; text-align: center}
-.AuthorIcon {margin: 12px 0px 4px}
-.AuthorIconContainer {background-color: #fff; height: 60px; width: 60px; border-radius: 50%; margin: auto}
-.IntroductionDetail {white-space: pre-line; font-size: 16px; margin: 8px}
-.SocialNetworksMenu, .SocialNetworksIcon {display: flex; justify-content: center}
-.SocialNetworksIcon {align-items: center; opacity: 0.6; height: 1.3em; width: 1.3em; padding: 0 0 2px}
-.SocialNetworksMuiIcon, .CategoryIcon {font-size: 1.2em}
-.CategoryIcon {height: 1.1em; margin: 2px 0px}
+.CategoryIcon {font-size: 1.2em; height: 1.1em; margin: 2px 0px}

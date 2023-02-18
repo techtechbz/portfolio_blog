@@ -3,8 +3,6 @@ import Image from 'next/image'
 
 import Card from "@mui/material/Card";
 
-import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
-
 import indexCss from "@/styles/pageCss/index.module.css";
 
 
@@ -41,20 +39,22 @@ const PlanningRow: FC<Plan> = memo((plan: Plan) => {
   return (
     <div className={indexCss.PlanningMenuContainer}>
       <Card raised className={indexCss.PlanningCard}>
-        <p className={indexCss.PlanningMenuTitle}>{`${plan.planIndex}:${plan.title}`}</p>
-        <div className={indexCss.PlanningSvgContainer}>
-          <Image className={indexCss.PlanningSvg} src={`/svg/planning/${plan.id}.svg`} alt="planning picture image"
-           width={60} height={60} sizes={`${MIN_MOBILE_WIDTH_QUERY} 60px, 48px`} />
-        </div>
-        <div className={indexCss.PlanningMenuDescription}>
-          <p>{plan.description}</p>
-          <ul>
-            {plan.charmList.map((charm: string, index: number) => {
-              return (
-                <li key={`${plan.id}-charm${index}`}>{charm}</li>
-                )
-              })}
-          </ul>
+        <p className={indexCss.PlanningCardTitle}>{`${plan.planIndex}:${plan.title}`}</p>
+        <div className={indexCss.PlanningCardContents}>
+          <div className={indexCss.PlanningSvgContainer}>
+            <Image className={indexCss.PlanningSvg} src={`/svg/planning/${plan.id}.svg`} alt="planning picture image"
+             width={64} height={64} sizes="64px" />
+          </div>
+          <div className={indexCss.PlanningCardDescription}>
+            <p>{plan.description}</p>
+            <ul>
+              {plan.charmList.map((charm: string, index: number) => {
+                return (
+                  <li key={`${plan.id}-charm${index}`}>{charm}</li>
+                  )
+                })}
+            </ul>
+          </div>
         </div>
       </Card>
     </div>

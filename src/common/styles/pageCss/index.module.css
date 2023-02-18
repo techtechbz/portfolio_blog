@@ -1,29 +1,60 @@
 .IndexContainer {margin: 12px 6vw 20px}
-.IndexFlexBox {display: flex}
-.IndexContents, .HomeMainTopWindow {position: relative}
-.IndexContents {width: 100%}
+.HomeMainTopWindow, .PlanningMenuRow {position: relative}
 .HomeMainTopWindow {height: 38vh; padding: 4vh 8vw}
+
+.SitePresentationPart {background-color: #e7f2fc}
+.SitePresentationIconList {display: flex; justify-content: center; margin: 8px 24px}
+.SitePresentationMenu {text-align: center}
+.SitePresentationMenuButton {margin: 8px; padding: 2vw; height: 12vw; width: 12vw; color: #015bb1; background-color: #fff; border-radius: 50%}
+.SitePresentationIcon {height: 8vw; width: 8vw}
+.SitePresentationTooltip#label {font-size: 1em}
+
+/* Planning */
 .IntroductionContainer {margin: 12px 0}
-.IntroductionTabs > div > div {padding: 0 auto; font-size: 1.3em}
-.PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb133;}
+.IntroductionTabsMenu {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+.IntroductionTabsMenu > div > div {justify-content: center}
+.IntroductionTab {font-size: 14px; font-weight: 700}
+.PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb133}
 .PlanningFlexBox, .PlanningMenuRow {display: block}
-.PlanningMenuRow {position: relative; margin: 16px 0 4px}
+.PlanningMenuRow {margin: 16px 0 4px}
 .PlanningMenuRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
-.PlanningHeader, .PlanningMenuTitle {font-weight: 700; text-align: center}
+.PlanningHeader, .PlanningCardTitle {font-weight: 700; text-align: center}
 .PlanningCard {margin: 4px 2vw; padding: 4px 8px}
 .PlanningMenuContainer {padding: 8px; margin: 8px 12px}
-.PlanningMenuTitle {font-size: 1.2em; margin: 8px}
-.PlanningSvgContainer {margin: 8px auto; width: 60px; height: 60px; object-fit: contain}
-.PlanningSvg {opacity: .4}
-.PlanningMenuDescription {margin: 12px 2vw 4px}
+.PlanningCardTitle {font-size: 1.2em; margin: 8px}
+.PlanningSvgContainer {z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(2); position: absolute}
+.PlanningSvg {opacity: .1}
+.PlanningCardDescription {margin: 12px 2vw 4px; z-index: 1}
+/* Author introduction */
+.AuthorIntroductionContainer {margin: 16px 2vw}
+.AuthorIntroductionBackground {display: block; margin: 4px 8px; padding: 12px; background-color: #e7e7e7; text-align: center}
+.AuthorIntroductionIconsContainer {margin: 12px 0 0}
+.AuthorIcon {margin: 16px 0 12px; background-color: #fff; height: 60px; width: 60px; border-radius: 50%; margin: auto}
+.AuthorIntroductionDetail {text-align: left; font-size: 16px; margin: 4px 8px; padding: 0}
+.SocialNetworksMenu, .SocialNetworksIcon {display: flex; justify-content: center}
+.SocialNetworksIcon {align-items: center; opacity: 0.6; height: 1.3em; width: 1.3em; padding: 0 0 1px}
+.SocialNetworksMuiIcon {font-size: 1.2em}
+
+@media (min-width:480px) {
+  .AuthorIntroductionBackground {display: flex}
+  .AuthorIntroductionContainer {margin: 16px 4vw}
+  .AuthorIntroductionBackground {justify-content: center}
+  .AuthorIntroductionDetail {margin: 12px 2vw; padding: 4px}
+  .AuthorIntroductionIconsContainer {margin: 20px 8px 20px 24px}
+}
 
 @media (min-width:768px) {
   .IndexContainer {margin: 16px 8vw 20px}
-  .IndexContents {width: 67%}
+  .IntroductionTab {font-size: 1.3em}
   .PlanningBackground {padding: 3vh 4vw}
   .PlanningFlexBox, .PlanningMenuRow {display: flex}
-  .PlanningCard:hover {transform: scale(1.05); transition: all 0.2s;}
   .PlanningMenuContainer {margin: 0; padding: 0 auto}
   .PlanningMenuRow:not(:last-child) {border-bottom: none; border-right: 1px solid rgba(0, 0, 0, 0.12)}
-  .PlanningMenuDescription {margin: 12px 0px 4px 8px}
+  .PlanningCard:hover, .SitePresentationMenuButton:hover {transform: scale(1.05); transition: all 0.2s}
+  .PlanningCardContents {display: block}
+  .PlanningSvgContainer {margin: 8px; position: static; transform: translate(0, 0); text-align: center; object-fit: contain}
+  .PlanningSvg {opacity: .4}
+  .PlanningCardDescription {margin: 12px 0px 4px 8px}
+  .AuthorIntroductionIconsContainer {scale: 1.2; margin: 24px 16px}
+  .AuthorIntroductionDetail {margin: 8px 1vw; padding: 16px 4px}
 }
