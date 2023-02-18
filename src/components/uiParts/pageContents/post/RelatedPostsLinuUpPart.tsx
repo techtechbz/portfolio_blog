@@ -16,7 +16,7 @@ export const RelatedPostsLinuUpPart: FC<Props> = memo(({ relatedPostsCardData, i
     <>
       {relatedPostsCardData.length >= 1 && (
         <div className="PostsLineUpPart">
-          <h2 className="PostsLineUpHeading">関連記事</h2>
+          <h2 className="StylingSubHeading">関連記事</h2>
           <div className="CardContainer">
             <div className={cardCss.RelatedPostsCardContainer}>
               {relatedPostsCardData.map((pageData) => (

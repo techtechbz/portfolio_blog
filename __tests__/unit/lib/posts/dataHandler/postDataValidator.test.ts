@@ -64,6 +64,8 @@ describe('Post Data Validator test', () => {
     {file: 'equation.jpg', expected: true},
     {file: 'equation.png', expected: false},
     {file: 'equatio.jpg', expected: false},
+    {file: 'blackboard.jpg', expected: false},
+    {file: 'equation.jpg.png', expected: false},
     {file: 'profile.svg', expected: false},
   ])('Post eyecatch file validator test ($file)', ({file, expected}) => {
     const validator = () => postDataValidator.eyecatchFileValidator(file)
@@ -90,19 +92,19 @@ describe('Post Data Validator test', () => {
   })
 
   it.each([
-    {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: []},
+    {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: []},
      expected: true},
-    {overviews: {title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: []},
+    {overviews: {title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: []},
      expected: false},
-    {overviews: {id: "math/ai-formula", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: []},
+    {overviews: {id: "math/ai-formula", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: []},
      expected: false},
-    {overviews: {id: "math/ai-formula", title: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: []},
+    {overviews: {id: "math/ai-formula", title: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: []},
      expected: false},
     {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", relatedPostsIds: []},
      expected: false},
-    {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg'},
+    {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg'},
      expected: false},
-    {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: ["math/ai-formul"]},
+    {overviews: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: ["math/ai-formul"]},
      expected: false},
   ])('Post matter result overviews validator test ($overviews)', ({overviews, expected}) => {
     const validator = () => postDataValidator.postMatterResultOverviewsValidator(overviews)
@@ -114,13 +116,13 @@ describe('Post Data Validator test', () => {
   })
   
   it.each([
-    {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: [], contentHtml: "<div>テスト</div>"},
+    {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: [], contentHtml: "<div>テスト</div>"},
      expected: true},
-    {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: []},
+    {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: []},
      expected: false},
     {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", relatedPostsIds: [], contentHtml: "<div>テスト</div>"},
      expected: false},
-    {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'blackboard.jpg', relatedPostsIds: ["math/ai-formul"], contentHtml: "<div>テスト</div>"},
+    {data: {id: "math/ai-formula", title: "テスト", description: "テスト", date: "2022-1-3", eyecatchFile: 'equation.jpg', relatedPostsIds: ["math/ai-formul"], contentHtml: "<div>テスト</div>"},
      expected: false},
   ])('Post page data validator test ($data)', ({data, expected}) => {
     const validator = () => postDataValidator.postPageDataValidator(data)
