@@ -3,7 +3,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
 import { menuLinksItem } from "@/types/menuLinksList";
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents";
 
 import indexCss from "@/styles/pageCss/index.module.css"
 

@@ -5,7 +5,7 @@ import Drawer from "@mui/material/Drawer"
 import Divider from "@mui/material/Divider"
 import List from "@mui/material/List"
 
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents"
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents"
 import { DrawerMenuList } from "./DrawerMenuList"
 import { DrawerTopMenu } from "./DrawerTopMenu"
 

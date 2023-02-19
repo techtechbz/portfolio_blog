@@ -3,8 +3,8 @@ import { FC, memo } from "react"
 import Card from "@mui/material/Card";
 
 import { postMatterResultOverviews } from "@/types/matterResultData";
-import { MainPostActionArea } from "./parts/MainPostActionArea";
-import { TopBackgroundImage } from "./parts/TopBackgroundImage";
+import { MainPostActionArea } from "@/uiParts/commonLayout/top/parts/MainPostActionArea";
+import { TopBackgroundImage } from "@/uiParts/commonLayout/top/parts/TopBackgroundImage";
 
 import postIndexCss from "@/styles/pageCss/postIndex.module.css"
 

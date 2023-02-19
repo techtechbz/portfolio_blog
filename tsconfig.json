@@ -16,10 +16,12 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["src/common/styles/*"],
       "@/constants/*": ["src/common/constants/*"],
       "@/types/*": ["src/common/types/*"],
+      "@/hooks/*": ["src/common/hooks/*"],
+      "@/functional/*": ["src/components/functional/*"],
       "@/layouts/*": ["src/components/layouts/*"],
       "@/uiElements/*": ["src/components/uiElements/*"],
       "@/uiParts/*": ["src/components/uiParts/*"],

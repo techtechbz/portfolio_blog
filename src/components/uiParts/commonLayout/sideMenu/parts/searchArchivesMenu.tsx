@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import Link from "next/link";
 
 import { menuLinksItem } from "@/types/menuLinksList";
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 

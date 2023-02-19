@@ -6,10 +6,10 @@ import IconButton from "@mui/material/IconButton"
 import GitHubIcon from "@mui/icons-material/GitHub"
 
 import { menuLinksItem } from "@/types/menuLinksList";
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents";
 import { NoteIcon } from "@/uiElements/icon/NoteIcon"
 
-import indexCss from "@/styles/pageCss/index.module.css"
+import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,7 +24,7 @@ const SocialNetworkLinkButton: FC<menuLinksItem> = memo(({ text, href, iconName 
     <Link href={href} passHref>
       <Tooltip title={`${text}ページへ`} arrow>
         <div>
-          <IconButton aria-label={`${text} link button`}><IconNode className={indexCss.SocialNetworksMuiIcon} /></IconButton>
+          <IconButton aria-label={`${text} link button`}><IconNode className={sideMenuCss.SocialNetworksMuiIcon} /></IconButton>
         </div>
       </Tooltip>
     </Link>
@@ -33,7 +33,7 @@ const SocialNetworkLinkButton: FC<menuLinksItem> = memo(({ text, href, iconName 
 
 export const SocialNetworksMenu: FC = memo(() => {
   return(
-    <div className={indexCss.SocialNetworksMenu}>
+    <div className={sideMenuCss.SocialNetworksMenu}>
       {getMenuMappingComponents("social", SocialNetworkLinkButton)}
     </div>
   )

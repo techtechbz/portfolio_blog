@@ -1,7 +1,8 @@
 import { FC, memo } from "react";
 
-import indexCss from "@/styles/pageCss/index.module.css"
 import { formatDateString } from "@/lib/posts/dataHandler/formatDateString";
+
+import indexCss from "@/styles/pageCss/index.module.css"
 
 
 export const WhatsNew: FC = memo(() => {
