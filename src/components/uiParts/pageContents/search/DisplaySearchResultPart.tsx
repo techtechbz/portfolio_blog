@@ -2,7 +2,7 @@ import { FC, memo } from "react"
 
 import { searchResult } from "@/types/searchResult";
 import { SearchErrorResult } from './SearchErrorResult'
-import { RecentPostCardsList } from "../card/cardList/RecentPostCardsList";
+import { RecentPostCardsList } from "@/uiParts/commonLayout/card/cardList/RecentPostCardsList";
 
 import searchCss from "@/styles/pageCss/search.module.css"
 
@@ -21,7 +21,7 @@ export const DisplaySearchResultPart: FC<Props> = memo(({ searchResultData, retr
       ) : (
         <div className="PostsLineUpPart">
           <h1 className={searchCss.SearchPageTitle}>{`${retrievedContent}`}</h1>
-          <h2 className="PostsLineUpHeading">{`検索結果 : ${searchResultData.resultMessage}`}</h2>
+          <h2 className="StylingSubHeading">{`検索結果 : ${searchResultData.resultMessage}`}</h2>
           <RecentPostCardsList
             recentPostsCardData={searchResultData.foundPostsData}
             {...{isDesktop}}

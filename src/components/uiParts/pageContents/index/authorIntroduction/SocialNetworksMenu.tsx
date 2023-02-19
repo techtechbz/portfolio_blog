@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton"
 import GitHubIcon from "@mui/icons-material/GitHub"
 
 import { menuLinksItem } from "@/types/menuLinksList";
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents";
 import { NoteIcon } from "@/uiElements/icon/NoteIcon"
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"

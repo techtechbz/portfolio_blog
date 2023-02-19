@@ -1,19 +1,70 @@
-.IndexContainer {margin: 12px 6vw 20px}
-.IndexFlexBox {display: flex}
-.IndexContents, .IndexSideMenu, .HomeMainTopWindow, .MainFeaturedPostContainer {position: relative}
-.IndexContents {width: 100%}
-.IndexSideMenu {width: 33%; margin: 24px 0}
+.IndexContainer {margin: 12px 6vw 32px}
+.IndexFlexBox {display: block}
+.IndexContents, .IndexSideMenu {position: relative; width: 100%}
+.IndexSideMenu {margin: 24px 8px}
+.IndexContents {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+
+/* home main top window */
+.HomeMainTopWindow, .PlanningMenuRow {position: relative}
 .HomeMainTopWindow {height: 38vh; padding: 4vh 8vw}
-.MainFeaturedPost {width: 60vw; min-width: 280px; margin: 2em auto 1.2em}
-.MainFeaturedPostContainer {height: 36vw; max-height: 300px; min-height: 200px; margin: 0; padding: 16px 8px; text-align: center}
-.MainFeaturedPostTitle, .MainFeaturedPostDescription {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical}
-.MainFeaturedPostTitle {font-size: 1.2em; -webkit-line-clamp: 2}
-.MainFeaturedPostDescription {margin: 0 4px; font-size: 15px; -webkit-line-clamp: 4}
+
+/* site presentation */
+.SitePresentationPart {background-color: #015bb122; padding: 16px 6vw}
+.SitePresentationPartHeading, .SitePresentationMenuTitle {font-weight: 700}
+.SitePresentationPartHeading {padding: 8px}
+.SitePresentationMenuTitleContent {height: 45px; text-align:center; position: relative}
+.SitePresentationMenuTitle {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%}
+.SitePresentationIconList {display: flex; justify-content: center; margin: 16px 1vw 8px}
+.SitePresentationMenu {text-align: center; flex: 1}
+.SitePresentationMenuButton {margin: 8px auto; padding: 2vw; height: 10vw; width: 10vw; min-height: 50px; min-width: 50px; color: #015bb1; background-color: #fff; border-radius: 50%}
+.SitePresentationIcon {height: 6vw; width: 6vw; min-height: 33px; min-width: 33px}
+
+/* Planning */
+.IntroductionContainer {margin: 12px 0}
+.IntroductionTabsMenu, .PlanningMenuRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+.IntroductionTabsMenu > div > div {justify-content: center}
+.IntroductionTab {font-size: 14px; font-weight: 700}
+.PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb122}
+.PlanningFlexBox, .PlanningMenuRow {display: block}
+.PlanningMenuRow {margin: 16px 0 4px}
+.PlanningHeader, .PlanningCardTitle {font-weight: 700; text-align: center}
+.PlanningCard {margin: 4px 2vw; padding: 4px 8px}
+.PlanningMenuContainer {padding: 8px; margin: 8px 12px}
+.PlanningCardTitle {font-size: 1.2em; margin: 8px}
+.PlanningSvgContainer {z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(2); position: absolute}
+.PlanningSvg {opacity: .1}
+.PlanningCardDescription {margin: 12px 2vw 4px; z-index: 1}
+
+/* What's new */
+.WhatsNewContainer {margin: 16px 1vw 24px}
+.WhatsNewTable {margin: 16px 2vw}
+.WhatsNewTableRow:nth-child(2n+1) {background: #015bb122}
+.WhatsNewTableRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+.WhatsNewTableDateHeader, .WhatsNewTableNewsHeader {font-size: 1.3em; font-weight: 700}
+.WhatsNewTableDateHeader {width: 30vw; margin: 8px 0px; padding: 8px 0px}
+.WhatsNewTableNewsHeader {width: 70vw}
+.WhatsNewTableDateHeader, .WhatsNewTableDateData {border-right: 1px solid rgba(0, 0, 0, 0.12)}
+.WhatsNewTableDateData {text-align: center; margin: 4px 4px; padding: 4px 0px}
+.WhatsNewTableNewsData {padding: 4px 12px}
+
+@media (min-width:480px) {
+  .SitePresentationIconList {margin: 16px 2vw 8px}
+}
 
 @media (min-width:768px) {
-  .IndexContainer {margin: 16px 8vw 20px}
-  .IndexContents {width: 67%}
-  .MainFeaturedPostContainer {padding: 1.8em 1.2em}
-  .MainFeaturedPostTitle {font-size: 1.7em}
-  .MainFeaturedPostDescription {font-size: 1.1em}
+  .IndexContainer {margin: 16px 8vw 32px}
+  .IndexFlexBox, .PlanningFlexBox, .PlanningMenuRow {display: flex}
+  .IndexContents {width: 67%; border-bottom: none}
+  .IndexSideMenu {width: 33%; margin: 24px 8px}
+  .IntroductionTab {font-size: 1.3em}
+  .SitePresentationIconList {margin: 16px 4vw 8px}
+  .PlanningBackground {padding: 3vh 4vw}
+  .PlanningMenuContainer {margin: 0; padding: 0 auto}
+  .PlanningMenuRow:not(:last-child) {border-bottom: none; border-right: 1px solid rgba(0, 0, 0, 0.12)}
+  .PlanningCard:hover, .SitePresentationMenuButton:hover {transform: scale(1.05); transition: all 0.2s}
+  .PlanningCardContents {display: block}
+  .PlanningSvgContainer {margin: 8px; position: static; transform: translate(0, 0); text-align: center; object-fit: contain}
+  .PlanningSvg {opacity: .4}
+  .PlanningCardDescription {margin: 12px 0px 4px 8px}
+  .WhatsNewTable {margin: 16px 1vw}
 }

@@ -1,5 +1,5 @@
 import { postPageData } from "@/types/matterResultData";
-import { blogIndexPageCardData, featuredPostsCardData, homePageCardData, recentPostsCardData } from "@/types/cardData";
+import { blogIndexPageCardData, featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
 import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
 import { MdFilePath } from "../../valueObjects/mdFilePath"
 import { MdFilePathsFetcher } from "../mdFilePathsFetcher";
@@ -47,16 +47,11 @@ class IndexPageDataFetcher {
     })
   }
   
-  readonly fetchHomePageCardData = async (): Promise<homePageCardData> => {
-    const recentPostMdFilePaths = await this.fetchRecentPostMdFilePaths()
+  readonly fetchHomePageCardData = async (): Promise<featuredPostsCardData> => {
     const homeFeaturedPostMdFilePaths = this.homeFeaturedPostIdsList.map((postId: string) => new MdFilePath("id", postId))
-    const allMdFilePaths = recentPostMdFilePaths.concat(homeFeaturedPostMdFilePaths)
+    const matterResultDataList = this.fetchMatterResultDataList(homeFeaturedPostMdFilePaths)
     
-    const matterResultDataList = this.fetchMatterResultDataList(allMdFilePaths)
-    
-    const recentPostsCardData = await this.fetchRecentPostsCardData(matterResultDataList.slice(0, recentPostMdFilePaths.length - 1))
-    const featuredPostsCardData = this.selectFeaturedPostsCardData(this.homeFeaturedPostIdsList, matterResultDataList)
-    return {featuredPostsCardData, recentPostsCardData}
+    return this.selectFeaturedPostsCardData(this.homeFeaturedPostIdsList, matterResultDataList)
   }
 
   readonly fetchBlogIndexPageCardData = async (): Promise<blogIndexPageCardData> => {
@@ -74,7 +69,7 @@ class IndexPageDataFetcher {
   }
 }
 
-export const fetchingHomePageCardData = async (): Promise<homePageCardData> => {
+export const fetchingHomePageCardData = async (): Promise<featuredPostsCardData> => {
   const fetcher = new IndexPageDataFetcher()
   return await fetcher.fetchHomePageCardData()
 }

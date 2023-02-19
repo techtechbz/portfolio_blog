@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 
 import { featuredPostsCardData } from "@/types/cardData";
-import { FeaturedPageCard } from "../card/cardElement/FeaturedPageCard"
+import { FeaturedPageCard } from "../cardElement/FeaturedPageCard"
 
 import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
@@ -14,8 +14,8 @@ type Props = {
 
 export const FeaturedPagesLineUpPart: FC<Props> = memo(({ heading, featuredPostsCardData, isDesktop }: Props) => {
   return (
-    <div className="PostsLineUpPart">
-      <h2 className="PostsLineUpHeading">{heading}</h2>
+    <div className={cardCss.FeaturedPagesLineUpPart}>
+      <h2 className="StylingSubHeading">{heading}</h2>
       {featuredPostsCardData.length >= 1 && (
         <div className="CardContainer">
           <div className={cardCss.FlexCardContainer}>

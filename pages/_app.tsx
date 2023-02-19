@@ -35,7 +35,7 @@ export default function MyApp(props: MyAppProps) {
         <main>
           <Header {...{isDesktop}} />
             <Component {...pageProps} isDesktop={isDesktop} />
-          <Footer {...{isDesktop}} />
+          <Footer />
         </main>
       </ThemeProvider>
     </CacheProvider>

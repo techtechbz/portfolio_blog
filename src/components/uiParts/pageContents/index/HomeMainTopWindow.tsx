@@ -1,6 +1,6 @@
 import { FC, memo } from "react"
 
-import { TopBackgroundImage } from "./parts/TopBackgroundImage";
+import { TopBackgroundImage } from "@/uiParts/commonLayout/top/parts/TopBackgroundImage";
 
 import indexCss from "@/styles/pageCss/index.module.css"
 

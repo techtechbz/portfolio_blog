@@ -6,7 +6,7 @@ import { postPageData } from "@/types/matterResultData";
 import { BackToHomeLink } from "@/uiElements/link/BackToHomeLink";
 import { PostBreadCrumbs } from "@/uiParts/pageContents/post/PostBreadCrumbs";
 import { PostDate } from  "@/uiParts/pageContents/post/PostDate";
-import { RelatedPostsLinuUpPart } from "@/components/uiParts/pageContents/post/RelatedPostsLinuUpPart";
+import { RelatedPostsLinuUpPart } from "@/uiParts/pageContents/post/RelatedPostsLinuUpPart";
 import { MIN_MOBILE_WIDTH_QUERY } from "@/lib/themes/defaultTheme";
 
 import staticPageCss from "@/styles/pageCss/staticPage.module.css"
@@ -29,7 +29,7 @@ const PostPageLayout: FC<Props> = memo(({ postData, relatedPostsCardData, isDesk
         <PostDate dateString={postData.date} />
       </div>
       <div className={staticPageCss.PostImageContainer}>
-        <Image src={`/images/${postData.eyecatchFile}`} alt="post header image" fill priority sizes={`${MIN_MOBILE_WIDTH_QUERY} 280px, 440px`} />
+        <Image src={`/images/posts/${postData.eyecatchFile}`} alt="post header image" fill priority sizes={`${MIN_MOBILE_WIDTH_QUERY} 280px, 440px`} />
       </div>
       <div className={staticPageCss.PageContents} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       <BackToHomeLink />

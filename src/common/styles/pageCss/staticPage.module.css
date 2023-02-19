@@ -14,13 +14,13 @@
 .PageContents p {padding: 1em}
 .PageContents h2, .PageContents h3 {font-weight: 700; margin: .6em}
 .PageContents h2 {padding: .2em .4em; line-height: 1.2; border-left: 8px solid #015bb1; border-bottom: 1px solid}
-.PageContents blockquote {padding: .2em .4em; margin: 1em 1.2em; background-color: #e7f2fc}
+.PageContents blockquote {padding: .2em .4em; margin: 1em 1.2em; background-color: #015bb122}
 .PageContents blockquote > p:first-of-type {font-weight: 700; padding: 1em 1em 0}
 .PageContents table {border: solid 1px; border-collapse: collapse; border-spacing: 0}
 .PageContents th {padding: 10px; background: #015bb1; border-right: solid 1px black; color: #ffffff}
 .PageContents th:last-child {border-right: none}
 .PageContents td {padding: 10px; border-right: solid 1px}
-.PageContents tr:nth-child(2n+1) {background: #e7f2fc}
+.PageContents tr:nth-child(2n+1) {background: #015bb122}
 .PageContents td:last-child {border-right: none}
 
 @media (min-width:768px) {
@@ -31,7 +31,7 @@
   .PageContents p {padding: .6em}
   .PageContents h2 {font-size: 1.7em}
   .PageContents h3 {font-size: 1.6em}
-  .PageContents blockquote {margin: 1em 2em; padding: .4em .8em;}
+  .PageContents blockquote {margin: 1em 2em; padding: .4em .8em}
 }
 
 @media (min-width:1024px) {

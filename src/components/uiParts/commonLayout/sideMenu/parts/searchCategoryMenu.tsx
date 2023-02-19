@@ -5,15 +5,15 @@ import Link from "next/link";
 import Stack from "@mui/material/Stack";
 
 import { menuLinksItem } from "@/types/menuLinksList";
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents";
 
 import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
-
 
 const FunctionsIcon = dynamic(() => import("@mui/icons-material/Functions"))
 const MonetizationOnIcon = dynamic(() => import("@mui/icons-material/MonetizationOn"))
 const TerminalIcon = dynamic(() => import("@mui/icons-material/Terminal"))
 const BarChartIcon = dynamic(() => import("@mui/icons-material/BarChart"))
+
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const blogIconsList: { [key: string]: any } = {

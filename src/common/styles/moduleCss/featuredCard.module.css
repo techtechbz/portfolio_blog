@@ -1,3 +1,5 @@
+.FeaturedPagesLineUpPart, .FeaturedCardTitle {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+.FeaturedPagesLineUpPart {padding: 12px 4px 30px}
 .FlexCardContainer {display: block; margin: 0 12px 0 0}
 .RelatedPostsCardContainer {margin: 0 14px 0 0}
 .PostPagesFeaturedCard, .IndexPagesFeaturedCard {width: 100%; margin: 0 .6em 1.2em}

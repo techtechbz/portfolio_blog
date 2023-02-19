@@ -3,7 +3,7 @@ import { FC, memo } from "react"
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 
 import { PostCategory } from "@/lib/posts/dataHandler/postCategory";
-import { BlackTextLink } from "../../../uiElements/link/BlackTextLink";
+import { BlackTextLink } from "@/uiElements/link/BlackTextLink";
 
 import postCss from "@/styles/pageCss/staticPage.module.css";
 

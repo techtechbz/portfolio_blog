@@ -10,12 +10,9 @@ export class PostDataValidator {
   private readonly regExpMdFilePathPatterns = new RegExpMdFilePathPatterns()
 
   readonly postIdValidator = (postId?: string): void => {
-    if (typeof postId !== 'string') {
-      throw new ValidationError('IDが指定されていません。')
-    } else {
-      if (!this.regExpMdFilePathPatterns.postIdPattern.exec(postId)) throw new ValidationError(`postId(${postId})が有効ではありません`)
-      fs.statSync(`/app/postsMd/${postId}.md`)
-    }
+    if (typeof postId !== 'string') throw new ValidationError('IDが指定されていません。')
+    if (!this.regExpMdFilePathPatterns.postIdPattern.exec(postId)) throw new ValidationError(`postId(${postId})が有効ではありません`)
+    fs.statSync(`/app/postsMd/${postId}.md`)
   }
 
   readonly stringTypeValidator = (dataName: string, value?: string): void => {
@@ -36,7 +33,7 @@ export class PostDataValidator {
     if (typeof fileName !== 'string') throw new ValidationError('ファイル名が指定されていません。')
     if (/^[\w-]+\.jpg$/.exec(fileName) === null) throw new ValidationError('ファイル形式はJPEGのみです。')
     const fileNameWithoutExtension = fileName.split('.')[0]
-    fs.statSync(`/app/public/images/${fileNameWithoutExtension}.jpg`)
+    fs.statSync(`/app/public/images/posts/${fileNameWithoutExtension}.jpg`)
   }
 
   readonly postsIdsListValidator = (postIdsList?: ReadonlyArray<string>): void => {
