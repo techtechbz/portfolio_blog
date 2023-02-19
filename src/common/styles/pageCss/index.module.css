@@ -1,7 +1,14 @@
 .IndexContainer {margin: 12px 6vw 32px}
+.IndexFlexBox {display: block}
+.IndexContents, .IndexSideMenu {position: relative; width: 100%}
+.IndexSideMenu {margin: 24px 8px}
+.IndexContents {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+
+/* home main top window */
 .HomeMainTopWindow, .PlanningMenuRow {position: relative}
 .HomeMainTopWindow {height: 38vh; padding: 4vh 8vw}
 
+/* site presentation */
 .SitePresentationPart {background-color: #015bb122; padding: 16px 6vw}
 .SitePresentationPartHeading, .SitePresentationMenuTitle {font-weight: 700}
 .SitePresentationPartHeading {padding: 8px}
@@ -14,13 +21,12 @@
 
 /* Planning */
 .IntroductionContainer {margin: 12px 0}
-.IntroductionTabsMenu {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+.IntroductionTabsMenu, .PlanningMenuRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
 .IntroductionTabsMenu > div > div {justify-content: center}
 .IntroductionTab {font-size: 14px; font-weight: 700}
 .PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb122}
 .PlanningFlexBox, .PlanningMenuRow {display: block}
 .PlanningMenuRow {margin: 16px 0 4px}
-.PlanningMenuRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
 .PlanningHeader, .PlanningCardTitle {font-weight: 700; text-align: center}
 .PlanningCard {margin: 4px 2vw; padding: 4px 8px}
 .PlanningMenuContainer {padding: 8px; margin: 8px 12px}
@@ -30,8 +36,8 @@
 .PlanningCardDescription {margin: 12px 2vw 4px; z-index: 1}
 
 /* What's new */
-.WhatsNewContainer {margin: 16px 2vw 8px}
-.WhatsNewTable {margin: 16px 1vw}
+.WhatsNewContainer {margin: 16px 1vw 24px}
+.WhatsNewTable {margin: 16px 2vw}
 .WhatsNewTableRow:nth-child(2n+1) {background: #015bb122}
 .WhatsNewTableRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
 .WhatsNewTableDateHeader, .WhatsNewTableNewsHeader {font-size: 1.3em; font-weight: 700}
@@ -41,31 +47,18 @@
 .WhatsNewTableDateData {text-align: center; margin: 4px 4px; padding: 4px 0px}
 .WhatsNewTableNewsData {padding: 4px 12px}
 
-/* Author introduction */
-.AuthorIntroductionContainer {margin: 16px 2vw}
-.AuthorIntroductionBackground {display: block; margin: 4px 8px; padding: 12px; background-color: #e7e7e7; text-align: center}
-.AuthorIntroductionIconsContainer {margin: 12px 0 0}
-.AuthorIcon {margin: 16px 0 12px; background-color: #fff; height: 60px; width: 60px; border-radius: 50%; margin: auto}
-.AuthorIntroductionDetail {text-align: left; font-size: 16px; margin: 4px 8px; padding: 0}
-.SocialNetworksMenu, .SocialNetworksIcon {display: flex; justify-content: center}
-.SocialNetworksIcon {align-items: center; opacity: 0.6; height: 1.3em; width: 1.3em; padding: 0 0 1px}
-.SocialNetworksMuiIcon {font-size: 1.2em}
-
 @media (min-width:480px) {
   .SitePresentationIconList {margin: 16px 2vw 8px}
-  .AuthorIntroductionBackground {display: flex}
-  .AuthorIntroductionContainer {margin: 16px 4vw}
-  .AuthorIntroductionBackground {justify-content: center}
-  .AuthorIntroductionDetail {margin: 12px 2vw; padding: 4px}
-  .AuthorIntroductionIconsContainer {margin: 20px 8px 20px 24px}
 }
 
 @media (min-width:768px) {
   .IndexContainer {margin: 16px 8vw 32px}
+  .IndexFlexBox, .PlanningFlexBox, .PlanningMenuRow {display: flex}
+  .IndexContents {width: 67%; border-bottom: none}
+  .IndexSideMenu {width: 33%; margin: 24px 8px}
   .IntroductionTab {font-size: 1.3em}
   .SitePresentationIconList {margin: 16px 4vw 8px}
   .PlanningBackground {padding: 3vh 4vw}
-  .PlanningFlexBox, .PlanningMenuRow {display: flex}
   .PlanningMenuContainer {margin: 0; padding: 0 auto}
   .PlanningMenuRow:not(:last-child) {border-bottom: none; border-right: 1px solid rgba(0, 0, 0, 0.12)}
   .PlanningCard:hover, .SitePresentationMenuButton:hover {transform: scale(1.05); transition: all 0.2s}
@@ -73,8 +66,5 @@
   .PlanningSvgContainer {margin: 8px; position: static; transform: translate(0, 0); text-align: center; object-fit: contain}
   .PlanningSvg {opacity: .4}
   .PlanningCardDescription {margin: 12px 0px 4px 8px}
-  .AuthorIntroductionIconsContainer {scale: 1.2; margin: 24px 16px}
-  .AuthorIntroductionDetail {margin: 8px 1vw; padding: 16px 4px}
-  .WhatsNewContainer {margin: 24px 6vw 16px}
-  .WhatsNewTable {margin: 16px 4vw}
+  .WhatsNewTable {margin: 16px 1vw}
 }

@@ -1,13 +1,13 @@
 import { FC, memo, SyntheticEvent, useState } from "react"
 
 import { featuredPostsCardData } from "@/types/cardData";
-import { AuthorIntroduction } from "@/uiParts/pageContents/index/authorIntroduction/AuthorIntroduction";
+import { HomeMainTopWindow } from "@/uiParts/pageContents/index/HomeMainTopWindow";
 import { IntroductionTabPanel, IntroductionTabs } from "@/uiParts/pageContents/index/IntroductionTabs";
 import { SitePresentationPart } from "@/uiParts/pageContents/index/SitePresentationPart";
 import { PlanningParts } from "@/uiParts/pageContents/index/PlanningParts";
+import { AuthorIntroduction } from "@/uiParts/pageContents/index/authorIntroduction/AuthorIntroduction";
 import { WhatsNew } from "@/uiParts/pageContents/index/WhatsNew";
-import { FeaturedPagesLineUpPart } from "@/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
-import { HomeMainTopWindow } from "@/uiParts/commonLayout/top/HomeMainTopWindow";
+import { FeaturedPagesLineUpPart } from "@/uiParts/commonLayout/card/cardLineUp/FeaturedPagesLineUpPart";
 
 import indexCss from "@/styles/pageCss/index.module.css";
 
@@ -43,10 +43,14 @@ const HomeLayout: FC<Props> = memo(({ featuredPostsCardData, isDesktop }: Props)
         </IntroductionTabPanel>
       </div>
       <div className={indexCss.IndexContainer}>
-        <WhatsNew />
-      </div>
-      <div className={indexCss.IndexContainer}>
-        <AuthorIntroduction />
+        <div className={indexCss.IndexFlexBox}>
+          <div className={indexCss.IndexContents}>
+            <WhatsNew />
+          </div>
+          <div className={indexCss.IndexSideMenu}>
+            <AuthorIntroduction />
+          </div>
+        </div>
       </div>
     </>
   );

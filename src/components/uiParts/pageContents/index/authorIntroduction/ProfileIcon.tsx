@@ -1,12 +1,12 @@
 import { FC, memo } from "react"
 import Image from "next/image"
 
-import indexCss from "@/styles/pageCss/index.module.css"
+import sideMenuCss from "@/styles/moduleCss/sideMenu.module.css"
 
 
 export const ProfileIcon: FC = memo(() => {
   return (
-    <div className={indexCss.AuthorIcon}>
+    <div className={sideMenuCss.AuthorIconContainer}>
       <Image
         className="iconImage"
         src="/svg/profile.svg"

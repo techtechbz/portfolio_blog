@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import AppBar from "@mui/material/AppBar"
 import MenuIcon from "@mui/icons-material/Menu"
 
-import { useDisclosure } from "@/common/hooks/useDisclosure";
+import { useDisclosure } from "@/hooks/useDisclosure";
 import { CustomToolbar } from "./parts/CustomToolbar";
 import { SiteNameButton } from "./parts/SiteNameButton";
 import { StylingDiv } from "@/uiElements/box/StylingDiv";

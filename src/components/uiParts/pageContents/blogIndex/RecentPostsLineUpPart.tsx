@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 
 import { recentPostsCardData } from "@/types/cardData"
-import { RecentPostCardsList } from "../card/cardList/RecentPostCardsList"
+import { RecentPostCardsList } from "@/uiParts/commonLayout/card/cardList/RecentPostCardsList"
 
 
 type Props = {

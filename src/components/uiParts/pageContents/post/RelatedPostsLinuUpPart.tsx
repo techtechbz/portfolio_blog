@@ -1,9 +1,9 @@
 import { FC, memo } from "react"
 
 import { featuredPostsCardData } from "@/types/cardData";
-import { FeaturedPageCard } from "../card/cardElement/FeaturedPageCard"
 
 import cardCss from "@/styles/moduleCss/featuredCard.module.css"
+import { FeaturedPageCard } from "@/uiParts/commonLayout/card/cardElement/FeaturedPageCard";
 
 
 type Props = {

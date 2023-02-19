@@ -2,7 +2,7 @@ import { FC, memo } from "react"
 
 import { searchResult } from "@/types/searchResult";
 import { SearchErrorResult } from './SearchErrorResult'
-import { RecentPostCardsList } from "../card/cardList/RecentPostCardsList";
+import { RecentPostCardsList } from "@/uiParts/commonLayout/card/cardList/RecentPostCardsList";
 
 import searchCss from "@/styles/pageCss/search.module.css"
 

@@ -1,6 +1,6 @@
 import { FC, memo } from "react"
 
-import { getMenuMappingComponents } from "@/components/functional/getMenuMappingComponents";
+import { getMenuMappingComponents } from "@/functional/getMenuMappingComponents";
 import { FooterSiteCopyright } from "./parts/FooterSiteCopyright";
 import { FooterLink } from "./parts/FooterLink";
 

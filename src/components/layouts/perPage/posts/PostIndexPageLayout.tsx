@@ -2,9 +2,9 @@ import { FC, memo } from "react"
 
 import { postMatterResultOverviews } from "@/types/matterResultData";
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import { FeaturedPagesLineUpPart } from "@/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
+import { MainFeaturedPostCard } from "@/uiParts/pageContents/blogIndex/MainFeaturedPostCard";
+import { FeaturedPagesLineUpPart } from "@/uiParts/commonLayout/card/cardLineUp/FeaturedPagesLineUpPart";
 import { RecentPostsLineUpPart } from "@/uiParts/pageContents/blogIndex/RecentPostsLineUpPart";
-import { MainFeaturedPostCard } from "@/uiParts/commonLayout/top/MainFeaturedPostCard";
 import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import postIndexCss from "@/styles/pageCss/postIndex.module.css";
@@ -19,7 +19,7 @@ type Props = {
 
 const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeaturedPostsCardData, recentPostsCardData, isDesktop }: Props) => {
   return (
-    <div className={postIndexCss.IndexContainer}>
+    <div className={postIndexCss.PostIndexContainer}>
       <div className={postIndexCss.MainFeaturedPost}>
         <MainFeaturedPostCard {...{mainFeaturedPostCardData}} />
       </div>
@@ -28,15 +28,15 @@ const PostIndexPageLayout: FC<Props> = memo(({ mainFeaturedPostCardData, subFeat
         featuredPostsCardData={subFeaturedPostsCardData}
         isDesktop={isDesktop}
       />
-      <div className={postIndexCss.IndexFlexBox}>
-        <div className={postIndexCss.IndexContents}>
+      <div className={postIndexCss.PostIndexFlexBox}>
+        <div className={postIndexCss.PostIndexContents}>
           <RecentPostsLineUpPart
             heading="最近の投稿"
             {...{recentPostsCardData, isDesktop}}
           />
         </div>
         {isDesktop && (
-          <div className={postIndexCss.IndexSideMenu}>
+          <div className={postIndexCss.PostIndexSideMenu}>
             <SideMenu />
           </div>
         )}

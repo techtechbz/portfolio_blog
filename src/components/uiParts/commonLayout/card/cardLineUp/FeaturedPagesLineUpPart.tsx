@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 
 import { featuredPostsCardData } from "@/types/cardData";
-import { FeaturedPageCard } from "../card/cardElement/FeaturedPageCard"
+import { FeaturedPageCard } from "../cardElement/FeaturedPageCard"
 
 import cardCss from "@/styles/moduleCss/featuredCard.module.css"
 
