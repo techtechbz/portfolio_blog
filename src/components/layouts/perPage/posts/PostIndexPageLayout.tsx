@@ -2,9 +2,9 @@ import { FC, memo } from "react"
 
 import { postMatterResultOverviews } from "@/types/matterResultData";
 import { featuredPostsCardData, recentPostsCardData } from "@/types/cardData";
-import { FeaturedPagesLineUpPart } from "@/components/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
-import { RecentPostsLineUpPart } from "@/components/uiParts/pageContents/blogIndex/RecentPostsLineUpPart";
-import { MainFeaturedPostCard } from "@/components/uiParts/commonLayout/top/MainFeaturedPostCard";
+import { FeaturedPagesLineUpPart } from "@/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
+import { RecentPostsLineUpPart } from "@/uiParts/pageContents/blogIndex/RecentPostsLineUpPart";
+import { MainFeaturedPostCard } from "@/uiParts/commonLayout/top/MainFeaturedPostCard";
 import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import postIndexCss from "@/styles/pageCss/postIndex.module.css";

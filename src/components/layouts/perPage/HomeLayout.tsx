@@ -5,6 +5,7 @@ import { AuthorIntroduction } from "@/uiParts/pageContents/index/authorIntroduct
 import { IntroductionTabPanel, IntroductionTabs } from "@/uiParts/pageContents/index/IntroductionTabs";
 import { SitePresentationPart } from "@/uiParts/pageContents/index/SitePresentationPart";
 import { PlanningParts } from "@/uiParts/pageContents/index/PlanningParts";
+import { WhatsNew } from "@/uiParts/pageContents/index/WhatsNew";
 import { FeaturedPagesLineUpPart } from "@/uiParts/pageContents/blogIndex/FeaturedPagesLineUpPart";
 import { HomeMainTopWindow } from "@/uiParts/commonLayout/top/HomeMainTopWindow";
 
@@ -40,6 +41,9 @@ const HomeLayout: FC<Props> = memo(({ featuredPostsCardData, isDesktop }: Props)
         <IntroductionTabPanel value={tabValue} index={1}>
           <PlanningParts />
         </IntroductionTabPanel>
+      </div>
+      <div className={indexCss.IndexContainer}>
+        <WhatsNew />
       </div>
       <div className={indexCss.IndexContainer}>
         <AuthorIntroduction />

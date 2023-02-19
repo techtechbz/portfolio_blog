@@ -1,20 +1,23 @@
-.IndexContainer {margin: 12px 6vw 20px}
+.IndexContainer {margin: 12px 6vw 32px}
 .HomeMainTopWindow, .PlanningMenuRow {position: relative}
 .HomeMainTopWindow {height: 38vh; padding: 4vh 8vw}
 
-.SitePresentationPart {background-color: #e7f2fc}
-.SitePresentationIconList {display: flex; justify-content: center; margin: 8px 24px}
-.SitePresentationMenu {text-align: center}
-.SitePresentationMenuButton {margin: 8px; padding: 2vw; height: 12vw; width: 12vw; color: #015bb1; background-color: #fff; border-radius: 50%}
-.SitePresentationIcon {height: 8vw; width: 8vw}
-.SitePresentationTooltip#label {font-size: 1em}
+.SitePresentationPart {background-color: #015bb122; padding: 16px 6vw}
+.SitePresentationPartHeading, .SitePresentationMenuTitle {font-weight: 700}
+.SitePresentationPartHeading {padding: 8px}
+.SitePresentationMenuTitleContent {height: 45px; text-align:center; position: relative}
+.SitePresentationMenuTitle {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%}
+.SitePresentationIconList {display: flex; justify-content: center; margin: 16px 1vw 8px}
+.SitePresentationMenu {text-align: center; flex: 1}
+.SitePresentationMenuButton {margin: 8px auto; padding: 2vw; height: 10vw; width: 10vw; min-height: 50px; min-width: 50px; color: #015bb1; background-color: #fff; border-radius: 50%}
+.SitePresentationIcon {height: 6vw; width: 6vw; min-height: 33px; min-width: 33px}
 
 /* Planning */
 .IntroductionContainer {margin: 12px 0}
 .IntroductionTabsMenu {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
 .IntroductionTabsMenu > div > div {justify-content: center}
 .IntroductionTab {font-size: 14px; font-weight: 700}
-.PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb133}
+.PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb122}
 .PlanningFlexBox, .PlanningMenuRow {display: block}
 .PlanningMenuRow {margin: 16px 0 4px}
 .PlanningMenuRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
@@ -25,6 +28,19 @@
 .PlanningSvgContainer {z-index: 2; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(2); position: absolute}
 .PlanningSvg {opacity: .1}
 .PlanningCardDescription {margin: 12px 2vw 4px; z-index: 1}
+
+/* What's new */
+.WhatsNewContainer {margin: 16px 2vw 8px}
+.WhatsNewTable {margin: 16px 1vw}
+.WhatsNewTableRow:nth-child(2n+1) {background: #015bb122}
+.WhatsNewTableRow:not(:last-child) {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
+.WhatsNewTableDateHeader, .WhatsNewTableNewsHeader {font-size: 1.3em; font-weight: 700}
+.WhatsNewTableDateHeader {width: 30vw; margin: 8px 0px; padding: 8px 0px}
+.WhatsNewTableNewsHeader {width: 70vw}
+.WhatsNewTableDateHeader, .WhatsNewTableDateData {border-right: 1px solid rgba(0, 0, 0, 0.12)}
+.WhatsNewTableDateData {text-align: center; margin: 4px 4px; padding: 4px 0px}
+.WhatsNewTableNewsData {padding: 4px 12px}
+
 /* Author introduction */
 .AuthorIntroductionContainer {margin: 16px 2vw}
 .AuthorIntroductionBackground {display: block; margin: 4px 8px; padding: 12px; background-color: #e7e7e7; text-align: center}
@@ -36,6 +52,7 @@
 .SocialNetworksMuiIcon {font-size: 1.2em}
 
 @media (min-width:480px) {
+  .SitePresentationIconList {margin: 16px 2vw 8px}
   .AuthorIntroductionBackground {display: flex}
   .AuthorIntroductionContainer {margin: 16px 4vw}
   .AuthorIntroductionBackground {justify-content: center}
@@ -44,8 +61,9 @@
 }
 
 @media (min-width:768px) {
-  .IndexContainer {margin: 16px 8vw 20px}
+  .IndexContainer {margin: 16px 8vw 32px}
   .IntroductionTab {font-size: 1.3em}
+  .SitePresentationIconList {margin: 16px 4vw 8px}
   .PlanningBackground {padding: 3vh 4vw}
   .PlanningFlexBox, .PlanningMenuRow {display: flex}
   .PlanningMenuContainer {margin: 0; padding: 0 auto}
@@ -57,4 +75,6 @@
   .PlanningCardDescription {margin: 12px 0px 4px 8px}
   .AuthorIntroductionIconsContainer {scale: 1.2; margin: 24px 16px}
   .AuthorIntroductionDetail {margin: 8px 1vw; padding: 16px 4px}
+  .WhatsNewContainer {margin: 24px 6vw 16px}
+  .WhatsNewTable {margin: 16px 4vw}
 }
