@@ -25,6 +25,9 @@ const SitePresentationMenu: FC<menuLinksItem> = memo(({ text, href, iconName }: 
   const IconNode = !iconName ? <></> : blogIconsList[iconName]
   return(
     <div className={indexCss.SitePresentationMenu}>
+      <div className={indexCss.SitePresentationMenuTitleContent}>
+        <div className={indexCss.SitePresentationMenuTitle}>{text}</div>
+      </div>
       <Link href={href} passHref>
         <div className={indexCss.SitePresentationMenuButton}>
           <IconNode className={indexCss.SitePresentationIcon} />
@@ -37,7 +40,8 @@ const SitePresentationMenu: FC<menuLinksItem> = memo(({ text, href, iconName }: 
 export const SitePresentationPart: FC = memo(() => {
   return(
     <div className={indexCss.SitePresentationPart}>
-      <p>本サイトは、<strong>『世間を賑わせている技術や知識について、少しだけ親しんでいただく』</strong>ことをコンセプトに制作しました。</p>
+      <h2 className={indexCss.SitePresentationPartHeading}>サイトコンセプト</h2>
+      <p>本サイトは、世間を賑わせている技術や知識について、<strong>『少しだけ親しんでいただく』</strong>ことをコンセプトに制作しました。</p>
       <div className={indexCss.SitePresentationIconList}>
         {getMenuMappingComponents("category", SitePresentationMenu)}
       </div>

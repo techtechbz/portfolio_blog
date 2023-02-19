@@ -64,7 +64,7 @@ const PlanningRow: FC<Plan> = memo((plan: Plan) => {
 export const PlanningParts: FC = memo(() => {
   return (
     <div className={indexCss.PlanningBackground}>
-      <h2 className={indexCss.PlanningHeader}>お任せください!!</h2>
+      <h2 className={indexCss.PlanningHeader}>お任せください</h2>
       <div className={indexCss.PlanningFlexBox}>
         {planningList.map((plan, index) => {
           return (

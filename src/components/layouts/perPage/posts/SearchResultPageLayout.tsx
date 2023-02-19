@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 
 import { searchResult } from "@/types/searchResult";
-import { DisplaySearchResultPart } from "@/components/uiParts/pageContents/search/DisplaySearchResultPart";
+import { DisplaySearchResultPart } from "@/uiParts/pageContents/search/DisplaySearchResultPart";
 import { SideMenu } from "@/uiParts/commonLayout/sideMenu/SideMenu";
 
 import searchCss from "@/styles/pageCss/search.module.css"
