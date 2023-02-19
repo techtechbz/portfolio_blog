@@ -1,7 +1,7 @@
 .IndexContainer {margin: 12px 6vw 32px}
 .IndexFlexBox {display: block}
-.IndexContents, .IndexSideMenu {position: relative; width: 100%}
-.IndexSideMenu {margin: 24px 8px}
+.IndexContents, .IndexSideMenu {position: static; width: 100%}
+.IndexSideMenu {margin: 24px 8px 24px 0px}
 .IndexContents {border-bottom: 1px solid rgba(0, 0, 0, 0.12)}
 
 /* home main top window */
@@ -54,6 +54,7 @@
 @media (min-width:768px) {
   .IndexContainer {margin: 16px 8vw 32px}
   .IndexFlexBox, .PlanningFlexBox, .PlanningMenuRow {display: flex}
+  .IndexContents, .IndexSideMenu {position: relative}
   .IndexContents {width: 67%; border-bottom: none}
   .IndexSideMenu {width: 33%; margin: 24px 8px}
   .IntroductionTab {font-size: 1.3em}
