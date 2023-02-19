@@ -18,20 +18,20 @@ const planningList = [
   {
     id: "coding",
     title: "サイト制作",
-    description: "WordPressなどのCMSに限らず、Next.jsを用いたサイト制作も承っております。",
+    description: "WordPressなどのCMSに限らず、サイト制作も承っております。",
     charmList: ["WordPress(CMS)", "サイトのカスタマイズ", "レスポンシブ対応"]
   },
   {
     id: "writing",
     title: "記事の執筆",
-    description: "プログラミング・経済・法律など、専門的なジャンルも問わず、執筆いたします。",
+    description: "プログラミング・経済・その他専門的なジャンルも問わず、執筆いたします。",
     charmList: ["丁寧なリサーチ", "魅力的なタイトル", "SEO対策"]
   },
   {
     id: "analytics",
     title: "データ分析",
-    description: "Pythonを使ったデータ分析・スクレイピング・開発も気軽にご相談ください。",
-    charmList: ["データ分析", "スクレイピング", "チャットボット"]
+    description: "Pythonを使ったデータ分析・スクレイピング・開発等も気軽にご相談ください。",
+    charmList: ["データ分析", "スクレイピング", "機械学習"]
   },
 ]
 
