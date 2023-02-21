@@ -26,7 +26,7 @@
 .IntroductionTab {font-size: 14px; font-weight: 700}
 .PlanningBackground {margin: 0 0 4px; padding: 3vh 2vw; background-color: #015bb122}
 .PlanningFlexBox, .PlanningMenuRow {display: block}
-.PlanningMenuRow {margin: 16px 0 4px}
+.PlanningMenuRow {margin: 16px 0 4px; flex: 1}
 .PlanningHeader, .PlanningCardTitle {font-weight: 700; text-align: center}
 .PlanningCard {margin: 4px 2vw; padding: 4px 8px}
 .PlanningMenuContainer {padding: 8px; margin: 8px 12px}
