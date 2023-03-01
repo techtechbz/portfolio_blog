@@ -39,26 +39,29 @@ describe('Post page test', () => {
     expect(staticPaths.fallback).toBe(false)
   })
 
-  it('Fetching static props test', async () => {
-    const dummyContext = {params: {id: ['math', 'ai-formula']}, locales: undefined, locale: undefined, defaultLocale: undefined}
+  it.each([
+    {id: ['math', 'valid']},
+    {id: ['math', 'valid-second']},
+  ])('Fetching static props test ($id)', async ({id}) => {
+    const dummyContext = {params: {id}, locales: undefined, locale: undefined, defaultLocale: undefined}
     const staticPageData = await getStaticProps(dummyContext)
     staticProps = staticPageData.props
     expect(staticProps).not.toBeUndefined()
   })
-  
-  it('Page title test', () => {
+
+  it('Page title test', async () => {
     expect(typeof staticProps.title).toBe('string')
   })
-
+  
   it('Page description test', async () => {
     expect(typeof staticProps.description).toBe('string')
   })
-
+  
   it('Fetching page contents data test', async () => {
     expect(staticProps.postData).toBeFetchedPostPageData()
   })
-
-  it('relatedPostsData test', async () => {
+  
+  it('relatedPostsData test ($id)', async () => {
     expect(staticProps.relatedPostsCardData).toBeFetchedFeaturedPostsCardData()
   })
 })

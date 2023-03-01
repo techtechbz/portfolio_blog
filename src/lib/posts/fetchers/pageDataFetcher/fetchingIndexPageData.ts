@@ -8,9 +8,9 @@ import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 
 
 class IndexPageDataFetcher {
-  private readonly homeFeaturedPostIdsList: ReadonlyArray<string> = ["economics/behavioral-economics", "coding/starting-python"]
-  private readonly mainFeaturedPostId: ReadonlyArray<string> = ["math/ai-formula"]
-  private readonly subFeaturedPostIdsList: ReadonlyArray<string> = ["stat/fundamental", "math/statistics-formula"]
+  private readonly homeFeaturedPostIdsList: ReadonlyArray<string> = ["math/valid-second", "math/valid-third"]
+  private readonly mainFeaturedPostId: ReadonlyArray<string> = ["math/valid"]
+  private readonly subFeaturedPostIdsList: ReadonlyArray<string> = ["math/valid-second", "math/valid-third"]
 
   private readonly fetchRecentPostMdFilePaths = async (): Promise<ReadonlyArray<MdFilePath>> => {
     const fetcher = new MdFilePathsFetcher()

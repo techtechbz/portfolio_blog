@@ -4,7 +4,7 @@ import { PostCategory } from "./postCategory"
 
 class MdFilePathPatterns {
   protected readonly postCategory = new PostCategory()
-  private readonly extraMdPathDirectoriesList: ReadonlyArray<string> = ["fixed", "test"]
+  private readonly extraMdPathDirectoriesList: ReadonlyArray<string> = ["fixed"]
 
   protected get allPostCategoryGroup(): string {
     return this.postCategory.categoryList.reduce((previousCategories: string, currentCategory: string): string => previousCategories + "|" + currentCategory)
