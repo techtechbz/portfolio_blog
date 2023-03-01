@@ -3,7 +3,7 @@ import { formatDateString } from "./formatDateString"
 
 
 export class PostArchives {
-  readonly archivesList: ReadonlyArray<string> = ["2023-02"]
+  readonly archivesList: ReadonlyArray<string> = ["2023-02", "2023-03"]
 
   get archivesParams() {
     return this.archivesList.map((month) => ({ params: { month } }))
