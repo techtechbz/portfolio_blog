@@ -1,4 +1,4 @@
-import { SITE_PUBLISH_YEAR } from "@/common/constants/siteOverviews"
+import { SITE_PUBLISH_YEAR } from "@/constants/siteOverviews"
 import { PostArchives } from "@/lib/posts/dataHandler/postArchives"
 
 
