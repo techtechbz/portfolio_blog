@@ -11,7 +11,7 @@ class SearchedArchivePostsFetcher {
   }
 
   readonly getSearchedArchivesPostData = async () => {
-    const searchedPostPaths = await this.mdFilePathFetcher.searchedArchivePostPaths(this.searchedArchive)
+    const searchedPostPaths = this.mdFilePathFetcher.searchedArchivePostPaths(this.searchedArchive)
     const foundPathsNumber = searchedPostPaths.length
     if (foundPathsNumber === 0) return {foundPostsData: [], resultMessage: "お探しのアーカイブに関する記事は見つかりませんでした。"};
     const searchedPostsCardData = new SearchedPostsCardData(searchedPostPaths)

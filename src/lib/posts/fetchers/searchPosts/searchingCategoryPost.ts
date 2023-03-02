@@ -11,7 +11,7 @@ class SearchedCategoryPostsFetcher {
   }
 
   readonly getSearchedCagetoryPostData = async () => {
-    const searchedPostPaths = await this.mdFilePathFetcher.searchedCategoryPostPaths(this.searchedCategory)
+    const searchedPostPaths = this.mdFilePathFetcher.searchedCategoryPostPaths(this.searchedCategory)
     const foundPathsNumber = searchedPostPaths.length
     if (foundPathsNumber === 0) return {foundPostsData: [], resultMessage: "お探しのカテゴリーに関する記事は見つかりませんでした。"};
     const searchedPostsCardData = new SearchedPostsCardData(searchedPostPaths)

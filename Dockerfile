@@ -8,7 +8,7 @@ COPY next.config.js package.json tsconfig.json jest.config.js jest.setup.js .esl
 
 RUN npm i -g npm
 RUN npm i -g @railway/cli wsl-open
-RUN yarn add next react react-dom @next/font \
+RUN yarn add next react react-dom \
   glob sharp \
   @mui/material @emotion/react @emotion/styled @emotion/server @mui/icons-material \
   prismjs \
