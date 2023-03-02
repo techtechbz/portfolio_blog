@@ -25,8 +25,8 @@ export class PostDataValidator {
     const postDate = convertToDate(dateString)
     const parsedPostYear = postDate.getFullYear() 
     const parsedPostMonth = postDate.getMonth()
-    if (parsedPostYear < 2022 || parsedPostYear > 2099) throw new ValidationError('投稿年は2022~2099の間で指定してください。')
-    if (parsedPostMonth !== writtenPostMonth - 1) throw new ValidationError('日時が変わっています。')
+    if (parsedPostYear < 2023 || parsedPostYear > 2099) throw new ValidationError('投稿年は2023~2099の間で指定してください。')
+    if (parsedPostMonth !== writtenPostMonth - 1) throw new ValidationError('日時が正常な値で指定されていません。')
   }
 
   readonly eyecatchFileValidator = (fileName?: string): void => {
