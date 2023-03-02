@@ -6,7 +6,7 @@ const searchResultKeys = ['foundPostsData', 'resultMessage']
 
 describe('Search posts data fetchers test', () => {
   it.each([
-    {month: "2023-02", length: 4, resultMessage: '4件見つかりました。'},
+    {month: "2023-02", length: 5, resultMessage: '5件見つかりました。'},
     {month: "2023-01", length: 0, resultMessage: 'お探しのアーカイブに関する記事は見つかりませんでした。'},
   ])('Search archive fetcher test ($month)', async ({month, length, resultMessage}) => {
     const searchResult = await fetchingSearchedArchivePostsData(month)
