@@ -18,8 +18,8 @@ import { featuredPostsCardData } from '@/types/cardData'
 import PostPageLayout from "@/layouts/perPage/posts/PostPageLayout"
 import fetchingPostPageData from '@/lib/posts/fetchers/pageDataFetcher/fetchingPostPageData'
 import fetchingRelatedPostsCardData from '@/lib/posts/fetchers/cardDataFetcher/fetchingRelatedPostsCardData'
-import { MdFilePathsFetcher } from '@/lib/posts/fetchers/mdFilePathsFetcher'
 import { MdFilePath } from '@/lib/posts/valueObjects/mdFilePath'
+import { AllMdFilePathsFetcher } from '@/lib/posts/fetchers/filePathFetcher/allMdFilePathsFetcher'
 
 
 interface Params extends ParsedUrlQuery {
@@ -97,7 +97,7 @@ export default function PostPage({ postData, relatedPostsCardData, isDesktop }: 
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPostFilePaths = new MdFilePathsFetcher().allMdFilePathClass
+  const allPostFilePaths = new AllMdFilePathsFetcher().allPostMdFilePaths
   const paths = allPostFilePaths.map((mdFilePath: MdFilePath) => {
     return { params: { id: mdFilePath.postId.split("/") }}
   })

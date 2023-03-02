@@ -7,7 +7,8 @@ import indexCss from "@/styles/pageCss/index.module.css"
 
 export const WhatsNew: FC = memo(() => {
   const whatsNewList = [
-    {date: '2023-02-13', news: 'ホームページを公開しました!'}
+    {date: '2023-02-22', news: 'サイトの外観をリニューアルしました!'},
+    {date: '2023-02-13', news: 'ホームページを公開しました!'},
   ]
   return(
     <>
