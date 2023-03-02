@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       title: SITE_NAME,
       description: SITE_DECSRIPTION,
-      featuredPostsCardData: await fetchingHomePageCardData()
+      featuredPostsCardData: fetchingHomePageCardData()
     }
   }
 }
