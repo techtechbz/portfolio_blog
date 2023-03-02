@@ -97,7 +97,7 @@ export default function PostPage({ postData, relatedPostsCardData, isDesktop }: 
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPostFilePaths = new MdFilePathsFetcher().allMdFilePaths()
+  const allPostFilePaths = new MdFilePathsFetcher().allMdFilePathClass
   const paths = allPostFilePaths.map((mdFilePath: MdFilePath) => {
     return { params: { id: mdFilePath.postId.split("/") }}
   })

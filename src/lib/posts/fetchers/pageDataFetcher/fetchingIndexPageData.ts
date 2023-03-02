@@ -12,9 +12,9 @@ class IndexPageDataFetcher {
   private readonly mainFeaturedPostId: ReadonlyArray<string> = ["math/ai-formula"]
   private readonly subFeaturedPostIdsList: ReadonlyArray<string> = ["stat/fundamental", "math/statistics-formula"]
 
-  private readonly fetchRecentPostMdFilePaths = async (): Promise<ReadonlyArray<MdFilePath>> => {
+  private get recentPostMdFilePaths(): ReadonlyArray<MdFilePath> {
     const fetcher = new MdFilePathsFetcher()
-    return await fetcher.recentPostPaths()
+    return fetcher.recentPostPaths
   }
 
   private readonly removeDuplicateMdFilePaths = (mdFilePathsList: ReadonlyArray<MdFilePath>): ReadonlyArray<MdFilePath> => {
@@ -47,7 +47,7 @@ class IndexPageDataFetcher {
     })
   }
   
-  readonly fetchHomePageCardData = async (): Promise<featuredPostsCardData> => {
+  get fetchHomePageCardData(): featuredPostsCardData {
     const homeFeaturedPostMdFilePaths = this.homeFeaturedPostIdsList.map((postId: string) => new MdFilePath("id", postId))
     const matterResultDataList = this.fetchMatterResultDataList(homeFeaturedPostMdFilePaths)
     
@@ -55,23 +55,22 @@ class IndexPageDataFetcher {
   }
 
   readonly fetchBlogIndexPageCardData = async (): Promise<blogIndexPageCardData> => {
-    const recentPostMdFilePaths = await this.fetchRecentPostMdFilePaths()
     const featuredPostIdsList = this.mainFeaturedPostId.concat(this.subFeaturedPostIdsList)
     const featuredPostMdFilePaths = featuredPostIdsList.map((postId: string) => new MdFilePath("id", postId))
-    const allMdFilePaths = recentPostMdFilePaths.concat(featuredPostMdFilePaths)
+    const allMdFilePaths = this.recentPostMdFilePaths.concat(featuredPostMdFilePaths)
 
     const matterResultDataList = this.fetchMatterResultDataList(allMdFilePaths)
     
-    const recentPostsCardData = await this.fetchRecentPostsCardData(matterResultDataList.slice(0, recentPostMdFilePaths.length - 1))
+    const recentPostsCardData = await this.fetchRecentPostsCardData(matterResultDataList.slice(0, this.recentPostMdFilePaths.length - 1))
     const mainFeaturedPostCardData = this.selectFeaturedPostsCardData(this.mainFeaturedPostId, matterResultDataList)
     const subFeaturedPostsCardData = this.selectFeaturedPostsCardData(this.subFeaturedPostIdsList, matterResultDataList)
     return {mainFeaturedPostCardData: mainFeaturedPostCardData[0], subFeaturedPostsCardData, recentPostsCardData}
   }
 }
 
-export const fetchingHomePageCardData = async (): Promise<featuredPostsCardData> => {
+export const fetchingHomePageCardData = (): featuredPostsCardData => {
   const fetcher = new IndexPageDataFetcher()
-  return await fetcher.fetchHomePageCardData()
+  return fetcher.fetchHomePageCardData
 }
 
 export const fetchingBlogIndexPageCardData = async (): Promise<blogIndexPageCardData> => {
