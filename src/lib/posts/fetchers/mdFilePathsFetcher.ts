@@ -1,15 +1,11 @@
-import { statSync } from 'node:fs';
-
 import { globSync } from 'glob'
 
+import { convertToDate } from '../dataHandler/formatDateString'
+
 import { GlobMdFilePathPatterns } from "../dataHandler/mdFilePathPatterns"
+import { PostMatterResultData } from '../valueObjects/matterResultData/postMatterResultData'
 import { MdFilePath } from "../valueObjects/mdFilePath"
 
-
-interface postStatus {
-  fullPath: string
-  ctime: Date
-}
 
 export class MdFilePathsFetcher {
   private readonly globMdFilePathPattern = new GlobMdFilePathPatterns()
@@ -21,12 +17,6 @@ export class MdFilePathsFetcher {
   private get allPostsPaths(): ReadonlyArray<string> {
     return globSync(this.globMdFilePathPattern.globAllPostsPathPattern, {absolute: true, nodir: true}) as ReadonlyArray<string>
   }
-
-  private get allFilePathsWithCtime(): ReadonlyArray<postStatus> {
-    return this.allPostsPaths.map((path: string) => {
-      return {fullPath: path, ctime: statSync(path).ctime}
-    })
-  }
   
   get allMdFilePathClass(): ReadonlyArray<MdFilePath> {
     return this.mdFilePathClassList(this.allPostsPaths)
@@ -35,15 +25,15 @@ export class MdFilePathsFetcher {
   get recentPostPaths(): ReadonlyArray<MdFilePath> {
     const currentTime = new Date().getTime()
     // 期限の日数(2週間)
-    const limitDays = 14
-
+    const limitDays = 31
     // 期限日分のコンマ秒数
     const diffTime = limitDays * 24 * 60 * 60 * 1000
-    const foundFilePaths = this.allFilePathsWithCtime.flatMap((status: postStatus) => {
-      if (status.ctime.getTime() - currentTime <= diffTime) return status.fullPath
-      return []
+    const foundFilePaths = this.mdFilePathClassList(this.allPostsPaths).filter((mdFilePath: MdFilePath) => {
+      const matterResult = new PostMatterResultData(mdFilePath)
+      const postDate = convertToDate(matterResult.matterResultOverviews.date)
+      return postDate.getTime() - currentTime <= diffTime
     })
-    return this.mdFilePathClassList(foundFilePaths)
+    return foundFilePaths
   }
 
   readonly searchedCategoryPostPaths = (category: string): ReadonlyArray<MdFilePath> => {
@@ -55,10 +45,11 @@ export class MdFilePathsFetcher {
   readonly searchedArchivePostPaths = (monthString: string): ReadonlyArray<MdFilePath> => {
     const [ searchYear, searchMonth ] = monthString.split("-").map((dateString: string) => Number(dateString))
 
-    const foundFilePaths = this.allFilePathsWithCtime.flatMap((status: postStatus) => {
-      if (searchYear === status.ctime.getFullYear() && searchMonth - 1 === status.ctime.getMonth()) return status.fullPath
-      return []
+    const foundFilePaths = this.mdFilePathClassList(this.allPostsPaths).filter((mdFilePath: MdFilePath) => {
+      const matterResult = new PostMatterResultData(mdFilePath)
+      const postDate = convertToDate(matterResult.matterResultOverviews.date)
+      return searchYear === postDate.getFullYear() && searchMonth - 1 === postDate.getMonth()
     })
-    return this.mdFilePathClassList(foundFilePaths)
+    return foundFilePaths
   }
 }
