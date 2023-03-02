@@ -1,23 +1,21 @@
-import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 import { PostMatterResultData } from "../../valueObjects/matterResultData/postMatterResultData"
-import { MdFilePath } from "../../valueObjects/mdFilePath"
 import { RecentPostCardContent } from "../../valueObjects/postContents/recentPostCardContent";
+import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 
 
 export class SearchedPostsCardData {
-  private readonly searchedMdFilePathsList: ReadonlyArray<MdFilePath>
+  private readonly searchedPostMatterResultDataList: ReadonlyArray<PostMatterResultData>
   
-  constructor(mdFilePathsList: ReadonlyArray<MdFilePath>) {
-    this.searchedMdFilePathsList = mdFilePathsList
+  constructor(postMatterResultDataList: ReadonlyArray<PostMatterResultData>) {
+    this.searchedPostMatterResultDataList = postMatterResultDataList
   }
 
   readonly fetchCardData = async () => {
-    return Promise.all(this.searchedMdFilePathsList.map(async (mdFilePath: MdFilePath) => {
-      const matterResultData = new PostMatterResultData(mdFilePath)
-      const recentPostCardContent = new RecentPostCardContent(matterResultData.matterResultContent)
+    return Promise.all(this.searchedPostMatterResultDataList.map(async (postMatterResultData: PostMatterResultData) => {
+      const recentPostCardContent = new RecentPostCardContent(postMatterResultData.matterResultContent)
       const htmlCardContent = await recentPostCardContent.fetchHtmlCardContent()
       if (!htmlCardContent.isConvertedHtml) throw new UnexpectedBehaviorError('コンテンツがHTMLに変換されていません。')
-      return {contentHtml: htmlCardContent.htmlContent, ...matterResultData.matterResultOverviews}
+      return {contentHtml: htmlCardContent.htmlContent, ...postMatterResultData.matterResultOverviews}
     }))
   }
 }
