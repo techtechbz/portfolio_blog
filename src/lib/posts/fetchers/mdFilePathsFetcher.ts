@@ -1,4 +1,4 @@
-import { statSync, Stats } from 'node:fs';
+import { statSync } from 'node:fs';
 
 import { globSync } from 'glob'
 

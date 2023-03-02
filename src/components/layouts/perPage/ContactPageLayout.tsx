@@ -17,7 +17,7 @@ type Props = {
 }
 
 const ContactPageLayout: FC<Props> = memo((props: Props) => {
-  const {fetchContactResult, onLoading } = props
+  const { fetchContactResult, onLoading } = props
   const [snackbarData, setSnackbarData] = useState<contactResultData>({title: '', status: "error"})
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false)
   
@@ -36,6 +36,7 @@ const ContactPageLayout: FC<Props> = memo((props: Props) => {
       setSnackbarData(result)
       setIsSnackbarOpen(true)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleSnackbarClose = useCallback((event?: SyntheticEvent | Event, reason?: string) => {
