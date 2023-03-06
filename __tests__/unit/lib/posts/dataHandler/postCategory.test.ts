@@ -10,7 +10,7 @@ describe('post category test', () => {
   })
   
   it('Category params test', () => {
-    postCategory.categoryParams.map((element) => {
+    postCategory.searchCategoryPageParams.map((element) => {
       expect(Object.keys(element.params)).toStrictEqual(["category"])
       expect(currentCategoryist.includes(element.params.category)).toBe(true)
     })
@@ -19,7 +19,7 @@ describe('post category test', () => {
   it('Category menu links list test', () => {
     expect(Object.keys(postCategory.categoryMenuLinksList)).toStrictEqual(currentCategoryist)
     Object.entries(postCategory.categoryMenuLinksList).map(([key, value]) => {
-      expect(Object.keys(value)).toStrictEqual(["text", "href", "iconName"])
+      expect(Object.keys(value)).toStrictEqual(["text", "href", "iconTag"])
     })
   })
   

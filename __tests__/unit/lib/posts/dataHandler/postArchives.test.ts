@@ -27,7 +27,7 @@ describe('post archives test', () => {
   })
   
   it('Archives params test', () => {
-    postArchives.archivesParams.map((element) => {
+    postArchives.searchArchivesPageParams.map((element) => {
       expect(Object.keys(element.params)).toStrictEqual(["month"])
       expect(currentArchivesList.includes(element.params.month)).toBe(true)
     })

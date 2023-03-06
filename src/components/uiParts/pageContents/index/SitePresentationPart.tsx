@@ -21,8 +21,8 @@ const blogIconsList: { [key: string]: any } = {
   "barChart": BarChartIcon,
 }
 
-const SitePresentationMenu: FC<menuLinksItem> = memo(({ text, href, iconName }: menuLinksItem) => {
-  const IconNode = !iconName ? <></> : blogIconsList[iconName]
+const SitePresentationMenu: FC<menuLinksItem> = memo(({ text, href, iconTag }: menuLinksItem) => {
+  const IconNode = !iconTag ? <></> : blogIconsList[iconTag]
   return(
     <div className={indexCss.SitePresentationMenu}>
       <div className={indexCss.SitePresentationMenuTitleContent}>

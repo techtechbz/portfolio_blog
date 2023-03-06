@@ -18,8 +18,8 @@ const socialNetworkIconsList: { [key: string]: any } = {
   "note": NoteIcon,
 }
 
-const SocialNetworkLinkButton: FC<menuLinksItem> = memo(({ text, href, iconName }: menuLinksItem) => {
-  const IconNode = !iconName ? <></> : socialNetworkIconsList[iconName]
+const SocialNetworkLinkButton: FC<menuLinksItem> = memo(({ text, href, iconTag }: menuLinksItem) => {
+  const IconNode = !iconTag ? <></> : socialNetworkIconsList[iconTag]
   return (
     <Link href={href} passHref>
       <Tooltip title={`${text}ページへ`} arrow>

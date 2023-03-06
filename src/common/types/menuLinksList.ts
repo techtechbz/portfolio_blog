@@ -1,7 +1,7 @@
 export interface menuLinksItem {
   text: string
   href: string
-  iconName?: string
+  iconTag?: string
 }
 
 export interface menuLinksList {

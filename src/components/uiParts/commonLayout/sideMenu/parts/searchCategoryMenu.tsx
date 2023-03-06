@@ -23,8 +23,8 @@ const blogIconsList: { [key: string]: any } = {
   "barChart": BarChartIcon,
 }
 
-const CategoryLink: FC<menuLinksItem> = memo(({ text, href, iconName }: menuLinksItem) => {
-  const IconNode = !iconName ? <></> : blogIconsList[iconName]
+const CategoryLink: FC<menuLinksItem> = memo(({ text, href, iconTag }: menuLinksItem) => {
+  const IconNode = !iconTag ? <></> : blogIconsList[iconTag]
   return(
     <div className={sideMenuCss.SideMenuLinks}>
       <span>{"・"}</span>

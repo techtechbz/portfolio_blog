@@ -5,12 +5,14 @@ import { formatDateString } from "./formatDateString"
 export class PostArchives {
   readonly archivesList: ReadonlyArray<string> = ["2023-02", "2023-03"]
 
-  get archivesParams() {
+  get searchArchivesPageParams() {
     return this.archivesList.map((month) => ({ params: { month } }))
   }
 
   readonly getArchivesText = (month: string): string => {
-    return formatDateString(month + '-01', 'ja-JP', { year: "numeric", month: "short" })
+    // Safari用に日付を補完する
+    const filledDate = month + '-01'
+    return formatDateString(filledDate, 'ja-JP', { year: "numeric", month: "short" })
   }
 
   get archivesMenuLinksList(): menuLinksList {

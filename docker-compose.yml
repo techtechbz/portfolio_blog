@@ -24,8 +24,8 @@ services:
     tty: true
     stdin_open: true
     # command: yarn test:ci
-    # command: yarn test:coverage
+    command: yarn test:coverage
     # command: yarn dev
     # command: yarn analyze
     # command: yarn lint
-    command: bash -c "yarn build && yarn start"
+    # command: bash -c "yarn build && yarn start"

@@ -13,8 +13,8 @@ export const emailValidator = (email: string) => {
 
 export const stringFormDataValidator = (input: string, entry: string, minCharacter: number) => {
   if (typeof input !== 'string') throw new ValidationError(`${entry}が記述されていません。`)
-  // eslint-disable-next-line no-control-regex
-  const omitMessage = input.replaceAll(/[\x00-\x1f\x7f ]/g, "")
+  // eslint-disable-next-line no-control-regex, no-irregular-whitespace
+  const omitMessage = input.replaceAll(/[\x00-\x1f\x7f 　]/g, "")
   if (omitMessage.length < minCharacter) throw new ValidationError(`${entry}は空白・改行などを除いて${minCharacter}字以上で記載してください。`)
 }
 
