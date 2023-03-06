@@ -28,7 +28,7 @@ export default function PostSearchPage({ searchResultData, retrievedContent, isD
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: postArchives.archivesParams,
+    paths: postArchives.searchArchivesPageParams,
     fallback: false
   }
 }

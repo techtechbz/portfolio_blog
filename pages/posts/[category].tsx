@@ -27,9 +27,9 @@ export default function PostSearchPage({ searchResultData, retrievedContent, isD
 const postCategory = new PostCategory()
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categoryParams = postCategory.categoryParams
+  const searchCategoryPageParams = postCategory.searchCategoryPageParams
   return {
-    paths: categoryParams,
+    paths: searchCategoryPageParams,
     fallback: false
   }
 }

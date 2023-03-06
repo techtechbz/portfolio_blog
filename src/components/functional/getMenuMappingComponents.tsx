@@ -18,8 +18,8 @@ const menuList: {[key: string]: menuLinksList} = {
     "privacy": { text: "プライバシーポリシー", href: "/privacy" }
   },
   social: {
-    "github": { text: "GitHub", href: "https://github.com/techtechbz", iconName: "github" },
-    "note": { text: "Note", href: "https://note.com/mr_techbozu", iconName: "note" },
+    "github": { text: "GitHub", href: "https://github.com/techtechbz", iconTag: "github" },
+    "note": { text: "Note", href: "https://note.com/mr_techbozu", iconTag: "note" },
   }
 }
 
