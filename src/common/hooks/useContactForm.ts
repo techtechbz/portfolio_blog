@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import axios, { AxiosError } from "axios";
 
 import { contactFormData, contactResultData } from "@/types/contactFormData";
@@ -7,10 +5,8 @@ import { UnexpectedBehaviorError } from "@/lib/error/unexpectedBehaviorError";
 
 
 export const useContactForm = () => {
-  const [onLoading, setOnLoading] = useState(false)
   const sendContactFormData = (contactFormData: contactFormData): contactResultData => {
     const sendContactResultData: contactResultData = {title: "", status: "error"}
-    setOnLoading(true);
     
     const axiosOption = {
       headers: {'Content-Type': 'application/json',
@@ -32,10 +28,8 @@ export const useContactForm = () => {
         } else {
           sendContactResultData.title = "サーバー内でエラーが発生しました。"
         }
-      }).finally(() => {
-        setOnLoading(false);
-      })
+    })
     return sendContactResultData
   };
-  return {sendContactFormData, onLoading}
+  return sendContactFormData
 }
